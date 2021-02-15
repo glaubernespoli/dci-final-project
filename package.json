@@ -19,7 +19,6 @@
     "lint": "eslint ./src/**/*.{js,jsx}",
     "lint:fix": "eslint ./src/**/*.{js,jsx} --fix",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "pre-commit": "npm run format && npm run lint:fix",
     "test:all": "run-script-os",
     "test:all:windows": "set CI=true && react-scripts test && npm run lint",
     "test:all:default": "CI=true react-scripts-ts test && npm run lint"
@@ -59,7 +58,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pre-commit",
+      "pre-commit": "npm run lint:fix",
       "pre-push": "npm run test:all"
     }
   }
