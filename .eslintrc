@@ -5,11 +5,12 @@
     "jest": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:prettier/recommended",
     "prettier/react",
-    "prettier/standard"
+    "react-app",
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -18,13 +19,13 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "prettier"
+  ],
   "rules": {
-    "react/react-in-jsx-scope": 0
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
+    "react/react-in-jsx-scope": "off"
   }
 }
