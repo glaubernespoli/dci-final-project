@@ -64,8 +64,8 @@
     "run-script-os": "^1.1.5"
   },
   "lint-staged": {
-    "*.+(js|jsx)": "eslint --fix",
-    "*.+(json|css|md)": "prettier --write"
+    "*.{js,jsx}": "eslint --fix",
+    "*.{json,css,md,js,jsx}": "prettier --write"
   },
   "husky": {
     "hooks": {

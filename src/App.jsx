@@ -2,7 +2,7 @@ import './App.css';
 
 const App = () => (
   <>
-    <h1>This is the beginning of something.</h1>
+    <h1>This is the beginning of something!</h1>
   </>
 );
 
