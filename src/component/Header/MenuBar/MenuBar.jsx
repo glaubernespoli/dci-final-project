@@ -8,7 +8,7 @@ const MenuBar = () => (
   <div>
     <Toolbar>
       <Button color="inherit">
-        <HomeIcon style={{ fontSize: '2rem' }} />
+        <HomeIcon style={{ fontSize: '1.5rem' }} />
       </Button>
       <Music />
       <Explore />
