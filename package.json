@@ -26,7 +26,8 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "test:all": "run-script-os",
     "test:all:windows": "set CI=true && react-scripts test && npm run lint",
-    "test:all:default": "CI=true react-scripts-ts test && npm run lint"
+    "test:all:default": "CI=true react-scripts-ts test && npm run lint",
+    "postinstall": "husky install"
   },
   "eslintConfig": {
     "extends": [
