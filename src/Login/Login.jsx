@@ -15,7 +15,6 @@ const useStyles = makeStyles({
     margin: '2rem auto',
     padding: '2rem 3rem',
     boxShadow: '0 0 4px',
-    backgroundColor: 'white',
   },
   form: {
     display: 'flex',
@@ -38,13 +37,6 @@ const useStyles = makeStyles({
 
 const Login = () => {
   const classes = useStyles();
-
-  const [checked, setChecked] = React.useState(false);
-
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-  };
-
   return (
     <div className={classes.mainDiv}>
       <h2 className={classes.h3}> Login</h2>
@@ -54,13 +46,13 @@ const Login = () => {
           <Button variant="contained" color="primary">
             <FacebookIcon />
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button variant="contained" color="primary">
             <InstagramIcon />
           </Button>
           <Button variant="contained" color="primary">
             <WhatsAppIcon />
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button variant="contained" color="primary">
             <GoogleIcon />
           </Button>
         </div>
@@ -68,15 +60,14 @@ const Login = () => {
       <h3 className={classes.h3}>Or</h3>
 
       <form className={classes.form} noValidate autoComplete="off">
-        <TextField id="email" label="Email" variant="standard" type="email" />
+        <TextField id="email" label="Email" variant="standard" type="email" placeholder="Email" />
 
         <TextField id="password" label="Password" variant="standard" type="password" />
         <div className={classes.btn}>
           <Checkbox
-            checked={checked}
-            onChange={handleChange}
-            inputProps={{ 'aria-label': 'primary checkbox' }}
-            name="check"
+            defaultChecked
+            color="primary"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
           <Typography variant="p">Remember me</Typography>
         </div>
