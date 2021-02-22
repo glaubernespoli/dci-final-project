@@ -8,7 +8,7 @@ const darkTheme = createMuiTheme({
     // secondary: {
     //   main: purple[900]
     // },
-    mode: 'dark'
+    mode: 'dark',
     // background: {
     //   secondary: purple[900]
     // },
@@ -16,7 +16,7 @@ const darkTheme = createMuiTheme({
     //   primary: purple[500],
     //   secondary: grey[500]
     // }
-  }
+  },
 });
 
 export default darkTheme;
