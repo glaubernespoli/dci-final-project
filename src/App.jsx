@@ -1,5 +1,5 @@
 import './App.css';
-// import Footer from './Component/Footer';
+import Footer from './component/FooterComponent/Footer';
 
 const App = () => (
   <>
