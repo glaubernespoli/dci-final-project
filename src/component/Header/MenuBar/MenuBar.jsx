@@ -7,8 +7,8 @@ import Music from './Music';
 const MenuBar = () => (
   <div>
     <Toolbar>
-      <Button>
-        <HomeIcon style={{ color: 'yellow', fontSize: '2rem' }} />
+      <Button color="inherit">
+        <HomeIcon style={{ fontSize: '2rem' }} />
       </Button>
       <Music />
       <Explore />

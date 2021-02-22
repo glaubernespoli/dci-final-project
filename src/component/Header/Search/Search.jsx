@@ -1,35 +1,36 @@
-import { Button, InputBase } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import * as React from 'react';
+import TextField from '@material-ui/core/TextField';
+import SearchIcon from '@material-ui/icons/Search';
+import React from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    margin: '0 .5rem',
+    '& > *': {
+      margin: theme.spacing(2),
+      width: '35ch',
+      color: 'white',
+      padding: '0 .75rem ',
+    },
   },
-  search: {
-    border: '1px solid white',
-    padding: '.15rem 1rem',
-    margin: '0 .75rem',
-    backgroundColor: 'white',
-    borderRadius: '.15rem',
+  icon: {
+    position: 'absolute',
+    right: '21rem',
+    top: '1rem',
   },
-});
+}));
 
-const SearchItem = () => {
+export default function BasicTextFields() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <div className={classes.search}>
-        <InputBase placeholder="Search Your Music.. " />
-      </div>
-      <div>
-        <Button variant="outlined" color="inherit">
-          Search
-        </Button>
-      </div>
-    </div>
+    <form className={classes.root} noValidate autoComplete="on">
+      <TextField
+        id="outlined-basic"
+        label="Search Your Music...."
+        variant="filled"
+        className={classes.root}
+      />
+      <SearchIcon className={classes.icon} />
+    </form>
   );
-};
-export default SearchItem;
+}
