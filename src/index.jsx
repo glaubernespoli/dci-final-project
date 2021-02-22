@@ -2,15 +2,23 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { CssBaseline, Paper } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import darkTheme from './darkTheme';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Paper elevation={0} square>
+        <App />
+      </Paper>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
