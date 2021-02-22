@@ -1,8 +1,11 @@
 import './App.css';
+import Login from './Login/Login';
+import SignUp from './Login/SignUp';
 
 const App = () => (
   <>
-    <h1>This is the beginning of something!</h1>
+    <Login />
+    <SignUp />
   </>
 );
 
