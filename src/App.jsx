@@ -1,8 +1,9 @@
 import './App.css';
+import Footer from './Components/FooterComponent/Footer';
 
 const App = () => (
   <>
-    <h1>This is the beginning of something!</h1>
+    <Footer />
   </>
 );
 
