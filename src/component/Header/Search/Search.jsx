@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme) => ({
       padding: '0 .75rem ',
     },
   },
-  icon: {
-    position: 'absolute',
-    right: '21rem',
-    top: '1rem',
-  },
+  // icon: {
+  //   position: 'absolute',
+  //   right: '23rem',
+  //   top: '1rem',
+  // },
 }));
 
 export default function BasicTextFields() {
@@ -30,7 +30,7 @@ export default function BasicTextFields() {
         variant="filled"
         className={classes.root}
       />
-      <SearchIcon className={classes.icon} />
+      <SearchIcon />
     </form>
   );
 }

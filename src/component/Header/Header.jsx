@@ -8,10 +8,6 @@ import SearchItem from './Search/Search';
 import UserControl from './UserControl/UserControl';
 
 const useStyles = makeStyles({
-  app: {
-    background: 'linear-gradient(90deg, #333 25%, #333 25%, #333 50%)',
-    padding: '.75rem 1rem ',
-  },
   tool: {
     display: 'flex',
     justifyContent: 'space-around',
@@ -21,8 +17,8 @@ const useStyles = makeStyles({
 const Header = () => {
   const classes = useStyles();
   return (
-    <div>
-      <AppBar position="static" className={classes.app}>
+    <>
+      <AppBar position="static">
         <Toolbar className={classes.tool}>
           <div>
             <Logo />
@@ -38,10 +34,7 @@ const Header = () => {
           </div>
         </Toolbar>
       </AppBar>
-
-      {/* <SignUp /> */}
-      {/* <Login /> */}
-    </div>
+    </>
   );
 };
 

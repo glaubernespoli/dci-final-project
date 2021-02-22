@@ -9,8 +9,7 @@ const UserControl = () => (
       <Button color="secondary" variant="contained">
         LogIn
       </Button>
-
-      <Button color="inherit" variant="0">
+      <Button color="inherit">
         <AddShoppingCartIcon />
       </Button>
     </Toolbar>
