@@ -1,0 +1,22 @@
+.mainDiv {
+  width: '30vw';
+  margin: '2rem auto';
+  padding: '2rem 3rem';
+  box-shadow: '0 0 6px';
+}
+.form1 {
+  display: 'flex';
+  flex-direction: 'column';
+}
+h2,
+h3 {
+  text-align: 'center';
+}
+.btn {
+  margin: '1rem 0 .5rem 0';
+}
+.icon {
+  display: 'flex';
+  justify-content: 'space-around';
+  padding: '.5rem';
+}

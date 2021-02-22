@@ -7,36 +7,27 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import * as React from 'react';
 
 const useStyles = makeStyles({
-  // root: {
-  //   "& > *": {
-  //     margin: theme.spacing(2),
-  //     width: "30vw",
-  //   },
-  // },
   mainDiv: {
-    width: '22vw',
+    width: '30vw',
     margin: '2rem auto',
     padding: '2rem 3rem',
-    boxShadow: '0 0 4px',
-    backgroundColor: 'white',
+    boxShadow: '0 0 4px'
   },
   form: {
     display: 'flex',
-    flexDirection: 'column',
-    margin: '.5rem 0',
+    flexDirection: 'column'
   },
   h3: {
-    padding: '.25rem 0',
-    textAlign: 'center',
+    textAlign: 'center'
   },
   btn: {
-    margin: '1rem 0 .5rem 0',
+    margin: '1rem 0 .5rem 0'
   },
   icon: {
     display: 'flex',
     justifyContent: 'space-around',
-    padding: '.5rem',
-  },
+    padding: '.5rem'
+  }
 });
 
 const SignUp = () => {
@@ -44,20 +35,20 @@ const SignUp = () => {
 
   return (
     <div className={classes.mainDiv}>
-      <h2 className={classes.h3}> Sign Up</h2>
+      <h2 className={classes.h3}>Create Your Profile</h2>
       <div>
         <h3 className={classes.h3}>Connect With</h3>
         <div className={classes.icon}>
-          <Button variant="outlined" color="primary">
+          <Button variant="outlined" color="inherit">
             <FacebookIcon />
           </Button>
-          <Button variant="contained" color="primary">
+          <Button variant="outlined" color="inherit">
             <InstagramIcon />
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button variant="outlined" color="inherit">
             <WhatsAppIcon />
           </Button>
-          <Button variant="contained" color="primary">
+          <Button variant="outlined" color="inherit">
             <GoogleIcon />
           </Button>
         </div>
@@ -65,16 +56,41 @@ const SignUp = () => {
       <h3 className={classes.h3}>Or</h3>
 
       <form className={classes.form} noValidate autoComplete="off">
-        <TextField id="firstName" label="First Name" variant="standard" type="text" />
-        <TextField id="lastName" label="Last Name" variant="standard" type="text" />
-        <TextField id="email" label="Email" variant="standard" type="email" />
+        <TextField
+          id="firstName"
+          label="First Name"
+          variant="standard"
+          type="text"
+          placeholder="Enter Your First Name"
+        />
 
-        <TextField id="password" label="Password" variant="standard" type="password" />
+        <TextField
+          id="lastName"
+          label="Last Name"
+          variant="standard"
+          type="text"
+          placeholder="Enter Your Last Name"
+        />
+        <TextField
+          id="email"
+          label="Email"
+          variant="standard"
+          type="email"
+          placeholder="Enter Your Email"
+        />
+        <TextField
+          id="password"
+          label="Password"
+          variant="standard"
+          type="password"
+          placeholder="Enter Your Password"
+        />
         <TextField
           id="confirmPassword"
           label="Confirm Password"
           variant="standard"
           type="password"
+          placeholder="Confirm Your Password"
         />
         <div className={classes.btn}>
           <Button variant="contained" color="primary" fullWidth>
@@ -83,7 +99,7 @@ const SignUp = () => {
         </div>
         <Typography variant="p">
           already registered?
-          <Button>LogIn</Button>
+          <Button color="secondary">LogIn</Button>
         </Typography>
       </form>
     </div>
