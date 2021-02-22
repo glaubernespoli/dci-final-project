@@ -8,15 +8,14 @@ const useStyles = makeStyles((theme) => ({
     '& > *': {
       margin: theme.spacing(2),
       width: '35ch',
-      color: 'white',
-      padding: '0 .75rem ',
-    },
+      color: 'white'
+    }
   },
-  // icon: {
-  //   position: 'absolute',
-  //   right: '23rem',
-  //   top: '1rem',
-  // },
+  icon: {
+    position: 'absolute',
+    right: '9rem',
+    top: '2rem'
+  }
 }));
 
 export default function BasicTextFields() {
@@ -30,7 +29,7 @@ export default function BasicTextFields() {
         variant="filled"
         className={classes.root}
       />
-      <SearchIcon />
+      <SearchIcon className={classes.icon} />
     </form>
   );
 }

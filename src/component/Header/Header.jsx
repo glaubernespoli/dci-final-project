@@ -10,8 +10,8 @@ import UserControl from './UserControl/UserControl';
 const useStyles = makeStyles({
   tool: {
     display: 'flex',
-    justifyContent: 'space-around',
-  },
+    justifyContent: 'space-around'
+  }
 });
 
 const Header = () => {
