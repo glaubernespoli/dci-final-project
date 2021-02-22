@@ -1,5 +1,4 @@
-import Button from '@material-ui/core/Button';
-import InputBase from '@material-ui/core/InputBase';
+import { Button, InputBase } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import * as React from 'react';
 

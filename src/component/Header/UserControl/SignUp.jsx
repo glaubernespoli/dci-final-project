@@ -1,6 +1,5 @@
-import Button from '@material-ui/core/Button';
+import { Button, TextField, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GoogleIcon from '@material-ui/icons/Google';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -52,13 +51,13 @@ const SignUp = () => {
           <Button variant="outlined" color="primary">
             <FacebookIcon />
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button variant="contained" color="primary">
             <InstagramIcon />
           </Button>
           <Button variant="outlined" color="primary">
             <WhatsAppIcon />
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button variant="contained" color="primary">
             <GoogleIcon />
           </Button>
         </div>
@@ -78,10 +77,14 @@ const SignUp = () => {
           type="password"
         />
         <div className={classes.btn}>
-          <Button variant="contained" fullWidth>
+          <Button variant="contained" color="primary" fullWidth>
             Submit
           </Button>
         </div>
+        <Typography variant="p">
+          already registered?
+          <Button>LogIn</Button>
+        </Typography>
       </form>
     </div>
   );

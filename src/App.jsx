@@ -4,6 +4,7 @@ import Header from './component/Header/Header';
 const App = () => (
   <>
     <Header />
+    {/* <Header1 /> */}
   </>
 );
 

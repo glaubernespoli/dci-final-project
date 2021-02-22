@@ -2,6 +2,7 @@ import Button from '@material-ui/core/Button';
 import Checkbox from '@material-ui/core/Checkbox';
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GoogleIcon from '@material-ui/icons/Google';
 import InstagramIcon from '@material-ui/icons/Instagram';
@@ -50,13 +51,13 @@ const Login = () => {
       <div>
         <h3 className={classes.h3}>Connect With</h3>
         <div className={classes.icon}>
-          <Button variant="outlined" color="primary">
+          <Button variant="contained" color="primary">
             <FacebookIcon />
           </Button>
           <Button variant="outlined" color="primary">
             <InstagramIcon />
           </Button>
-          <Button variant="outlined" color="primary">
+          <Button variant="contained" color="primary">
             <WhatsAppIcon />
           </Button>
           <Button variant="outlined" color="primary">
@@ -77,13 +78,17 @@ const Login = () => {
             inputProps={{ 'aria-label': 'primary checkbox' }}
             name="check"
           />
-          {/* <label htmlFor="check">Remember me</label> */}
+          <Typography variant="p">Remember me</Typography>
         </div>
         <div className={classes.btn}>
           <Button variant="contained" fullWidth color="primary">
             Login
           </Button>
         </div>
+        <Typography variant="p">
+          not yet registered?
+          <Button>SignUP</Button>
+        </Typography>
       </form>
     </div>
   );

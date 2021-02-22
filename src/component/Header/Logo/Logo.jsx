@@ -1,5 +1,6 @@
-import Avatar from '@material-ui/core/Avatar';
+import { Button, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import MusicVideoIcon from '@material-ui/icons/MusicVideo';
 import React from 'react';
 
 const useStyles = makeStyles({
@@ -7,11 +8,13 @@ const useStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-around',
   },
-  orange: {
+  Typography: {
+    padding: '.5rem 1rem ',
+    fontWeight: 'bolder',
+  },
+  icon: {
     padding: '.5rem',
-    margin: '0 .5rem 0 0',
-    color: 'red',
-    backgroundColor: 'black',
+    borderRadius: '.25rem',
   },
 });
 
@@ -20,8 +23,12 @@ const Logo = () => {
 
   return (
     <div className={classes.tool}>
-      <Avatar className={classes.orange}>SYR</Avatar>
-      <h3>Sell-Your-Records</h3>
+      <Button variant="contained" color="primary" className={classes.icon}>
+        <MusicVideoIcon />
+      </Button>
+      <Typography variant="h6" className={classes.Typography} color="inherit">
+        S-Y-R
+      </Typography>
     </div>
   );
 };

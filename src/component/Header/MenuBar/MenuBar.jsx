@@ -1,5 +1,4 @@
-import Button from '@material-ui/core/Button';
-import Toolbar from '@material-ui/core/Toolbar';
+import { Button, Toolbar } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import React from 'react';
 import Explore from './Explore';
@@ -8,8 +7,8 @@ import Music from './Music';
 const MenuBar = () => (
   <div>
     <Toolbar>
-      <Button color="inherit">
-        <HomeIcon />
+      <Button>
+        <HomeIcon style={{ color: 'yellow', fontSize: '2rem' }} />
       </Button>
       <Music />
       <Explore />
