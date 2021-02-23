@@ -1,14 +1,13 @@
 import { Button, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import MusicVideoIcon from '@material-ui/icons/MusicVideo';
 import React from 'react';
-
-const useStyles = makeStyles({
-  tool: {
-    display: 'flex',
-    justifyContent: 'space-around'
-  }
-});
+import useStyles from './logo';
+// const useStyles = makeStyles({
+//   tool: {
+//     display: 'flex',
+//     justifyContent: 'space-around'
+//   }
+// });
 
 const Logo = () => {
   const classes = useStyles();
