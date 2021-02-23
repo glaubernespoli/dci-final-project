@@ -1,5 +1,4 @@
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
+import { AppBar, Toolbar } from '@material-ui/core';
 import React from 'react';
 import HeaderStyles from './HeaderStyles';
 import Logo from './Logo/Logo';

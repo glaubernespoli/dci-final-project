@@ -1,10 +1,9 @@
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import { Button, Menu, MenuItem } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import * as React from 'react';
+import PropTypes from 'prop-types';
+import React from 'react';
 
-const Music = () => {
+const NavItem = ({ title, subTitle, subTitle1, subTitle2 }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -16,14 +15,14 @@ const Music = () => {
   };
 
   return (
-    <div>
+    <>
       <Button
         aria-controls="demo-positioned-menu"
         aria-haspopup="true"
         color="inherit"
         onClick={handleClick}
       >
-        Music
+        {title}
         <ArrowDropDownIcon />
       </Button>
       <Menu
@@ -42,11 +41,17 @@ const Music = () => {
           horizontal: 'left'
         }}
       >
-        <MenuItem onClick={handleClose}>Format</MenuItem>
-        <MenuItem onClick={handleClose}>Gender</MenuItem>
-        <MenuItem onClick={handleClose}>Style</MenuItem>
+        <MenuItem onClick={handleClose}>{subTitle}</MenuItem>
+        <MenuItem onClick={handleClose}>{subTitle1}</MenuItem>
+        <MenuItem onClick={handleClose}>{subTitle2}</MenuItem>
       </Menu>
-    </div>
+    </>
   );
 };
-export default Music;
+NavItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
+  subTitle1: PropTypes.string.isRequired,
+  subTitle2: PropTypes.string.isRequired
+};
+export default NavItem;

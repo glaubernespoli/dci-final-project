@@ -15,11 +15,11 @@ const useStyles = makeStyles((theme) => ({
   },
   searchIcon: {
     position: 'absolute',
-    right: '10rem',
+    right: '11rem',
     top: '1rem'
   },
   logo: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(1, 2)
   }
 }));
 

@@ -3,7 +3,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
 import HeaderStyles from '../HeaderStyles';
 
-export default function BasicTextFields() {
+const Search = () => {
   const classes = HeaderStyles();
 
   return (
@@ -17,4 +17,5 @@ export default function BasicTextFields() {
       <SearchIcon className={classes.searchIcon} />
     </form>
   );
-}
+};
+export default Search;
