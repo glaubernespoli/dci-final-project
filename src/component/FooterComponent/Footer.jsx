@@ -1,30 +1,12 @@
 import AppBar from '@material-ui/core/AppBar';
-import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import * as React from 'react';
 import Copyright from './Copyright/Copyright';
+import useStyles from './footerStyle';
 import Home from './Home/Home';
 import Info from './Info/Info';
 import Logo from './Logo/logo';
 import SocialMedia from './SocialmediaIcons/SocialmediaIcons';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    width: '100%'
-  },
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
-
-  footerStyle: {
-    display: 'flex',
-    justifyContent: 'space-evenly'
-  }
-}));
 
 export default function ButtonAppBar() {
   const classes = useStyles();

@@ -1,24 +1,14 @@
 import IconButton from '@material-ui/core/IconButton';
-import { makeStyles } from '@material-ui/core/styles';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import PinterestIcon from '@material-ui/icons/Pinterest';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import SocialLinks from '../Links/Social';
-
-const useStyles = makeStyles(() => ({
-  socialIconStyle: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-}));
+import useStyles from './socialmediaStyle';
 
 const Socialmedia = () => {
   const classes = useStyles();
-  const {
-    instagram, facebook, twitter, pinterest
-  } = SocialLinks;
+  const { instagram, facebook, twitter, pinterest } = SocialLinks;
 
   return (
     <div className={classes.socialIconStyle}>

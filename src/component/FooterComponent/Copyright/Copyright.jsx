@@ -1,13 +1,6 @@
 import { Link, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import SocialLinks from '../Links/Social';
-
-const useStyles = makeStyles(() => ({
-  copyright: {
-    fontStyle: 'italic',
-    fontSize: '.8rem'
-  }
-}));
+import useStyles from './copyrightStyle';
 
 const Copyright = () => {
   const classes = useStyles();

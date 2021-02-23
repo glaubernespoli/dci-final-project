@@ -1,17 +1,5 @@
 import { Link, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles(() => ({
-  infoStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  link: {
-    color: 'red'
-  }
-}));
+import useStyles from './infoStyle';
 
 const Info = () => {
   const classes = useStyles();

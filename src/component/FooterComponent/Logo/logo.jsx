@@ -1,9 +1,11 @@
 import Logo from './logo.jpg';
+import UseStyles from './logoStyle';
 
-const logo = () => (
-  <div>
-    <img src={Logo} alt="Sell Your Records" width="50vw" height="50vh" />
-  </div>
-);
-
-export default logo;
+export default function logo() {
+  const classes = UseStyles();
+  return (
+    <div>
+      <img src={Logo} alt="Sell Your Records" className={classes.logo} />
+    </div>
+  );
+}
