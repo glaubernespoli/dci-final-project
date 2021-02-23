@@ -9,12 +9,12 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import * as React from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   mainDiv: {
     width: '30vw',
     margin: '2rem auto',
-    padding: '2rem 3rem',
-    boxShadow: '0 0 6px'
+    padding: '1rem 3rem',
+    boxShadow: '0 0 1px'
   },
   form: {
     display: 'flex',
@@ -23,15 +23,14 @@ const useStyles = makeStyles({
   h3: {
     textAlign: 'center'
   },
-  btn: {
-    margin: '1rem 0 .5rem 0'
-  },
   icon: {
     display: 'flex',
-    justifyContent: 'space-around',
-    padding: '.5rem'
+    justifyContent: 'space-around'
+  },
+  textF: {
+    margin: theme.spacing(1)
   }
-});
+}));
 
 const Login = () => {
   const classes = useStyles();
@@ -39,8 +38,9 @@ const Login = () => {
   return (
     <div className={classes.mainDiv}>
       <h2 className={classes.h3}>Login</h2>
+      <hr />
       <div>
-        <h3 className={classes.h3}>Connect With</h3>
+        <h3 className={classes.h3}>Connected with</h3>
         <div className={classes.icon}>
           <Button variant="outlined" color="inherit">
             <FacebookIcon />
@@ -56,15 +56,16 @@ const Login = () => {
           </Button>
         </div>
       </div>
-      <h3 className={classes.h3}>Or</h3>
+      <h3 className={classes.h3}>OR</h3>
 
       <form className={classes.form} noValidate autoComplete="off">
         <TextField
           id="email"
-          label="Email"
+          label="Email Address"
           variant="standard"
           type="email"
           placeholder="Enter Your Email"
+          className={classes.textF}
         />
 
         <TextField
@@ -73,6 +74,7 @@ const Login = () => {
           variant="standard"
           type="password"
           placeholder="Enter Your Password"
+          className={classes.textF}
         />
 
         <div>
@@ -81,16 +83,18 @@ const Login = () => {
             color="primary"
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
-          <Typography variant="p">Remember me</Typography>
+          <Typography variant="p" className={classes.textF}>
+            Remember me
+          </Typography>
         </div>
-        <div className={classes.btn}>
+        <div className={classes.textF}>
           <Button variant="contained" color="primary" fullWidth>
             LogIn
           </Button>
         </div>
-        <Typography variant="p">
+        <Typography variant="p" className={classes.textF}>
           not yet registered?
-          <Button color="secondary">SignUp</Button>
+          <Button color="secondary">create an account</Button>
         </Typography>
       </form>
     </div>

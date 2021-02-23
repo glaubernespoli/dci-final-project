@@ -6,12 +6,12 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import * as React from 'react';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   mainDiv: {
     width: '30vw',
     margin: '2rem auto',
-    padding: '2rem 3rem',
-    boxShadow: '0 0 4px'
+    padding: '1rem 3rem',
+    boxShadow: '0 0 1px'
   },
   form: {
     display: 'flex',
@@ -20,24 +20,24 @@ const useStyles = makeStyles({
   h3: {
     textAlign: 'center'
   },
-  btn: {
-    margin: '1rem 0 .5rem 0'
-  },
   icon: {
     display: 'flex',
-    justifyContent: 'space-around',
-    padding: '.5rem'
+    justifyContent: 'space-around'
+  },
+  textF: {
+    margin: theme.spacing(1)
   }
-});
+}));
 
 const SignUp = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.mainDiv}>
-      <h2 className={classes.h3}>Create Your Profile</h2>
+      <h2 className={classes.h3}>Create Your Account</h2>
+      <hr />
       <div>
-        <h3 className={classes.h3}>Connect With</h3>
+        <h3 className={classes.h3}>Connected with</h3>
         <div className={classes.icon}>
           <Button variant="outlined" color="inherit">
             <FacebookIcon />
@@ -53,7 +53,7 @@ const SignUp = () => {
           </Button>
         </div>
       </div>
-      <h3 className={classes.h3}>Or</h3>
+      <h3 className={classes.h3}>OR</h3>
 
       <form className={classes.form} noValidate autoComplete="off">
         <TextField
@@ -62,21 +62,23 @@ const SignUp = () => {
           variant="standard"
           type="text"
           placeholder="Enter Your First Name"
+          className={classes.textF}
         />
-
         <TextField
           id="lastName"
           label="Last Name"
           variant="standard"
           type="text"
           placeholder="Enter Your Last Name"
+          className={classes.textF}
         />
         <TextField
           id="email"
-          label="Email"
+          label="Email Address"
           variant="standard"
           type="email"
           placeholder="Enter Your Email"
+          className={classes.textF}
         />
         <TextField
           id="password"
@@ -84,6 +86,7 @@ const SignUp = () => {
           variant="standard"
           type="password"
           placeholder="Enter Your Password"
+          className={classes.textF}
         />
         <TextField
           id="confirmPassword"
@@ -91,13 +94,15 @@ const SignUp = () => {
           variant="standard"
           type="password"
           placeholder="Confirm Your Password"
+          className={classes.textF}
         />
-        <div className={classes.btn}>
+
+        <div className={classes.textF}>
           <Button variant="contained" color="primary" fullWidth>
             Submit
           </Button>
         </div>
-        <Typography variant="p">
+        <Typography variant="p" className={classes.textF}>
           already registered?
           <Button color="secondary">LogIn</Button>
         </Typography>
