@@ -8,7 +8,12 @@ export default function BasicTextFields() {
 
   return (
     <form className={classes.search} noValidate autoComplete="on">
-      <TextField id="outlined-basic" label="Search Your Music...." variant="standard" />
+      <TextField
+        id="outlined-basic"
+        label="Search Your Music"
+        variant="outlined"
+        placeholder="Search Your Music"
+      />
       <SearchIcon className={classes.searchIcon} />
     </form>
   );
