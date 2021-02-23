@@ -1,37 +1,22 @@
 import AppBar from '@material-ui/core/AppBar';
-import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import React from 'react';
+import HeaderStyles from './HeaderStyles';
 import Logo from './Logo/Logo';
 import MenuBar from './MenuBar/MenuBar';
 import SearchItem from './Search/Search';
 import UserControl from './UserControl/UserControl';
 
-const useStyles = makeStyles({
-  tool: {
-    display: 'flex',
-    justifyContent: 'space-around'
-  }
-});
-
 const Header = () => {
-  const classes = useStyles();
+  const classes = HeaderStyles();
   return (
     <>
-      <AppBar position="static">
+      <AppBar position="static" color="inherit">
         <Toolbar className={classes.tool}>
-          <div>
-            <Logo />
-          </div>
-          <div>
-            <MenuBar />
-          </div>
-          <div>
-            <SearchItem />
-          </div>
-          <div>
-            <UserControl />
-          </div>
+          <Logo />
+          <MenuBar />
+          <SearchItem />
+          <UserControl />
         </Toolbar>
       </AppBar>
     </>

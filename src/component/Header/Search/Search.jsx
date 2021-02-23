@@ -1,35 +1,15 @@
-import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(2),
-      width: '35ch',
-      color: 'white'
-    }
-  },
-  icon: {
-    position: 'absolute',
-    right: '9rem',
-    top: '2rem'
-  }
-}));
+import HeaderStyles from '../HeaderStyles';
 
 export default function BasicTextFields() {
-  const classes = useStyles();
+  const classes = HeaderStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="on">
-      <TextField
-        id="outlined-basic"
-        label="Search Your Music...."
-        variant="filled"
-        className={classes.root}
-      />
-      <SearchIcon className={classes.icon} />
+    <form className={classes.search} noValidate autoComplete="on">
+      <TextField id="outlined-basic" label="Search Your Music...." variant="standard" />
+      <SearchIcon className={classes.searchIcon} />
     </form>
   );
 }
