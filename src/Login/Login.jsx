@@ -1,62 +1,42 @@
-import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { Button, Checkbox, TextField, Typography } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GoogleIcon from '@material-ui/icons/Google';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import * as React from 'react';
-
-const useStyles = makeStyles((theme) => ({
-  mainDiv: {
-    width: '30vw',
-    margin: '2rem auto',
-    padding: '1rem 3rem',
-    boxShadow: '0 0 1px'
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column'
-  },
-  h3: {
-    textAlign: 'center'
-  },
-  icon: {
-    display: 'flex',
-    justifyContent: 'space-around'
-  },
-  textF: {
-    margin: theme.spacing(1)
-  }
-}));
+import LoginStyles from './LoginStyles';
 
 const Login = () => {
-  const classes = useStyles();
+  const classes = LoginStyles();
 
   return (
     <div className={classes.mainDiv}>
-      <h2 className={classes.h3}>Login</h2>
+      <Typography variant="h4" color="secondary" className={classes.typography}>
+        Login
+      </Typography>
       <hr />
       <div>
-        <h3 className={classes.h3}>Connected with</h3>
+        <Typography variant="h5" className={classes.typography}>
+          Connected with
+        </Typography>
         <div className={classes.icon}>
-          <Button variant="outlined" color="inherit">
+          <Button variant="contained">
             <FacebookIcon />
           </Button>
-          <Button variant="outlined" color="inherit">
+          <Button variant="contained">
             <InstagramIcon />
           </Button>
-          <Button variant="outlined" color="inherit">
+          <Button variant="contained">
             <WhatsAppIcon />
           </Button>
-          <Button variant="outlined" color="inherit">
+          <Button variant="contained">
             <GoogleIcon />
           </Button>
         </div>
       </div>
-      <h3 className={classes.h3}>OR</h3>
+      <Typography variant="h5" className={classes.typography}>
+        OR
+      </Typography>
 
       <form className={classes.form} noValidate autoComplete="off">
         <TextField
@@ -83,7 +63,7 @@ const Login = () => {
             color="primary"
             inputProps={{ 'aria-label': 'secondary checkbox' }}
           />
-          <Typography variant="p" className={classes.textF}>
+          <Typography variant="p" fontFamily="monospace" className={classes.textF}>
             Remember me
           </Typography>
         </div>
@@ -92,7 +72,7 @@ const Login = () => {
             LogIn
           </Button>
         </div>
-        <Typography variant="p" className={classes.textF}>
+        <Typography variant="p" className={classes.textF} fontFamily="monospace">
           not yet registered?
           <Button color="secondary">create an account</Button>
         </Typography>
