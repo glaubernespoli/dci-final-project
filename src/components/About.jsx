@@ -1,14 +1,12 @@
-import Text from './Text/Text';
-// import useStyles from './aboutStyle';
+// import Text from './Text/Text';
+import React from 'react';
+import Imgcontainer from './ImgContainer/ImgContainer';
 
-export default function Aboutus() {
-  //   const classes = useStyles();
+const Aboutus = () => (
+  <>
+    {/* <Text /> */}
+    <Imgcontainer />
+  </>
+);
 
-  return (
-    <div>
-      <Text />
-      {/* <Image />
-          <Section /> */}
-    </div>
-  );
-}
+export default Aboutus;

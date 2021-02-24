@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import React from 'react';
-import useStyles from './text';
+import useStyles from './imgStyle';
 
 export default function Text() {
   const classes = useStyles();
@@ -18,7 +18,7 @@ export default function Text() {
           </Typography>
         </Box>
       </Box>
-      <Box className={classes.img2}>
+      {/* <Box className={classes.img2}>
         <Box className={(classes.section, classes.sec1)}>
           <Typography variant="h4">Our Story</Typography>
 
@@ -64,7 +64,7 @@ export default function Text() {
           <Box className={classes.imgGallery}>Musica 2020</Box>
           <Box className={classes.imgGallery}>Event 2019</Box>
         </Box>
-      </Box>
+      </Box> */}
     </Box>
   );
 }
