@@ -1,8 +1,9 @@
 import './App.css';
+import Header from './component/Header/Header';
 
 const App = () => (
   <>
-    <h1>This is the beginning of something.</h1>
+    <Header />
   </>
 );
 
