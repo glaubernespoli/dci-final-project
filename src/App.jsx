@@ -4,7 +4,6 @@ import Login from './component/Login/Login';
 const App = () => (
   <>
     <Login />
-    {/* <SignUp /> */}
   </>
 );
 
