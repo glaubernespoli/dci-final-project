@@ -3,9 +3,8 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const NavItem = ({ title, subTitle, subTitle1, subTitle2 }) => {
+const NavItem = ({ title, subItems }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -13,6 +12,7 @@ const NavItem = ({ title, subTitle, subTitle1, subTitle2 }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const keyValue = 0;
 
   return (
     <>
@@ -23,7 +23,7 @@ const NavItem = ({ title, subTitle, subTitle1, subTitle2 }) => {
         onClick={handleClick}
       >
         {title}
-        <ArrowDropDownIcon />
+        {subItems.length ? <ArrowDropDownIcon /> : ''}
       </Button>
       <Menu
         id="demo-positioned-menu"
@@ -41,17 +41,21 @@ const NavItem = ({ title, subTitle, subTitle1, subTitle2 }) => {
           horizontal: 'left'
         }}
       >
-        <MenuItem onClick={handleClose}>{subTitle}</MenuItem>
-        <MenuItem onClick={handleClose}>{subTitle1}</MenuItem>
-        <MenuItem onClick={handleClose}>{subTitle2}</MenuItem>
+        {subItems.map((subItem) => (
+          <MenuItem key={keyValue + 1} onClick={handleClose}>
+            {subItem}
+          </MenuItem>
+        ))}
       </Menu>
     </>
   );
 };
+NavItem.defaultProps = {
+  subItems: []
+};
 NavItem.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
-  subTitle1: PropTypes.string.isRequired,
-  subTitle2: PropTypes.string.isRequired
+  subItems: PropTypes.arrayOf(PropTypes.string)
 };
+
 export default NavItem;

@@ -11,8 +11,8 @@ const Logo = () => {
       <Button variant="contained" color="primary">
         <MusicVideoIcon />
       </Button>
-      <Typography variant="h6" color="secondary" className={classes.logo}>
-        S-Y-R
+      <Typography variant="h5" className={classes.logo} fontSize="1.2rem" fontWeight="bolder">
+        Sell-Your-Records
       </Typography>
     </div>
   );

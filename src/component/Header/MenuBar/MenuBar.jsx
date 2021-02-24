@@ -15,16 +15,18 @@ const MenuBar = () => {
         </Button>
         <NavItem
           title="Music"
-          subTitle="Format"
-          subTitle1="Gender"
-          subTitle2="Style"
+          subItems={['format', 'Gender', 'Style', 'Others']}
           className={classes.logo}
         />
         <NavItem
           title="Explore"
-          subTitle="Popular Release"
-          subTitle1="Recent Release"
-          subTitle2="Articles"
+          subItems={[
+            'Popular Release',
+            'Recent Release',
+            'Articles',
+            'Advanced Search',
+            'About Music'
+          ]}
           className={classes.logo}
         />
       </Toolbar>
