@@ -41,7 +41,7 @@ const NavItem = ({ title, subItems }) => {
         }}
       >
         {subItems.map((subItem) => (
-          <MenuItem key={subItem} onClick={handleClose}>
+          <MenuItem key={subItem.id} onClick={handleClose}>
             {subItem}
           </MenuItem>
         ))}
