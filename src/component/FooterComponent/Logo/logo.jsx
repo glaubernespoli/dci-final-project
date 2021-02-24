@@ -1,11 +1,11 @@
-import Logo from './logo.jpg';
+import LogoImg from './logo.jpg';
 import UseStyles from './logoStyle';
 
-export default function logo() {
+export default function Logo() {
   const classes = UseStyles();
   return (
     <div>
-      <img src={Logo} alt="Sell Your Records" className={classes.logo} />
+      <img src={LogoImg} alt="Sell Your Records" className={classes.logo} />
     </div>
   );
 }

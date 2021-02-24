@@ -13,7 +13,7 @@ export default function ButtonAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="inherit">
+      <AppBar position="relative" color="inherit">
         <Toolbar className={classes.footerStyle}>
           <Logo />
           <Home />

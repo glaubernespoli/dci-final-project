@@ -8,45 +8,19 @@ import useStyles from './socialmediaStyle';
 
 const Socialmedia = () => {
   const classes = useStyles();
-  const { instagram, facebook, twitter, pinterest } = SocialLinks;
 
   return (
     <div className={classes.socialIconStyle}>
-      <IconButton
-        edge="start"
-        className={classes.menuButton}
-        color="inherit"
-        aria-label="menu"
-        href={pinterest}
-      >
+      <IconButton className={classes.menuButton} href={SocialLinks.pinterest}>
         <PinterestIcon />
       </IconButton>
-
-      <IconButton
-        edge="start"
-        className={classes.menuButton}
-        color="inherit"
-        aria-label="menu"
-        href={facebook}
-      >
+      <IconButton className={classes.menuButton} href={SocialLinks.facebook}>
         <FacebookIcon />
       </IconButton>
-      <IconButton
-        edge="start"
-        className={classes.menuButton}
-        color="inherit"
-        aria-label="menu"
-        href={twitter}
-      >
+      <IconButton className={classes.menuButton} href={SocialLinks.twitter}>
         <TwitterIcon />
       </IconButton>
-      <IconButton
-        edge="start"
-        className={classes.menuButton}
-        color="inherit"
-        aria-label="menu"
-        href={instagram}
-      >
+      <IconButton className={classes.menuButton} href={SocialLinks.instagram}>
         <InstagramIcon />
       </IconButton>
     </div>
