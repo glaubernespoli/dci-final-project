@@ -1,8 +1,9 @@
 import './App.css';
+import Aboutus from './components/About';
 
 const App = () => (
   <>
-    <h1>This is the beginning of something.</h1>
+    <Aboutus />
   </>
 );
 
