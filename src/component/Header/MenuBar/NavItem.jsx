@@ -40,8 +40,9 @@ const NavItem = ({ title, subItems }) => {
           horizontal: 'left'
         }}
       >
-        {subItems.map((subItem) => (
-          <MenuItem key={subItem.id} onClick={handleClose}>
+        {subItems.map((subItem, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <MenuItem key={index} onClick={handleClose}>
             {subItem}
           </MenuItem>
         ))}
