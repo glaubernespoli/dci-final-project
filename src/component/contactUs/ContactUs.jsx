@@ -2,7 +2,6 @@ import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
 import { Google, Instagram, WhatsApp } from '@material-ui/icons';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import PanToolIcon from '@material-ui/icons/PanTool';
 import React from 'react';
 import contactUs from './ContactStyle';
 
@@ -18,28 +17,27 @@ const ContactUs = () => {
               ContactUs
             </Typography>
             <hr />
-            <Typography variant="h4" color="Primary">
+            <Typography variant="h4" color="Primary" className={classes.icon1}>
               We would Love
               <FavoriteIcon />
               to help !
             </Typography>
             <Typography variant="h5" color="white">
-              We would Like to help, open minded people, Fell free to say Hallo!!
-              <PanToolIcon />
+              We would Like to help, open minded people, Fell free to say Hallo !!
             </Typography>
           </Paper>
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <form className={classes.inpt} noValidate autoComplete="off">
-              <div className={classes.inpt}>
+            <form className={classes.input} noValidate autoComplete="off">
+              <div className={classes.input}>
                 <TextField
                   id="filled-textarea"
                   label="Your Name"
                   placeholder="Enter Your Name"
                   multiline
                   variant="standard"
-                  className={classes.inpt}
+                  className={classes.input}
                 />
                 <TextField
                   id="filled-textarea"
@@ -47,7 +45,7 @@ const ContactUs = () => {
                   placeholder="Enter Your Email"
                   multiline
                   variant="standard"
-                  className={classes.inpt}
+                  className={classes.input}
                 />
                 <TextField
                   id="outlined-multiline-static"
@@ -55,9 +53,9 @@ const ContactUs = () => {
                   multiline
                   rows={4}
                   variant="standard"
-                  className={classes.inpt}
+                  className={classes.input}
                 />
-                <Button variant="outlined" color="primary" className={classes.inpt}>
+                <Button variant="outlined" color="primary" className={classes.input}>
                   Submit
                 </Button>
               </div>
@@ -66,7 +64,7 @@ const ContactUs = () => {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <div className={classes.inpt}>
+            <div className={classes.input}>
               <Typography variant="h5">Address : Berlinier Straße 200, Belrin, Germany</Typography>
               <Typography variant="h5" className={classes.content}>
                 Mobile No : +4901712341548

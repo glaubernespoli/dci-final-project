@@ -15,7 +15,7 @@ const ContactUsStyles = makeStyles((theme) => ({
       width: '25ch'
     }
   },
-  inpt: {
+  input: {
     display: 'flex',
     flexDirection: 'column',
     margin: theme.spacing(2, 4),
@@ -33,7 +33,7 @@ const ContactUsStyles = makeStyles((theme) => ({
     // margin: theme.spacing(1, 3)
   },
   icon1: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(2)
   }
 }));
 
