@@ -3,7 +3,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import GoogleIcon from '@material-ui/icons/Google';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-import * as React from 'react';
+import React from 'react';
 import LoginStyles from './LoginStyles';
 
 const SignUp = () => {
