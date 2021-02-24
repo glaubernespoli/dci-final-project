@@ -12,7 +12,6 @@ const NavItem = ({ title, subItems }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  const keyValue = 0;
 
   return (
     <>
@@ -42,7 +41,7 @@ const NavItem = ({ title, subItems }) => {
         }}
       >
         {subItems.map((subItem) => (
-          <MenuItem key={keyValue + 1} onClick={handleClose}>
+          <MenuItem key={subItem} onClick={handleClose}>
             {subItem}
           </MenuItem>
         ))}
