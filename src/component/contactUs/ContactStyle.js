@@ -55,7 +55,7 @@ const ContactUsStyles = makeStyles((theme) => ({
     fontSize: '1.2rem'
   },
   card: {
-    maxWidth: 300,
+    maxWidth: 320,
     margin: theme.spacing(1)
   },
   cardHeader: {
@@ -67,6 +67,10 @@ const ContactUsStyles = makeStyles((theme) => ({
   header: {
     letterSpacing: '1px',
     textTransform: 'uppercase'
+  },
+  image: {
+    borderRadius: '50%',
+    padding: '.75rem'
   }
 }));
 

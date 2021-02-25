@@ -53,8 +53,7 @@ const ContactUs = () => {
             that puts sounds together in a way that people like, find interesting or dance to. Most
             music includes people singing with their voices or playing musical instruments, such as
             the piano, guitar, drums or violin. The word music comes from the Greek word, which
-            means. In Ancient Greece the Muses included the goddesses of music, poetry, art, and
-            dance. Someone who makes music is known as a musician.
+            means. In Ancient Greece the Muses included the goddesses of music.
           </Typography>
         </Grid>
         <Grid item xs={1} />
@@ -99,7 +98,6 @@ const ContactUs = () => {
 
         {/* For Our Team */}
 
-        {/* <Grid item xs={12} spacing={4}> */}
         <Grid item xs={12} align="center">
           <Paper>
             <Typography
@@ -121,8 +119,9 @@ const ContactUs = () => {
                 <CardMedia
                   component="img"
                   alt="G"
-                  height="140"
+                  height="220"
                   image="https://picsum.photos/200/300?random=1"
+                  className={classes.image}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -149,8 +148,9 @@ const ContactUs = () => {
                 <CardMedia
                   component="img"
                   alt="S"
-                  height="140"
+                  height="220"
                   image="https://picsum.photos/200/300?random=2"
+                  className={classes.image}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -175,8 +175,9 @@ const ContactUs = () => {
                 <CardMedia
                   component="img"
                   alt="M"
-                  height="140"
+                  height="220"
                   image="https://picsum.photos/200/300?random=3"
+                  className={classes.image}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
@@ -201,18 +202,18 @@ const ContactUs = () => {
                 <CardMedia
                   component="img"
                   alt="Contemplative Reptile"
-                  height="140"
+                  height="220"
                   image="https://picsum.photos/200/300?random=4"
+                  className={classes.image}
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    <span className={classes.span1}>Arifur Rahman</span>
+                    <span className={classes.span1}>Arifur Rahman Arif</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
                     Web Developer
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    {/* <h5>Skills:</h5> */}
                     <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
                   </Typography>
                   <p>
