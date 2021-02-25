@@ -1,11 +1,13 @@
-// import Text from './Text/Text';
 import React from 'react';
-import Imgcontainer from './ImgContainer/ImgContainer';
+import ImgContainerFooter from './ImgContainer/ImgContainerfooter/ImgContainerFooter';
+import ImgContainerMiddle from './ImgContainer/ImgContainermiddle/ImgContainermiddle';
+import ImgcontainerTop from './ImgContainer/ImgContainertop/ImgContainer';
 
 const Aboutus = () => (
   <>
-    {/* <Text /> */}
-    <Imgcontainer />
+    <ImgcontainerTop />
+    <ImgContainerMiddle />
+    <ImgContainerFooter />
   </>
 );
 
