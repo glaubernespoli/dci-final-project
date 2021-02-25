@@ -49,6 +49,11 @@ const ContactUsStyles = makeStyles((theme) => ({
     fontSize: '1.2rem',
     margin: theme.spacing(0, 2)
   },
+  span1: {
+    fontWeight: 'bold',
+    color: 'Yellow',
+    fontSize: '1.2rem'
+  },
   card: {
     maxWidth: 300,
     margin: theme.spacing(1)

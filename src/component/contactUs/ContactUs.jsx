@@ -120,17 +120,25 @@ const ContactUs = () => {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  // alt="Contemplative Reptile"
+                  alt="G"
                   height="140"
+                  image="https://picsum.photos/200/300?random=1"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Glauber Nespoli
+                    <span className={classes.span1}>Glauber Nespoli</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
-                    ranging across all continents except Antarctica
+                    Web Developer
                   </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    <h6>
+                      Java || JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5
+                    </h6>
+                  </Typography>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
+                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -140,17 +148,23 @@ const ContactUs = () => {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  // alt="Contemplative Reptile"
+                  alt="S"
                   height="140"
+                  image="https://picsum.photos/200/300?random=2"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Santago Julian
+                    <span className={classes.span1}>Santago Julian</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
-                    ranging across all continents except Antarctica
+                    Web Developer
                   </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery ||HTML5</h6>
+                  </Typography>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
+                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -160,17 +174,23 @@ const ContactUs = () => {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  // alt="Contemplative Reptile"
+                  alt="M"
                   height="140"
+                  image="https://picsum.photos/200/300?random=3"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Manonmani Selvakumar
+                    <span className={classes.span1}>Manonmani Selvakumar</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
-                    ranging across all continents except
+                    Web Developer
                   </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
+                  </Typography>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
+                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -180,17 +200,24 @@ const ContactUs = () => {
               <CardActionArea>
                 <CardMedia
                   component="img"
-                  // alt="Contemplative Reptile"
+                  alt="Contemplative Reptile"
                   height="140"
+                  image="https://picsum.photos/200/300?random=4"
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Arifur Rahman
+                    <span className={classes.span1}>Arifur Rahman</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
-                    ranging across all continents except Antarctica
+                    Web Developer
                   </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    {/* <h5>Skills:</h5> */}
+                    <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
+                  </Typography>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
+                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
