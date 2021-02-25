@@ -198,7 +198,7 @@ const ContactUs = () => {
             <span className={classes.span}>More infos:</span>
             <br />
             <MailOutlineIcon className={classes.foot} />
-            sellyoursRecords@yahho.com
+            sellyoursRecords@gamil.com
             <br />
             <CallIcon className={classes.foot} />
             Mobile No:+491234567890
