@@ -1,9 +1,11 @@
 import './App.css';
-import Login from './component/Login/Login';
+import Header from './component/Header/Header';
+import Footer from './component/FooterComponent/Footer';
 
 const App = () => (
   <>
-    <Login />
+    <Header />
+    <Footer />
   </>
 );
 
