@@ -23,7 +23,8 @@ const useStyles = makeStyles({
     borderRadius: '80px',
     background: 'linear-gradient(90deg, #333 20%, #3333 40%, rgb(22, 21, 21) 90%)',
     position: 'absolute',
-    bottom: '0'
+    bottom: '0',
+    padding: '3rem'
   },
 
   infoContainer: {
@@ -31,7 +32,8 @@ const useStyles = makeStyles({
   },
   content: {
     flex: '50%',
-    fontSize: '1rem'
+    fontSize: '1rem',
+    minHeight: '100px'
   },
   imgContent: {
     flex: '50%',
@@ -39,8 +41,8 @@ const useStyles = makeStyles({
     backgroundImage: `url(${Img4})`,
     backgroundSize: '200px 200px',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    minHeight: '100px'
+    backgroundPosition: 'center'
+
     // '&:hover': {
     //   opacity: '.7'
     // }
