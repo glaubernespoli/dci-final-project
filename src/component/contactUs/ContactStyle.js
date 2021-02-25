@@ -58,6 +58,10 @@ const ContactUsStyles = makeStyles((theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
     padding: '1rem'
+  },
+  header: {
+    letterSpacing: '1px',
+    textTransform: 'uppercase'
   }
 }));
 

@@ -23,7 +23,13 @@ const ContactUs = () => {
       <Grid container spacing={5}>
         <Grid item xs={1} />
         <Grid item xs={10} className={classes.paper}>
-          <Typography variant="h2" color="secondary" fontWeight="bold" padding=".5rem 0">
+          <Typography
+            variant="h2"
+            color="secondary"
+            fontWeight="bold"
+            padding=".5rem 0"
+            className={classes.header}
+          >
             Contact Us
             <hr />
           </Typography>
@@ -96,14 +102,20 @@ const ContactUs = () => {
         {/* <Grid item xs={12} spacing={4}> */}
         <Grid item xs={12} align="center">
           <Paper>
-            <Typography variant="h3" padding="1rem" color="secondary" fontWeight="bold">
+            <Typography
+              variant="h3"
+              padding="1rem"
+              color="secondary"
+              fontWeight="bold"
+              className={classes.header}
+            >
               Our Team
             </Typography>
           </Paper>
         </Grid>
         <div className={classes.cardHeader}>
           <Grid xs={1} />
-          <Grid xs={3}>
+          <Grid xs={3} wrap>
             <Card className={classes.card}>
               <CardActionArea>
                 <CardMedia
