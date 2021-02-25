@@ -2,7 +2,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const ContactUsStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
+    margin: theme.spacing(1)
   },
   paper: {
     padding: theme.spacing(2),
@@ -18,8 +19,7 @@ const ContactUsStyles = makeStyles((theme) => ({
   input: {
     display: 'flex',
     flexDirection: 'column',
-    margin: theme.spacing(2, 4),
-    backgroundColor: 'black'
+    margin: theme.spacing(2, 4)
   },
   content: {
     margin: theme.spacing(5, 3),

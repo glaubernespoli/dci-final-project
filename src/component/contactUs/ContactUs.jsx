@@ -10,24 +10,35 @@ const ContactUs = () => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={5}>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            <Typography variant="h2" color="secondary">
+            <Typography variant="h2" color="secondary" fontWeight="bold">
               ContactUs
             </Typography>
             <hr />
-            <Typography variant="h4" color="Primary" className={classes.icon1}>
+            <Typography variant="h3" color="Primary" className={classes.icon1}>
               We would Love
               <FavoriteIcon />
               to help !
             </Typography>
-            <Typography variant="h5" color="white">
-              We would Like to help, open minded people, Fell free to say Hallo !!
+            <Typography variant="h4" color="white" className={classes.icon1}>
+              We would like to help || Open minded people || Fell free to say Hallo !!
+            </Typography>
+            <Typography
+              variant="h5"
+              textAlign="justify"
+              fontFamily="monospace"
+              className={classes.icon1}
+            >
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores optio numquam
+              repellendus vitae rerum modi, quisquam cumque tempore ullam fuga! Lorem ipsum dolor
+              sit amet consectetur adipisicing elit. Harum itaque perferendis animi praesentium
+              ratione sequi repellendus maiores nam. In, numquam.
             </Typography>
           </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={6} textAlign="center">
           <Paper className={classes.paper}>
             <form className={classes.input} noValidate autoComplete="off">
               <div className={classes.input}>
@@ -55,7 +66,7 @@ const ContactUs = () => {
                   variant="standard"
                   className={classes.input}
                 />
-                <Button variant="outlined" color="primary" className={classes.input}>
+                <Button variant="contained" color="primary" className={classes.input}>
                   Submit
                 </Button>
               </div>
@@ -64,7 +75,7 @@ const ContactUs = () => {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            <div className={classes.input}>
+            <div className={classes.root}>
               <Typography variant="h5">Address : Berlinier Straße 200, Belrin, Germany</Typography>
               <Typography variant="h5" className={classes.content}>
                 Mobile No : +4901712341548
