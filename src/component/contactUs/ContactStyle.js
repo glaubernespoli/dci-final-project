@@ -19,7 +19,7 @@ const ContactUsStyles = makeStyles((theme) => ({
   input: {
     display: 'flex',
     flexDirection: 'column',
-    margin: theme.spacing(2, 4)
+    margin: theme.spacing(2)
   },
   content: {
     margin: theme.spacing(5, 3),
@@ -29,11 +29,35 @@ const ContactUsStyles = makeStyles((theme) => ({
   icon: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
-    // margin: theme.spacing(1, 3)
+    alignItems: 'center',
+    margin: theme.spacing(1, 3)
   },
   icon1: {
     margin: theme.spacing(2)
+  },
+  foot: {
+    margin: theme.spacing(0, 2)
+  },
+  foot1: {
+    boxShadow: '0 0 2px',
+    borderRadius: '.2rem',
+    padding: '.5rem'
+  },
+  span: {
+    fontWeight: 'bold',
+    color: 'red',
+    fontSize: '1.2rem',
+    margin: theme.spacing(0, 2)
+  },
+  card: {
+    maxWidth: 300,
+    margin: theme.spacing(1)
+  },
+  cardHeader: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: '1rem'
   }
 }));
 

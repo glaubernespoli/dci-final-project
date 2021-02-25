@@ -1,10 +1,5 @@
 import './App.css';
-import ContactUs from './component/contactUs/ContactUs';
 
-const App = () => (
-  <>
-    <ContactUs />
-  </>
-);
+const App = () => <></>;
 
 export default App;

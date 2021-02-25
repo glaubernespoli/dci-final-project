@@ -1,7 +1,17 @@
-import { Button, Grid, Paper, TextField, Typography } from '@material-ui/core';
-import { Google, Instagram, WhatsApp } from '@material-ui/icons';
-import FacebookIcon from '@material-ui/icons/Facebook';
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  Grid,
+  Paper,
+  TextField,
+  Typography
+} from '@material-ui/core';
+import CallIcon from '@material-ui/icons/Call';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import React from 'react';
 import contactUs from './ContactStyle';
 
@@ -11,33 +21,39 @@ const ContactUs = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={5}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>
-            <Typography variant="h2" color="secondary" fontWeight="bold">
-              ContactUs
-            </Typography>
+        <Grid item xs={1} />
+        <Grid item xs={10} className={classes.paper}>
+          <Typography variant="h2" color="secondary" fontWeight="bold" padding=".5rem 0">
+            Contact Us
             <hr />
-            <Typography variant="h3" color="Primary" className={classes.icon1}>
-              We would Love
+          </Typography>
+          <Typography variant="h3" color="Primary" className={classes.icon1}>
+            We would Love
+            <span className={classes.span}>
               <FavoriteIcon />
-              to help !
-            </Typography>
-            <Typography variant="h4" color="white" className={classes.icon1}>
-              We would like to help || Open minded people || Fell free to say Hallo !!
-            </Typography>
-            <Typography
-              variant="h5"
-              textAlign="justify"
-              fontFamily="monospace"
-              className={classes.icon1}
-            >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores optio numquam
-              repellendus vitae rerum modi, quisquam cumque tempore ullam fuga! Lorem ipsum dolor
-              sit amet consectetur adipisicing elit. Harum itaque perferendis animi praesentium
-              ratione sequi repellendus maiores nam. In, numquam.
-            </Typography>
-          </Paper>
+            </span>
+            to help !
+          </Typography>
+          <Typography variant="h4" color="white" className={classes.icon1}>
+            We like to help || Open minded people || Fell free to say Hello !!
+          </Typography>
+          <Typography
+            variant="h5"
+            textAlign="justify"
+            fontFamily="monospace"
+            className={classes.icon1}
+          >
+            Music is a form of art that uses sound in time. Music is also a form of entertainment
+            that puts sounds together in a way that people like, find interesting or dance to. Most
+            music includes people singing with their voices or playing musical instruments, such as
+            the piano, guitar, drums or violin. The word music comes from the Greek word, which
+            means. In Ancient Greece the Muses included the goddesses of music, poetry, art, and
+            dance. Someone who makes music is known as a musician.
+          </Typography>
         </Grid>
+        <Grid item xs={1} />
+
+        <Grid item xs={3} />
         <Grid item xs={6} textAlign="center">
           <Paper className={classes.paper}>
             <form className={classes.input} noValidate autoComplete="off">
@@ -73,31 +89,121 @@ const ContactUs = () => {
             </form>
           </Paper>
         </Grid>
-        <Grid item xs={6}>
-          <Paper className={classes.paper}>
-            <div className={classes.root}>
-              <Typography variant="h5">Address : Berlinier Straße 200, Belrin, Germany</Typography>
-              <Typography variant="h5" className={classes.content}>
-                Mobile No : +4901712341548
-              </Typography>
-              <Typography variant="h5">Email : sellyoursrecodrs@gmail.com</Typography>
-            </div>
-            <div className={classes.icon}>
-              <Button variant="outlined" color="inherit" className={classes.icon1}>
-                <FacebookIcon />
-              </Button>
-              <Button variant="outlined" color="inherit" className={classes.icon1}>
-                <Instagram />
-              </Button>
-              <Button variant="outlined" color="inherit" className={classes.icon1}>
-                <WhatsApp />
-              </Button>
-              <Button variant="outlined" color="inherit" className={classes.icon1}>
-                <Google />
-              </Button>
-            </div>
+        <Grid item xs={3} />
+
+        {/* For Our Team */}
+
+        {/* <Grid item xs={12} spacing={4}> */}
+        <Grid item xs={12} align="center">
+          <Paper>
+            <Typography variant="h3" padding="1rem" color="secondary" fontWeight="bold">
+              Our Team
+            </Typography>
           </Paper>
         </Grid>
+        <div className={classes.cardHeader}>
+          <Grid xs={1} />
+          <Grid xs={3}>
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  // alt="Contemplative Reptile"
+                  height="140"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Glauber Nespoli
+                  </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                    ranging across all continents except Antarctica
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid xs={3}>
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  // alt="Contemplative Reptile"
+                  height="140"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Santago Julian
+                  </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                    ranging across all continents except Antarctica
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid xs={3}>
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  // alt="Contemplative Reptile"
+                  height="140"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Manonmani Selvakumar
+                  </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                    ranging across all continents except
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+          <Grid xs={3}>
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  // alt="Contemplative Reptile"
+                  height="140"
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Arifur Rahman
+                  </Typography>
+                  <Typography variant="h6" color="textSecondary">
+                    Lizards are a widespread group of squamate reptiles, with over 6,000 species,
+                    ranging across all continents except Antarctica
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        </div>
+      </Grid>
+
+      <Grid item xs={12}>
+        <div className={classes.foot1}>
+          <Typography
+            variant="h6"
+            fontFamily="monospace"
+            align="center"
+            padding=".5rem"
+            color="white"
+          >
+            <span className={classes.span}>More infos:</span>
+            <br />
+            <MailOutlineIcon className={classes.foot} />
+            sellyoursRecords@yahho.com
+            <br />
+            <CallIcon className={classes.foot} />
+            Mobile No:+491234567890
+          </Typography>
+        </div>
       </Grid>
     </div>
   );
