@@ -11,7 +11,7 @@ export default function ImgContainer() {
       <Box className={classes.img1}>
         <Box className={classes.txt}>
           <Typography variant="overline" className={classes.border}>
-            -- About Us --.
+            About Us...
             <Typography variant="overline" className={classes.quote}>
               Music is the universal language of Mankind
             </Typography>

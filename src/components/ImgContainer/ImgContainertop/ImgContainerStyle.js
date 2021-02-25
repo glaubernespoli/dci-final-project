@@ -18,18 +18,19 @@ const useStyles = makeStyles({
     width: '100%',
     textAlign: 'center',
     color: '#000',
-    // fontSize: '7rem',
-    // letterSpacing: '8px',
+
     textTransform: 'uppercase'
   },
   border: {
     backgroundColor: '#111',
     color: '#fff',
     padding: '20px',
-    borderRadius: '50px'
+    borderRadius: '50px',
+    fontSize: '1.5rem',
+    letterSpacing: '8px'
   },
   quote: {
-    fontSize: '0.8rem',
+    fontSize: '1rem',
     fontStyle: 'italic',
     fontFamily: 'cursive',
     textTransform: 'capitalize',

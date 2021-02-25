@@ -46,8 +46,10 @@ const useStyles = makeStyles({
     display: 'flex'
   },
   content: {
-    flex: '50%',
-    fontSize: '1rem'
+    fontSize: '1.3rem',
+    color: '#666',
+    fontStyle: 'italic',
+    padding: '1.5rem'
   },
   imgContent: {
     flex: '50%',

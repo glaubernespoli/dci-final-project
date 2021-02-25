@@ -21,19 +21,21 @@ const useStyles = makeStyles({
     backgroundColor: 'black',
     color: '#666',
     borderRadius: '80px',
-    background: 'linear-gradient(90deg, #333 20%, #3333 40%, rgb(22, 21, 21) 90%)',
+    // background: 'linear-gradient(90deg, #333 20%, #3333 40%, rgb(22, 21, 21) 90%)'
     position: 'absolute',
-    bottom: '0',
-    padding: '3rem'
+    bottom: '0'
   },
 
   infoContainer: {
-    display: 'flex'
+    display: 'flex',
+    minHeight: '28vh'
   },
   content: {
-    flex: '50%',
-    fontSize: '1rem',
-    minHeight: '100px'
+    // flex: '50%',
+    fontSize: '1.3rem',
+
+    fontStyle: 'italic',
+    padding: '1.5rem'
   },
   imgContent: {
     flex: '50%',
@@ -41,8 +43,8 @@ const useStyles = makeStyles({
     backgroundImage: `url(${Img4})`,
     backgroundSize: '200px 200px',
     backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center'
-
+    backgroundPosition: 'center',
+    minHeight: '100px'
     // '&:hover': {
     //   opacity: '.7'
     // }
