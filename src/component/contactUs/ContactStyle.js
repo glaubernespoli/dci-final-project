@@ -62,7 +62,8 @@ const ContactUsStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: '1rem'
+    padding: '1rem',
+    margin: '.5rem 0 .5rem 2.5rem'
   },
   header: {
     letterSpacing: '1px',

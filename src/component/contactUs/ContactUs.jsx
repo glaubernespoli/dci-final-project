@@ -112,7 +112,6 @@ const ContactUs = () => {
           </Paper>
         </Grid>
         <div className={classes.cardHeader}>
-          <Grid xs={1} />
           <Grid xs={3} wrap>
             <Card className={classes.card}>
               <CardActionArea>
@@ -128,11 +127,12 @@ const ContactUs = () => {
                     <span className={classes.span1}>Glauber Nespoli</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    Web Developer
+                    Full-Stack Developer
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
                     <h6>
-                      Java || JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5
+                      Java || JavaScript || React || NodeJs || MongoDB || BootStrap || Sass ||
+                      JQuery ||
                     </h6>
                   </Typography>
                 </CardContent>
@@ -154,10 +154,10 @@ const ContactUs = () => {
                     <span className={classes.span1}>Santago Julian</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    Web Developer
+                    Front-End Developer
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery ||HTML5</h6>
+                    <h6>JavaScript || React || CSS3 || BootStrap || Sass || JQuery ||HTML5</h6>
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -178,7 +178,7 @@ const ContactUs = () => {
                     <span className={classes.span1}>Manonmani Selvakumar</span>
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    Web Developer
+                    Front-End Developer
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
                     <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
@@ -205,7 +205,9 @@ const ContactUs = () => {
                     Web Developer
                   </Typography>
                   <Typography variant="h6" color="textSecondary">
-                    <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
+                    <h6>
+                      JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5 || CSS3
+                    </h6>
                   </Typography>
                 </CardContent>
               </CardActionArea>
