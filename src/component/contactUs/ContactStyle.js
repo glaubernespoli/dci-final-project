@@ -69,7 +69,6 @@ const ContactUsStyles = makeStyles((theme) => ({
     textTransform: 'uppercase'
   },
   image: {
-    borderRadius: '50%',
     padding: '.75rem'
   }
 }));

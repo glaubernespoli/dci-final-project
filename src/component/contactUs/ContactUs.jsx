@@ -24,7 +24,7 @@ const ContactUs = () => {
         <Grid item xs={1} />
         <Grid item xs={10} className={classes.paper}>
           <Typography
-            variant="h2"
+            variant="h3"
             color="secondary"
             fontWeight="bold"
             padding=".5rem 0"
@@ -135,9 +135,6 @@ const ContactUs = () => {
                       Java || JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5
                     </h6>
                   </Typography>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
-                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -162,9 +159,6 @@ const ContactUs = () => {
                   <Typography variant="h6" color="textSecondary">
                     <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery ||HTML5</h6>
                   </Typography>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
-                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -189,9 +183,6 @@ const ContactUs = () => {
                   <Typography variant="h6" color="textSecondary">
                     <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
                   </Typography>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
-                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -216,9 +207,6 @@ const ContactUs = () => {
                   <Typography variant="h6" color="textSecondary">
                     <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
                   </Typography>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nesciunt.
-                  </p>
                 </CardContent>
               </CardActionArea>
             </Card>
@@ -241,7 +229,7 @@ const ContactUs = () => {
             sellyoursRecords@gamil.com
             <br />
             <CallIcon className={classes.foot} />
-            Mobile No:+491234567890
+            Mobile No:+4901234567890
           </Typography>
         </div>
       </Grid>
