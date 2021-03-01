@@ -6,7 +6,7 @@ const ContactUsStyles = makeStyles((theme) => ({
     margin: theme.spacing(1)
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary
   },
@@ -60,17 +60,23 @@ const ContactUsStyles = makeStyles((theme) => ({
   },
   cardHeader: {
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '1rem',
-    margin: '.5rem 0 .5rem 2.5rem'
+    padding: '1rem'
   },
   header: {
     letterSpacing: '1px',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    margin: theme.spacing(1, 0)
   },
   image: {
     padding: '.75rem'
+  },
+  team: {
+    padding: '1.5rem',
+    fontWeight: 'bold',
+    margin: theme.spacing(2, 0),
+    fontFamily: 'monospace',
+    letterSpacing: '1px',
+    textTransform: 'uppercase'
   }
 }));
 

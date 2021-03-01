@@ -21,8 +21,7 @@ const ContactUs = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={5}>
-        <Grid item xs={1} />
-        <Grid item xs={10} className={classes.paper}>
+        <Grid item xs={12} className={classes.paper}>
           <Typography
             variant="h3"
             color="secondary"
@@ -56,7 +55,6 @@ const ContactUs = () => {
             means. In Ancient Greece the Muses included the goddesses of music.
           </Typography>
         </Grid>
-        <Grid item xs={1} />
 
         <Grid item xs={3} />
         <Grid item xs={6} textAlign="center">
@@ -95,128 +93,129 @@ const ContactUs = () => {
           </Paper>
         </Grid>
         <Grid item xs={3} />
-
-        {/* For Our Team */}
-
-        <Grid item xs={12} align="center">
-          <Paper>
-            <Typography
-              variant="h3"
-              padding="1rem"
-              color="secondary"
-              fontWeight="bold"
-              className={classes.header}
-            >
-              Our Team
-            </Typography>
-          </Paper>
-        </Grid>
-        <div className={classes.cardHeader}>
-          <Grid xs={3} wrap>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="G"
-                  height="220"
-                  image="https://picsum.photos/200/300?random=1"
-                  className={classes.image}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    <span className={classes.span1}>Glauber Nespoli</span>
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    Full-Stack Developer
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    <h6>
-                      Java || JavaScript || React || NodeJs || MongoDB || BootStrap || Sass ||
-                      JQuery ||
-                    </h6>
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-          <Grid xs={3}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="S"
-                  height="220"
-                  image="https://picsum.photos/200/300?random=2"
-                  className={classes.image}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    <span className={classes.span1}>Santago Julian</span>
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    Front-End Developer
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    <h6>JavaScript || React || CSS3 || BootStrap || Sass || JQuery ||HTML5</h6>
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-          <Grid xs={3}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="M"
-                  height="220"
-                  image="https://picsum.photos/200/300?random=3"
-                  className={classes.image}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    <span className={classes.span1}>Manonmani Selvakumar</span>
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    Front-End Developer
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    <h6>JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5</h6>
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-          <Grid xs={3}>
-            <Card className={classes.card}>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="220"
-                  image="https://picsum.photos/200/300?random=4"
-                  className={classes.image}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    <span className={classes.span1}>Arifur Rahman Arif</span>
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    Web Developer
-                  </Typography>
-                  <Typography variant="h6" color="textSecondary">
-                    <h6>
-                      JavaScript || React || NodeJs || BootStrap || Sass || JQuery || HTML5 || CSS3
-                    </h6>
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        </div>
       </Grid>
 
+      {/* card begin here */}
+
       <Grid item xs={12}>
+        <Paper>
+          <Typography variant="h2" align="center" className={classes.team} color="secondary">
+            Our Team
+          </Typography>
+        </Paper>
+      </Grid>
+
+      <div className={classes.cardHeader}>
+        <Grid xs={3}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt="G"
+                height="220"
+                image="https://picsum.photos/200/300?random=1"
+                className={classes.image}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  <span className={classes.span1}>Glauber Nespoli</span>
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  Full-Stack Developer
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  <h6>
+                    Java || JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery
+                    ||
+                  </h6>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid xs={3}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt="G"
+                height="220"
+                image="https://picsum.photos/200/300?random=2"
+                className={classes.image}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  <span className={classes.span1}>Santiago Julian </span>
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  Front-End Developer
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  <h6>
+                    JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery ||
+                  </h6>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid xs={3}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt="G"
+                height="220"
+                image="https://picsum.photos/200/300?random=3"
+                className={classes.image}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  <span className={classes.span1}>Manonmani Selvakumar</span>
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  Web Developer
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  <h6>
+                    JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery ||
+                  </h6>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+        <Grid xs={3}>
+          <Card className={classes.card}>
+            <CardActionArea>
+              <CardMedia
+                component="img"
+                alt="G"
+                height="220"
+                image="https://picsum.photos/200/300?random=4"
+                className={classes.image}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  <span className={classes.span1}>Arifur Rahman Arif</span>
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  Front-End Developer
+                </Typography>
+                <Typography variant="h6" color="textSecondary">
+                  <h6>
+                    JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery ||
+                  </h6>
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      </div>
+
+      {/* More Infos  */}
+
+      <Grid item xs={12} spacing={6}>
         <div className={classes.foot1}>
           <Typography
             variant="h6"
