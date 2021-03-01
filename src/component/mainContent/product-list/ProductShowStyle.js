@@ -8,11 +8,17 @@ const useStyles = makeStyles({
     marginTop: '8vh',
     marginBottom: '8vh'
   },
+  typography: {
+    paddingLeft: '10vw',
+    paddingRight: '10vw',
+    paddingTop: '10vh',
+    paddingBottom: '5vh'
+  },
   container: {
     paddingLeft: '10vw',
     paddingRight: '10vw',
     paddingTop: '5vh',
-    paddingBottom: '5vh'
+    paddingBottom: '10vh'
   },
   img: {
     width: '100%',

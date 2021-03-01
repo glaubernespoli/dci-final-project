@@ -8,7 +8,7 @@ const ProductContainer = () => {
   const classes = useStyles();
   return (
     <Paper elevation={5} className={classes.paper}>
-      <Grid container className={classes.container}>
+      <Grid container className={classes.typography}>
         <Typography variant="h3">Category</Typography>
       </Grid>
       <Grid container spacing={4} justifyContent="center" className={classes.container}>

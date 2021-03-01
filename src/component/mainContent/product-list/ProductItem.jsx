@@ -10,9 +10,9 @@ import useStyles from './ProductShowStyle';
 const ProductItem = ({ item }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} sm={6} md={3}>
+    <Grid item xs={12} sm={6} md={4}>
       <ImageListItem key={item.img}>
-        <Box height="30vh">
+        <Box height="35vh">
           <img
             srcSet={`${item.img}?w=248&fit=crop&auto=format 1x`}
             alt={item.title}
