@@ -1,15 +1,19 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const InfoStyle = makeStyles((theme) => ({
+const InfoStyle = makeStyles(() => ({
   root: {
-    minHeight: '80vh',
-    margin: theme.spacing(1, 0, 5, 0),
-    padding: '1rem'
+    padding: '12vw'
   },
-  info: {
-    padding: '1rem',
-    margin: theme.spacing(20, 0),
-    fontWeight: 'bold'
+  imagePhone: {
+    width: '100%',
+    height: '100%'
+  },
+  imageIcon: {
+    width: '100%',
+    height: '80%'
+  },
+  imageIconContainer: {
+    width: '50%'
   }
 }));
 
