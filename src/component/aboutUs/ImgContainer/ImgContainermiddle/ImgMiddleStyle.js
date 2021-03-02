@@ -9,7 +9,8 @@ const useStyles = makeStyles({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    minHeight: '700px'
+    minHeight: '700px',
+    display: 'flex'
   },
 
   section: {
@@ -20,15 +21,13 @@ const useStyles = makeStyles({
     backgroundColor: 'black',
     color: '#666',
     borderRadius: '80px',
-    // background: 'linear-gradient(90deg, #333 20%, #3333 40%, rgb(22, 21, 21) 90%)'
-    position: 'absolute',
-    bottom: '0',
-    width: '90vw'
+    background: 'linear-gradient(90deg, #333 20%, #3333 40%, rgb(22, 21, 21) 90%)',
+    width: '90vw',
+    height: '25vh'
   },
 
   infoContainer: {
-    display: 'flex',
-    minHeight: '18vh'
+    display: 'flex'
   },
   content: {
     // flex: '50%',
@@ -45,9 +44,6 @@ const useStyles = makeStyles({
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     minHeight: '100px'
-    // '&:hover': {
-    //   opacity: '.7'
-    // }
   }
 });
 export default useStyles;
