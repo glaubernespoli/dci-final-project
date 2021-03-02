@@ -8,7 +8,6 @@ const useStyles = makeStyles({
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    width: '100vw',
     backgroundAttachment: 'fixed',
     minHeight: '700px'
   },
@@ -23,7 +22,8 @@ const useStyles = makeStyles({
     borderRadius: '80px',
     // background: 'linear-gradient(90deg, #333 20%, #3333 40%, rgb(22, 21, 21) 90%)'
     position: 'absolute',
-    bottom: '0'
+    bottom: '0',
+    width: '90vw'
   },
 
   infoContainer: {

@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
-    width: '100vw',
     backgroundAttachment: 'fixed',
     minHeight: '800px'
   },

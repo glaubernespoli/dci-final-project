@@ -1,4 +1,6 @@
 import { Link, Typography } from '@material-ui/core';
+import { Link as RouterLink } from 'react-router-dom';
+import { AboutUsRoute, ContactUsRoute } from '../../Routing';
 import useStyles from './infoStyle';
 
 const Info = () => {
@@ -7,12 +9,12 @@ const Info = () => {
   return (
     <div className={classes.infoStyle}>
       <Typography variant="p" component="div">
-        <Link component="a" href="./" color="white">
+        <Link component={RouterLink} to={AboutUsRoute} color="white">
           About Us
         </Link>
       </Typography>
       <Typography variant="p" component="div">
-        <Link component="a" href="./" color="white">
+        <Link component={RouterLink} to={ContactUsRoute} color="white">
           Contact Us
         </Link>
       </Typography>
