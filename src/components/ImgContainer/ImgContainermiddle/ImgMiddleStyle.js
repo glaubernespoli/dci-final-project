@@ -28,7 +28,7 @@ const useStyles = makeStyles({
 
   infoContainer: {
     display: 'flex',
-    minHeight: '28vh'
+    minHeight: '18vh'
   },
   content: {
     // flex: '50%',
