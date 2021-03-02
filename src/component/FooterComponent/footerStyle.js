@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
 
   footerStyle: {
     display: 'flex',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space-around'
   }
 }));
 export default useStyles;

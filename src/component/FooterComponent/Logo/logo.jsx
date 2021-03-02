@@ -1,11 +1,9 @@
-import LogoImg from './logo.jpg';
-import UseStyles from './logoStyle';
+import LogoComponent from '../../Header/Logo/Logo';
 
 export default function Logo() {
-  const classes = UseStyles();
   return (
     <div>
-      <img src={LogoImg} alt="Sell Your Records" className={classes.logo} />
+      <LogoComponent />
     </div>
   );
 }
