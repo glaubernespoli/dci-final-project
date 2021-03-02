@@ -1,5 +1,4 @@
-import { Button, Toolbar } from '@material-ui/core';
-import HomeIcon from '@material-ui/icons/Home';
+import { Toolbar } from '@material-ui/core';
 import React from 'react';
 import HeaderStyles from '../HeaderStyles';
 import NavItem from './NavItem';
@@ -10,9 +9,6 @@ const MenuBar = () => {
   return (
     <>
       <Toolbar>
-        <Button color="inherit" className={classes.logo}>
-          <HomeIcon />
-        </Button>
         <NavItem
           title="Music"
           subItems={['format', 'Gender', 'Style', 'Others']}

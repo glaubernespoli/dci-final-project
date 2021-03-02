@@ -10,7 +10,7 @@ const Header = () => {
   const classes = HeaderStyles();
   return (
     <>
-      <AppBar position="static" color="inherit">
+      <AppBar position="sticky" color="inherit">
         <Toolbar className={classes.tool}>
           <Logo />
           <MenuBar />

@@ -1,4 +1,4 @@
-import TextField from '@material-ui/core/TextField';
+import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
 import HeaderStyles from '../HeaderStyles';
@@ -7,15 +7,19 @@ const Search = () => {
   const classes = HeaderStyles();
 
   return (
-    <form className={classes.search} noValidate autoComplete="on">
-      <TextField
-        id="outlined-basic"
-        label="Search Your Music"
-        variant="outlined"
-        placeholder="Search Your Music"
+    <div className={classes.search}>
+      <div className={classes.searchIcon}>
+        <SearchIcon />
+      </div>
+      <InputBase
+        placeholder="Search…"
+        classes={{
+          root: classes.inputRoot,
+          input: classes.inputInput
+        }}
+        inputProps={{ 'aria-label': 'search' }}
       />
-      <SearchIcon className={classes.searchIcon} />
-    </form>
+    </div>
   );
 };
 export default Search;

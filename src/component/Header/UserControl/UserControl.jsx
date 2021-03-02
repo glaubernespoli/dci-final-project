@@ -1,6 +1,8 @@
 import { Button, Toolbar } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { LoginRoute } from '../../Routing';
 import HeaderStyles from '../HeaderStyles';
 
 const UserControl = () => {
@@ -9,7 +11,7 @@ const UserControl = () => {
   return (
     <>
       <Toolbar>
-        <Button color="secondary" variant="contained">
+        <Button color="secondary" variant="contained" component={Link} to={LoginRoute}>
           LogIn
         </Button>
         <Button color="inherit" className={classes.logo}>
