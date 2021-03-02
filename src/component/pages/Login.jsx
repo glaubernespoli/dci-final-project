@@ -1,18 +1,18 @@
-import { Button, TextField, Typography } from '@material-ui/core';
+import { Button, Checkbox, TextField, Typography } from '@material-ui/core';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import GoogleIcon from '@material-ui/icons/Google';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import React from 'react';
-import LoginStyles from './LoginStyles';
+import LoginStyles from '../Login/LoginStyles';
 
-const SignUp = () => {
+const Login = () => {
   const classes = LoginStyles();
 
   return (
     <div className={classes.mainDiv}>
       <Typography variant="h4" color="secondary" className={classes.typography}>
-        Create Your Account
+        Login
       </Typography>
       <hr />
       <div>
@@ -40,22 +40,6 @@ const SignUp = () => {
 
       <form className={classes.form} noValidate autoComplete="off">
         <TextField
-          id="firstName"
-          label="First Name"
-          variant="standard"
-          type="text"
-          placeholder="Enter Your First Name"
-          className={classes.textF}
-        />
-        <TextField
-          id="lastName"
-          label="Last Name"
-          variant="standard"
-          type="text"
-          placeholder="Enter Your Last Name"
-          className={classes.textF}
-        />
-        <TextField
           id="email"
           label="Email Address"
           variant="standard"
@@ -63,6 +47,7 @@ const SignUp = () => {
           placeholder="Enter Your Email"
           className={classes.textF}
         />
+
         <TextField
           id="password"
           label="Password"
@@ -71,26 +56,28 @@ const SignUp = () => {
           placeholder="Enter Your Password"
           className={classes.textF}
         />
-        <TextField
-          id="confirmPassword"
-          label="Confirm Password"
-          variant="standard"
-          type="password"
-          placeholder="Confirm Your Password"
-          className={classes.textF}
-        />
 
+        <div>
+          <Checkbox
+            defaultChecked
+            color="primary"
+            inputProps={{ 'aria-label': 'secondary checkbox' }}
+          />
+          <Typography variant="p" fontFamily="monospace" className={classes.textF}>
+            Remember me
+          </Typography>
+        </div>
         <div className={classes.textF}>
           <Button variant="contained" color="primary" fullWidth>
-            Submit
+            LogIn
           </Button>
         </div>
         <Typography variant="p" className={classes.textF} fontFamily="monospace">
-          already registered?
-          <Button color="secondary">LogIn</Button>
+          not yet registered?
+          <Button color="secondary">create an account</Button>
         </Typography>
       </form>
     </div>
   );
 };
-export default SignUp;
+export default Login;
