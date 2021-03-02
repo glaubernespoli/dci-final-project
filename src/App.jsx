@@ -1,12 +1,12 @@
 import './App.css';
 import Footer from './component/FooterComponent/Footer';
 import Header from './component/Header/Header';
-import Aboutus from './components/About';
+import MainContent from './component/mainContent/MainContent';
 
 const App = () => (
   <>
     <Header />
-    <Aboutus />
+    <MainContent />
     <Footer />
   </>
 );

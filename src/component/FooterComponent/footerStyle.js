@@ -1,11 +1,13 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
-  root: {
-    position: 'relative',
-    bottom: 0,
-    width: '100%'
-  },
+  // root: {
+  //   flexGrow: 1,
+  //   position: 'absolute',
+  //   bottom: 0,
+  //   left: 0,
+  //   width: '100%'
+  // },
 
   footerStyle: {
     display: 'flex',
