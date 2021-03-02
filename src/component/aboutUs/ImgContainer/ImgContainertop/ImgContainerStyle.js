@@ -8,13 +8,13 @@ const useStyles = makeStyles({
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     height: '100vh',
-    backgroundAttachment: 'fixed'
+    backgroundAttachment: 'fixed',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
 
   txt: {
-    position: 'absolute',
-    top: '50%',
-    width: '100%',
     textAlign: 'center',
     color: '#000',
 

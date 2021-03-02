@@ -29,9 +29,10 @@ const useStyles = makeStyles({
   sec2: {
     color: '#666',
     borderRadius: '100px',
-    // background: 'linear-gradient(90deg, rgb(22, 21, 21) 10%,#333 30%, #3333 90%)',
     background: 'linear-gradient(90deg, rgb(22, 21, 21) 20%, #3348 60%, #333 90%)',
-    padding: '10px 30px'
+    padding: '10px 30px',
+    width: '90vw',
+    height: '25vh'
   },
   sec3: {
     backgroundColor: 'black',
