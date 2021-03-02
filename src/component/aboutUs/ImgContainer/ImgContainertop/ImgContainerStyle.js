@@ -17,6 +17,7 @@ const useStyles = makeStyles({
   txt: {
     textAlign: 'center',
     color: '#000',
+
     textTransform: 'uppercase'
   },
   border: {
