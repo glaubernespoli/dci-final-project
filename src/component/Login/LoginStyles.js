@@ -19,7 +19,7 @@ const LoginStyles = makeStyles((theme) => ({
     margin: theme.spacing(1, 0)
   },
   typography: {
-    margin: theme.spacing(3, 0),
+    margin: theme.spacing(2, 0),
     fontFamily: 'monospace',
     fontWeight: 'bold',
     textAlign: 'center'

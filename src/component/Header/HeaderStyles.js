@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   searchIcon: {
     position: 'absolute',
-    right: '5rem',
+    right: '4rem',
     top: '1rem'
   },
   logo: {

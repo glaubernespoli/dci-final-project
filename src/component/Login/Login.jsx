@@ -74,7 +74,7 @@ const Login = () => {
         </div>
         <Typography variant="p" className={classes.textF} fontFamily="monospace">
           not yet registered?
-          <Button color="secondary">create an account</Button>
+          <Button color="secondary">Registration</Button>
         </Typography>
       </form>
     </div>

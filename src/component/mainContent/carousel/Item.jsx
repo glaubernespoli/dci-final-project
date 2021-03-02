@@ -15,7 +15,7 @@ const Item = ({ item }) => {
         </Grid>
 
         <Grid item>
-          <Typography align="center" gutterBottom paragraph variant="caption">
+          <Typography align="center" gutterBottom paragraph variant="h5">
             {item.description}
           </Typography>
         </Grid>

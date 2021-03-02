@@ -11,7 +11,7 @@ const SignUp = () => {
 
   return (
     <div className={classes.mainDiv}>
-      <Typography variant="h4" color="secondary" className={classes.typography}>
+      <Typography variant="h5" color="secondary" className={classes.typography}>
         Create Your Account
       </Typography>
       <hr />
