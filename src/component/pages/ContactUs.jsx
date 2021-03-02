@@ -13,7 +13,7 @@ import CallIcon from '@material-ui/icons/Call';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import React from 'react';
-import contactUs from './ContactStyle';
+import contactUs from '../contactUs/ContactStyle';
 
 const ContactUs = () => {
   const classes = contactUs();
