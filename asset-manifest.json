@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/Selling-Online/static/css/main.cd4f30ac.chunk.css",
+    "main.js": "/Selling-Online/static/js/main.f28933dd.chunk.js",
+    "main.js.map": "/Selling-Online/static/js/main.f28933dd.chunk.js.map",
+    "runtime-main.js": "/Selling-Online/static/js/runtime-main.cf2f7636.js",
+    "runtime-main.js.map": "/Selling-Online/static/js/runtime-main.cf2f7636.js.map",
+    "static/css/2.284bccd2.chunk.css": "/Selling-Online/static/css/2.284bccd2.chunk.css",
+    "static/js/2.ee4d1ab5.chunk.js": "/Selling-Online/static/js/2.ee4d1ab5.chunk.js",
+    "static/js/2.ee4d1ab5.chunk.js.map": "/Selling-Online/static/js/2.ee4d1ab5.chunk.js.map",
+    "static/js/3.730b3c35.chunk.js": "/Selling-Online/static/js/3.730b3c35.chunk.js",
+    "static/js/3.730b3c35.chunk.js.map": "/Selling-Online/static/js/3.730b3c35.chunk.js.map",
+    "index.html": "/Selling-Online/index.html",
+    "static/css/2.284bccd2.chunk.css.map": "/Selling-Online/static/css/2.284bccd2.chunk.css.map",
+    "static/css/main.cd4f30ac.chunk.css.map": "/Selling-Online/static/css/main.cd4f30ac.chunk.css.map",
+    "static/js/2.ee4d1ab5.chunk.js.LICENSE.txt": "/Selling-Online/static/js/2.ee4d1ab5.chunk.js.LICENSE.txt",
+    "static/media/img1.6af67c43.jpg": "/Selling-Online/static/media/img1.6af67c43.jpg",
+    "static/media/img2.05abf91a.jpg": "/Selling-Online/static/media/img2.05abf91a.jpg",
+    "static/media/img3.bb93c374.jpg": "/Selling-Online/static/media/img3.bb93c374.jpg",
+    "static/media/img4.4e0a4888.jpg": "/Selling-Online/static/media/img4.4e0a4888.jpg",
+    "static/media/img5.76f0a777.jpg": "/Selling-Online/static/media/img5.76f0a777.jpg",
+    "static/media/logo.291414e7.jpg": "/Selling-Online/static/media/logo.291414e7.jpg",
+    "static/media/300.css": "/Selling-Online/static/media/roboto-vietnamese-300-normal.54344cce.woff2",
+    "static/media/400.css": "/Selling-Online/static/media/roboto-vietnamese-400-normal.52cebac0.woff2",
+    "static/media/500.css": "/Selling-Online/static/media/roboto-vietnamese-500-normal.a46e5fcd.woff2",
+    "static/media/700.css": "/Selling-Online/static/media/roboto-vietnamese-700-normal.cfedd72c.woff2"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cf2f7636.js",
+    "static/css/2.284bccd2.chunk.css",
+    "static/js/2.ee4d1ab5.chunk.js",
+    "static/css/main.cd4f30ac.chunk.css",
+    "static/js/main.f28933dd.chunk.js"
+  ]
+}
