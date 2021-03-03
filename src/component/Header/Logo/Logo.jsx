@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { HomeRoute } from '../../Routing';
+import { HomeRoute } from '../../Routing/routes';
 import HeaderStyles from '../HeaderStyles';
 import LogoImage from './logo.jpg';
 
