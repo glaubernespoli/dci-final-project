@@ -2,9 +2,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const LoginStyles = makeStyles((theme) => ({
   mainDiv: {
-    width: '32vw',
+    width: '34vw',
     margin: '2rem auto',
-    padding: '2rem 3rem',
+    padding: '2em 2rem',
     boxShadow: '0 0 4px'
   },
   form: {
