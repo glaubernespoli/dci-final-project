@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles({
+const imgBackgroundStyles = makeStyles({
   img: {
     backgroundPosition: 'center',
     backgroundSize: 'cover',
@@ -11,4 +11,4 @@ const useStyles = makeStyles({
     textAlign: 'center'
   }
 });
-export default useStyles;
+export default imgBackgroundStyles;
