@@ -1,3 +1,1 @@
 # Selling-Online
-
-Hi!
