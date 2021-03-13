@@ -14,7 +14,6 @@ const LoginForm = () => {
         label="Email Address"
         variant="standard"
         type="email"
-        placeholder="Enter Your Email"
         className={classes.textF}
       />
 
@@ -23,7 +22,6 @@ const LoginForm = () => {
         label="Password"
         variant="standard"
         type="password"
-        placeholder="Enter Your Password"
         className={classes.textF}
       />
 
@@ -39,12 +37,12 @@ const LoginForm = () => {
       </div>
       <div className={classes.textF}>
         <Button variant="contained" color="primary" fullWidth>
-          LogIn
+          Login
         </Button>
       </div>
       <Typography variant="p" className={classes.textF} fontFamily="monospace">
         not yet registered?
-        <Button color="secondary" component={Link} to={SignUpRoute}>
+        <Button variant="inherit" className={classes.btn} component={Link} to={SignUpRoute}>
           create an account
         </Button>
       </Typography>

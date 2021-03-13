@@ -23,6 +23,10 @@ const LoginStyles = makeStyles((theme) => ({
     fontFamily: 'monospace',
     fontWeight: 'bold',
     textAlign: 'center'
+  },
+  btn: {
+    fontSize: '.6rem',
+    color: 'gold'
   }
 }));
 

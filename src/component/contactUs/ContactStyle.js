@@ -71,12 +71,17 @@ const ContactUsStyles = makeStyles((theme) => ({
     padding: '.75rem'
   },
   team: {
-    padding: '1.5rem',
+    padding: '1.5rem 0',
     fontWeight: 'bold',
     margin: theme.spacing(2, 0),
     fontFamily: 'monospace',
     letterSpacing: '1px',
     textTransform: 'uppercase'
+  },
+  feedback: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   }
 }));
 

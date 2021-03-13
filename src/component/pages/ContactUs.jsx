@@ -1,19 +1,10 @@
-import {
-  Button,
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Grid,
-  Paper,
-  TextField,
-  Typography
-} from '@material-ui/core';
+import { Grid, Paper, Typography } from '@material-ui/core';
 import CallIcon from '@material-ui/icons/Call';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import React from 'react';
 import contactUs from '../contactUs/ContactStyle';
+import FeedBack from '../contactUs/Feedback';
+import ProfileCard from '../contactUs/ProfileCard';
 
 const ContactUs = () => {
   const classes = contactUs();
@@ -55,47 +46,15 @@ const ContactUs = () => {
             means. In Ancient Greece the Muses included the goddesses of music.
           </Typography>
         </Grid>
-
-        <Grid item xs={3} />
-        <Grid item xs={6} textAlign="center">
-          <Paper className={classes.paper}>
-            <form className={classes.input} noValidate autoComplete="off">
-              <div className={classes.input}>
-                <TextField
-                  id="filled-textarea"
-                  label="Your Name"
-                  placeholder="Enter Your Name"
-                  multiline
-                  variant="standard"
-                  className={classes.input}
-                />
-                <TextField
-                  id="filled-textarea"
-                  label="Your Email Address"
-                  placeholder="Enter Your Email"
-                  multiline
-                  variant="standard"
-                  className={classes.input}
-                />
-                <TextField
-                  id="outlined-multiline-static"
-                  label="Your Message"
-                  multiline
-                  rows={4}
-                  variant="standard"
-                  className={classes.input}
-                />
-                <Button variant="contained" color="primary" className={classes.input}>
-                  Submit
-                </Button>
-              </div>
-            </form>
-          </Paper>
-        </Grid>
-        <Grid item xs={3} />
       </Grid>
+      {/* Feedback from customer side */}
 
-      {/* card begin here */}
+      <div className={classes.feedback}>
+        <Grid item xs={6}>
+          <FeedBack />
+        </Grid>
+      </div>
+      {/* ProfileCard begin here */}
 
       <Grid item xs={12}>
         <Paper>
@@ -104,113 +63,27 @@ const ContactUs = () => {
           </Typography>
         </Paper>
       </Grid>
-
       <div className={classes.cardHeader}>
-        <Grid xs={3}>
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="G"
-                height="220"
-                image="https://picsum.photos/200/300?random=1"
-                className={classes.image}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  <span className={classes.span1}>Glauber Nespoli</span>
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  Full-Stack Developer
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  <h6>
-                    Java || JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery
-                    ||
-                  </h6>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid xs={3}>
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="G"
-                height="220"
-                image="https://picsum.photos/200/300?random=2"
-                className={classes.image}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  <span className={classes.span1}>Santiago Julian </span>
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  Front-End Developer
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  <h6>
-                    JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery ||
-                  </h6>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid xs={3}>
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="G"
-                height="220"
-                image="https://picsum.photos/200/300?random=3"
-                className={classes.image}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  <span className={classes.span1}>Manonmani Selvakumar</span>
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  Web Developer
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  <h6>
-                    JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery ||
-                  </h6>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
-        <Grid xs={3}>
-          <Card className={classes.card}>
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                alt="G"
-                height="220"
-                image="https://picsum.photos/200/300?random=4"
-                className={classes.image}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h2">
-                  <span className={classes.span1}>Arifur Rahman Arif</span>
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  Front-End Developer
-                </Typography>
-                <Typography variant="h6" color="textSecondary">
-                  <h6>
-                    JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery ||
-                  </h6>
-                </Typography>
-              </CardContent>
-            </CardActionArea>
-          </Card>
-        </Grid>
+        <ProfileCard
+          name="Gluber Naspoli"
+          designation="Full Stack Developer"
+          img="https://picsum.photos/200/300?random=1"
+        />
+        <ProfileCard
+          name="Santiago Julian"
+          designation="FrontEnd Developer"
+          img="https://picsum.photos/200/300?random=2"
+        />
+        <ProfileCard
+          name="Arifur Rahman Arif"
+          designation="Web Developer"
+          img="https://picsum.photos/200/300?random=3"
+        />
+        <ProfileCard
+          name="ManonMani Selvakumar"
+          designation="BackEnd Developer"
+          img="https://picsum.photos/200/300?random=4"
+        />
       </div>
 
       {/* More Infos  */}
