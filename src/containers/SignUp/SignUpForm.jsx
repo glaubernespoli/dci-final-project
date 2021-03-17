@@ -1,8 +1,8 @@
 import { Button, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LoginStyles from '../../assets/js/Login-SignUp/LoginStyles';
 import { LoginRoute } from '../../Routing/routes';
+import LoginStyles from '../Login/LoginStyles';
 
 const SignUpForm = () => {
   const classes = LoginStyles();
