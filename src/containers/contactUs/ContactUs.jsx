@@ -13,10 +13,10 @@ import CallIcon from '@material-ui/icons/Call';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import React from 'react';
-import contactUs from '../../assets/js/ContactUs/ContactStyle';
+import ContactUsStyles from './ContactUsStyle';
 
 const ContactUs = () => {
-  const classes = contactUs();
+  const classes = ContactUsStyles();
 
   return (
     <div className={classes.root}>

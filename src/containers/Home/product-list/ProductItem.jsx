@@ -5,7 +5,7 @@ import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
 import React from 'react';
-import useStyles from '../../../assets/js/Home/ProductListStyle/ProductShowStyle';
+import useStyles from './ProductListStyle';
 
 const ProductItem = ({ item }) => {
   const classes = useStyles();
