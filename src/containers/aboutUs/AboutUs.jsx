@@ -1,11 +1,11 @@
 import React from 'react';
 import Achievements from './Achievements';
-import ImgcontainerTop from './ImgContainer/ImgContainertop/ImgContainer';
 import OurStory from './OurStory';
+import Slogan from './Slogan';
 
 const AboutUs = () => (
   <>
-    <ImgcontainerTop />
+    <Slogan />
     <OurStory />
     <Achievements />
   </>
