@@ -1,6 +1,6 @@
 import { Link, Typography } from '@material-ui/core';
-import useStyles from '../../../assets/js/Footer/copyrightStyle';
-import SocialLinks from '../../../assets/js/Footer/Social';
+import useStyles from './CopyrightStyle';
+import SocialLinks from './SocialMediaLinks';
 
 const Copyright = () => {
   const classes = useStyles();

@@ -1,11 +1,11 @@
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import * as React from 'react';
-import useStyles from '../../assets/js/Footer/footerStyle';
-import Copyright from './Copyright/Copyright';
-import Info from './Info/Info';
-import Logo from './Logo/logo';
-import SocialMedia from './SocialmediaIcons/SocialmediaIcons';
+import Copyright from './Copyright';
+import useStyles from './FooterStyle';
+import Info from './Info';
+import Logo from './Logo';
+import SocialMedia from './SocialmediaIcons';
 
 export default function ButtonAppBar() {
   const classes = useStyles();

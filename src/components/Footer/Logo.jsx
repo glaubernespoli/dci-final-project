@@ -1,4 +1,4 @@
-import LogoComponent from '../../Header/Logo/Logo';
+import LogoComponent from '../Header/Logo/Logo';
 
 export default function Logo() {
   return (

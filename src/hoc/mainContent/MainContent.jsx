@@ -1,7 +1,7 @@
 import Box from '@material-ui/core/Box';
 import React from 'react';
-import useStyles from '../../assets/js/MainContent/StyleMainContent';
 import Routing from '../../Routing/Routing';
+import useStyles from './MainContentStyle';
 
 const MainContent = () => {
   const classes = useStyles();

@@ -3,8 +3,8 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import PinterestIcon from '@material-ui/icons/Pinterest';
 import TwitterIcon from '@material-ui/icons/Twitter';
-import SocialLinks from '../../../assets/js/Footer/Social';
-import useStyles from '../../../assets/js/Footer/socialmediaStyle';
+import SocialLinks from './SocialMediaLinks';
+import useStyles from './SocialMediaStyle';
 
 const Socialmedia = () => {
   const classes = useStyles();
