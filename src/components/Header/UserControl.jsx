@@ -2,8 +2,8 @@ import { Button, Toolbar } from '@material-ui/core';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import HeaderStyles from '../../../assets/js/Header/HeaderStyles';
-import { LoginRoute } from '../../../Routing/routes';
+import { LoginRoute } from '../../Routing/routes';
+import HeaderStyles from './HeaderStyles';
 
 const UserControl = () => {
   const classes = HeaderStyles();

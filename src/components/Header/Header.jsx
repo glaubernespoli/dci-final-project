@@ -1,10 +1,10 @@
 import { AppBar, Toolbar } from '@material-ui/core';
 import React from 'react';
-import HeaderStyles from '../../assets/js/Header/HeaderStyles';
-import Logo from './Logo/Logo';
-import MenuBar from './MenuBar/MenuBar';
-import SearchItem from './Search/Search';
-import UserControl from './UserControl/UserControl';
+import HeaderStyles from './HeaderStyles';
+import Logo from './Logo';
+import MenuBar from './MenuBar';
+import SearchItem from './Search';
+import UserControl from './UserControl';
 
 const Header = () => {
   const classes = HeaderStyles();

@@ -1,7 +1,7 @@
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
-import HeaderStyles from '../../../assets/js/Header/HeaderStyles';
+import HeaderStyles from './HeaderStyles';
 
 const Search = () => {
   const classes = HeaderStyles();

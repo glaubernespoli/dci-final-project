@@ -1,6 +1,6 @@
 import { Toolbar } from '@material-ui/core';
 import React from 'react';
-import HeaderStyles from '../../../assets/js/Header/HeaderStyles';
+import HeaderStyles from './HeaderStyles';
 import NavItem from './NavItem';
 
 const MenuBar = () => {
