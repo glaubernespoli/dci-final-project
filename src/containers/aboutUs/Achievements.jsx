@@ -1,8 +1,8 @@
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import React from 'react';
-import useStyles from '../../../../assets/js/AboutUs/ImgContainerFooterStyle/ImgFooterStyle';
-import Gallery from '../ImgGallery/ImgGallery';
+import useStyles from './AchievementsStyle';
+import Gallery from './ImgContainer/ImgGallery/ImgGallery';
 
 export default function ImgContainerFooter() {
   const classes = useStyles();

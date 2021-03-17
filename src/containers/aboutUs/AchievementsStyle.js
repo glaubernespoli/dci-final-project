@@ -1,8 +1,8 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Img1 from '../../../img/AboutUs/img1.jpg';
-import Img3 from '../../../img/AboutUs/img2.jpg';
-import Img5 from '../../../img/AboutUs/img3.jpg';
-import Img4 from '../../../img/AboutUs/img4.jpg';
+import Img1 from '../../assets/img/AboutUs/img1.jpg';
+import Img3 from '../../assets/img/AboutUs/img2.jpg';
+import Img5 from '../../assets/img/AboutUs/img3.jpg';
+import Img4 from '../../assets/img/AboutUs/img4.jpg';
 
 const useStyles = makeStyles({
   img3: {
