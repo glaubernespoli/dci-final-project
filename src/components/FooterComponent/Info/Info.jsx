@@ -1,7 +1,7 @@
 import { Link, Typography } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import useStyles from '../../../assets/js/Footer/infoStyle';
-import { AboutUsRoute, ContactUsRoute } from '../../../assets/js/Routing/routes';
+import { AboutUsRoute, ContactUsRoute } from '../../../Routing/routes';
 
 const Info = () => {
   const classes = useStyles();

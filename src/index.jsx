@@ -7,9 +7,9 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import darkTheme from './assets/js/darkTheme/darkTheme';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import darkTheme from './Theme/darkTheme/darkTheme';
 
 ReactDOM.render(
   <React.StrictMode>

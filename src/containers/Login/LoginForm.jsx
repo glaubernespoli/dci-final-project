@@ -2,7 +2,7 @@ import { Button, Checkbox, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginStyles from '../../assets/js/Login-SignUp/LoginStyles';
-import { SignUpRoute } from '../../assets/js/Routing/routes';
+import { SignUpRoute } from '../../Routing/routes';
 
 const LoginForm = () => {
   const classes = LoginStyles();

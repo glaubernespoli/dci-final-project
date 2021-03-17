@@ -1,16 +1,10 @@
 import { Route, withRouter } from 'react-router-dom';
-import {
-  AboutUsRoute,
-  ContactUsRoute,
-  HomeRoute,
-  LoginRoute,
-  SignUpRoute
-} from '../../assets/js/Routing/routes';
-import AboutUs from '../aboutUs/AboutUs';
-import ContactUs from '../contactUs/ContactUs';
-import Home from '../Home/Home';
-import Login from '../Login/Login';
-import SignUp from '../SignUp/SignUp';
+import AboutUs from '../containers/aboutUs/AboutUs';
+import ContactUs from '../containers/contactUs/ContactUs';
+import Home from '../containers/Home/Home';
+import Login from '../containers/Login/Login';
+import SignUp from '../containers/SignUp/SignUp';
+import { AboutUsRoute, ContactUsRoute, HomeRoute, LoginRoute, SignUpRoute } from './routes';
 
 const Routing = () => (
   <>
