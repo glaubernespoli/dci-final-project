@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Img2 from '../../../img/AboutUs/img2.jpg';
-import Img4 from '../../../img/AboutUs/img5.jpg';
+import Img2 from '../../assets/img/AboutUs/img2.jpg';
+import Img4 from '../../assets/img/AboutUs/img5.jpg';
 
 const useStyles = makeStyles({
   img2: {

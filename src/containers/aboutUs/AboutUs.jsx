@@ -1,12 +1,12 @@
 import React from 'react';
 import Achievements from './Achievements';
-import ImgContainerMiddle from './ImgContainer/ImgContainermiddle/ImgContainermiddle';
 import ImgcontainerTop from './ImgContainer/ImgContainertop/ImgContainer';
+import OurStory from './OurStory';
 
 const AboutUs = () => (
   <>
     <ImgcontainerTop />
-    <ImgContainerMiddle />
+    <OurStory />
     <Achievements />
   </>
 );
