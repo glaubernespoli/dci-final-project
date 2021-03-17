@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import darkTheme from './Theme/darkTheme/darkTheme';
+import darkTheme from './Theme/darkTheme';
 
 ReactDOM.render(
   <React.StrictMode>
