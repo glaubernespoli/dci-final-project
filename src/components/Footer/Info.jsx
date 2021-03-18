@@ -1,7 +1,7 @@
 import { Link, Typography } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import { AboutUsRoute, ContactUsRoute } from '../../Routing/routes';
-import useStyles from './InfoStyle';
+import useStyles from './Info.style';
 
 const Info = () => {
   const classes = useStyles();

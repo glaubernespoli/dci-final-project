@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import React from 'react';
-import useStyles from './GalleryStyle';
+import useStyles from './Gallery.style';
 
 export default function ImgGallery() {
   const classes = useStyles();

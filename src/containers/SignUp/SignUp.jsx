@@ -4,8 +4,12 @@ import GoogleIcon from '@material-ui/icons/Google';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import React from 'react';
-import LoginStyles from '../Login/LoginStyles';
+import LoginStyles from '../Login/Login.styles';
 import SingUpForm from './SignUpForm';
+
+/*
+TODO : This component needs to have it's owne File of Styles and not share the Login.styles
+*/
 
 const SignUp = () => {
   const classes = LoginStyles();

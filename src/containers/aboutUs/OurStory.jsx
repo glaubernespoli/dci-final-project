@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import React from 'react';
-import useStyles from './OurStoryStyle';
+import useStyles from './OurStory.style';
 
 export default function ImgContainerMiddle() {
   const classes = useStyles();

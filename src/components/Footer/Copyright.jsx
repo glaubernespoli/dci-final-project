@@ -1,6 +1,6 @@
 import { Link, Typography } from '@material-ui/core';
-import useStyles from './CopyrightStyle';
-import SocialLinks from './SocialMediaLinks';
+import SocialLinks from '../SocialMedia/SocialMediaLinks';
+import useStyles from './Copyright.style';
 
 const Copyright = () => {
   const classes = useStyles();

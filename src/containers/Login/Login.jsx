@@ -4,8 +4,8 @@ import GoogleIcon from '@material-ui/icons/Google';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import React from 'react';
+import LoginStyles from './Login.styles';
 import LoginForm from './LoginForm';
-import LoginStyles from './LoginStyles';
 
 const Login = () => {
   const classes = LoginStyles();

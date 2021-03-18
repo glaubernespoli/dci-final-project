@@ -3,7 +3,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LoginRoute } from '../../Routing/routes';
-import HeaderStyles from './HeaderStyles';
+import HeaderStyles from './Header.styles';
 
 const UserControl = () => {
   const classes = HeaderStyles();

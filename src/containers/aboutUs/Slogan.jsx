@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import React from 'react';
-import useStyles from './SloganStyle';
+import useStyles from './Slogan.style';
 
 export default function ImgContainer() {
   const classes = useStyles();

@@ -1,7 +1,7 @@
 import { Button, Grid, Paper, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import useStyles from './CarouselStyle';
+import useStyles from './Carousel.style';
 
 const Item = ({ item }) => {
   const classes = useStyles();

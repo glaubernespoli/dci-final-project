@@ -1,6 +1,6 @@
 import { Grid, Paper, Typography } from '@material-ui/core';
 import React from 'react';
-import InfoStyle from './InformationStyle';
+import InfoStyle from './Information.style';
 
 export default function FixedContainer() {
   const classes = InfoStyle();

@@ -2,7 +2,7 @@ import { Grid, Paper, Typography } from '@material-ui/core';
 import React from 'react';
 import Products from './APIproductShow';
 import ProductItem from './ProductItem';
-import useStyles from './ProductListStyle';
+import useStyles from './ProductList.style';
 
 const ProductContainer = () => {
   const classes = useStyles();

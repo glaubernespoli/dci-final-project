@@ -2,7 +2,11 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LoginRoute } from '../../Routing/routes';
-import LoginStyles from '../Login/LoginStyles';
+import LoginStyles from '../Login/Login.styles';
+
+/*
+TODO : This component needs to have it's owne File of Styles and not share the Login.styles
+*/
 
 const SignUpForm = () => {
   const classes = LoginStyles();

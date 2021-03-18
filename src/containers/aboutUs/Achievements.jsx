@@ -1,7 +1,7 @@
 import { Typography } from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import React from 'react';
-import useStyles from './AchievementsStyle';
+import useStyles from './Achievements.style';
 import Gallery from './Gallery';
 
 export default function ImgContainerFooter() {
