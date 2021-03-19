@@ -1,10 +1,10 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import React from 'react';
-import contactUs from './ContactUsStyle';
+import ProfileCardStyles from './ProfileCard.style';
 
-const ProfileCard = ({ name, designation, img }) => {
-  const classes = contactUs();
+const ProfileCard = ({ name, designation, img, skills }) => {
+  const classes = ProfileCardStyles();
 
   return (
     <div>
@@ -13,13 +13,13 @@ const ProfileCard = ({ name, designation, img }) => {
           <CardMedia component="img" alt="G" height="220" image={img} className={classes.image} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
-              <span className={classes.span1}>{name}</span>
+              <span className={classes.span}>{name}</span>
             </Typography>
             <Typography variant="h6" color="textSecondary">
               {designation}
             </Typography>
             <Typography variant="h6" color="textSecondary">
-              <h6> JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery ||</h6>
+              <h6>{skills}</h6>
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -30,6 +30,7 @@ const ProfileCard = ({ name, designation, img }) => {
 ProfileCard.propTypes = {
   name: PropTypes.string.isRequired,
   designation: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired
+  img: PropTypes.string.isRequired,
+  skills: PropTypes.string.isRequired
 };
 export default ProfileCard;
