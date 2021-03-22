@@ -25,7 +25,7 @@ const SignUp = () => {
 
         <SocialMedia />
       </div>
-      <Typography variant="h5" className={classes.typography}>
+      <Typography variant="h5" color="blue" className={classes.typography}>
         OR
       </Typography>
       {/* imported the SignUp form */}

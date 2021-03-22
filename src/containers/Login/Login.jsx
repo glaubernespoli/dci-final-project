@@ -19,7 +19,7 @@ const Login = () => {
         {/* Importing the SocialMedia Link */}
         <SocialMedia />
       </div>
-      <Typography variant="h5" className={classes.typography}>
+      <Typography variant="h5" color="blue" className={classes.typography}>
         OR
       </Typography>
       {/* Import the LoginForm */}
