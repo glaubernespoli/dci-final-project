@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-const LoginStyles = makeStyles((theme) => ({
+const SignUpStyle = makeStyles((theme) => ({
   mainDiv: {
     width: '34vw',
     margin: '2rem auto',
@@ -11,6 +11,7 @@ const LoginStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column'
   },
+
   textF: {
     margin: theme.spacing(1, 0)
   },
@@ -22,4 +23,4 @@ const LoginStyles = makeStyles((theme) => ({
   }
 }));
 
-export default LoginStyles;
+export default SignUpStyle;

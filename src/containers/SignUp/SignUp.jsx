@@ -1,10 +1,7 @@
-import { Button, Typography } from '@material-ui/core';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import GoogleIcon from '@material-ui/icons/Google';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import { Typography } from '@material-ui/core';
 import React from 'react';
-import LoginStyles from '../Login/Login.styles';
+import SocialMedia from '../../components/SocialMedia/SocialmediaIcons';
+import SignUpStyle from './SignUp.style';
 import SingUpForm from './SignUpForm';
 
 /*
@@ -12,7 +9,7 @@ TODO : This component needs to have it's owne File of Styles and not share the L
 */
 
 const SignUp = () => {
-  const classes = LoginStyles();
+  const classes = SignUpStyle();
 
   return (
     <div className={classes.mainDiv}>
@@ -21,23 +18,12 @@ const SignUp = () => {
       </Typography>
       <hr />
       <div>
-        <Typography variant="h6" className={classes.typography}>
+        <Typography variant="h5" color="blue" className={classes.typography}>
           Connected with
         </Typography>
-        <div className={classes.icon}>
-          <Button variant="contained">
-            <FacebookIcon />
-          </Button>
-          <Button variant="contained">
-            <InstagramIcon />
-          </Button>
-          <Button variant="contained">
-            <WhatsAppIcon />
-          </Button>
-          <Button variant="contained">
-            <GoogleIcon />
-          </Button>
-        </div>
+        {/* Importing Social Media Link */}
+
+        <SocialMedia />
       </div>
       <Typography variant="h5" className={classes.typography}>
         OR

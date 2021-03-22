@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <>
       <AppBar position="sticky" color="inherit">
-        <Toolbar className={classes.tool}>
+        <Toolbar className={classes.container}>
           <Logo />
           <MenuBar />
           <SearchItem />

@@ -44,8 +44,8 @@ const LoginForm = () => {
       </div>
       <Typography variant="p" className={classes.textF} fontFamily="monospace">
         not yet registered?
-        <Button color="secondary" component={Link} to={SignUpRoute}>
-          create an account
+        <Button color="inherit" size="small" component={Link} to={SignUpRoute}>
+          Sign Up
         </Button>
       </Typography>
     </form>

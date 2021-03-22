@@ -2,14 +2,14 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { LoginRoute } from '../../Routing/routes';
-import LoginStyles from '../Login/Login.styles';
+import SignUpStyle from './SignUp.style';
 
 /*
 TODO : This component needs to have it's owne File of Styles and not share the Login.styles
 */
 
 const SignUpForm = () => {
-  const classes = LoginStyles();
+  const classes = SignUpStyle();
 
   return (
     <div>
@@ -62,7 +62,7 @@ const SignUpForm = () => {
         </div>
         <Typography variant="p" className={classes.textF} fontFamily="monospace">
           already registered?
-          <Button color="secondary" component={Link} to={LoginRoute}>
+          <Button color="inherit" size="small" component={Link} to={LoginRoute}>
             LogIn
           </Button>
         </Typography>

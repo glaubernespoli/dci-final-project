@@ -3,14 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import LogoImage from '../../assets/img/Logo/logo.jpg';
 import { HomeRoute } from '../../Routing/routes';
-import HeaderStyles from './Header.styles';
-
-/*  TODO : The Logo component needs to be under the src folder,
-at the moment is been used for the footer as well, please be aware if Manon is doing this as well
-*/
+import LogoStyle from './Logo.style';
 
 const Logo = () => {
-  const classes = HeaderStyles();
+  const classes = LogoStyle();
 
   return (
     <div>
