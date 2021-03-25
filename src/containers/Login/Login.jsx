@@ -1,9 +1,5 @@
-import { Button, Typography } from '@material-ui/core';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import GoogleIcon from '@material-ui/icons/Google';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import WhatsAppIcon from '@material-ui/icons/WhatsApp';
-import React from 'react';
+import { Typography } from '@material-ui/core';
+import SocialMedia from '../../components/SocialMedia/SocialmediaIcons';
 import LoginStyles from './Login.styles';
 import LoginForm from './LoginForm';
 
@@ -17,25 +13,13 @@ const Login = () => {
       </Typography>
       <hr />
       <div>
-        <Typography variant="h5" className={classes.typography}>
+        <Typography variant="h5" className={classes.typography} color="blue">
           Connected with
         </Typography>
-        <div className={classes.icon}>
-          <Button variant="contained">
-            <FacebookIcon />
-          </Button>
-          <Button variant="contained">
-            <InstagramIcon />
-          </Button>
-          <Button variant="contained">
-            <WhatsAppIcon />
-          </Button>
-          <Button variant="contained">
-            <GoogleIcon />
-          </Button>
-        </div>
+        {/* Importing the SocialMedia Link */}
+        <SocialMedia />
       </div>
-      <Typography variant="h5" className={classes.typography}>
+      <Typography variant="h5" color="blue" className={classes.typography}>
         OR
       </Typography>
       {/* Import the LoginForm */}

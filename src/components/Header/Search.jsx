@@ -1,10 +1,10 @@
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import React from 'react';
-import HeaderStyles from './Header.styles';
+import SearchStyle from './Search.style';
 
 const Search = () => {
-  const classes = HeaderStyles();
+  const classes = SearchStyle();
 
   return (
     <div className={classes.search}>
