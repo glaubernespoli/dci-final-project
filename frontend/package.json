@@ -31,7 +31,8 @@
     "test:all:windows": "set CI=true && react-scripts test && npm run lint",
     "test:all:default": "CI=true react-scripts-ts test && npm run lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
