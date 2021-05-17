@@ -31,8 +31,7 @@
     "test:all:windows": "set CI=true && react-scripts test && npm run lint",
     "test:all:default": "CI=true react-scripts-ts test && npm run lint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "prepare": "cd .. && husky install frontend/.husky"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -64,7 +63,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-webpack-plugin": "^2.5.4",
     "gh-pages": "^3.1.0",
-    "husky": "^6.0.0",
+    "husky": "^4.3.8",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
