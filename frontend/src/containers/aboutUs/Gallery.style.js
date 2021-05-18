@@ -1,10 +1,10 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Img1 from '../../assets/img/AboutUs/img1.jpg';
-import Img5 from '../../assets/img/AboutUs/img4.jpg';
+import gallery from '../../assets/img/AboutUs/gallery.jpg';
+import headPhone from '../../assets/img/AboutUs/headPhone.jpg';
 
 const useStyles = makeStyles({
   img4: {
-    backgroundImage: `url(${Img1})`,
+    backgroundImage: `url(${headPhone})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
     justifyContent: 'center'
   },
   imgGallery: {
-    backgroundImage: `url(${Img5})`,
+    backgroundImage: `url(${gallery})`,
     marginTop: '3rem',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
