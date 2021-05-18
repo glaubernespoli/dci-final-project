@@ -1,12 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Img1 from '../../assets/img/AboutUs/img1.jpg';
-import Img3 from '../../assets/img/AboutUs/img2.jpg';
-import Img5 from '../../assets/img/AboutUs/img3.jpg';
-import Img4 from '../../assets/img/AboutUs/img4.jpg';
+import gallery from '../../assets/img/AboutUs/gallery.jpg';
+import headPhone from '../../assets/img/AboutUs/headPhone.jpg';
+import vinyl from '../../assets/img/AboutUs/vinyl.jpg';
 
 const useStyles = makeStyles({
   img3: {
-    backgroundImage: `url(${Img3})`,
+    backgroundImage: `url(${vinyl})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -14,7 +13,7 @@ const useStyles = makeStyles({
     minHeight: '800px'
   },
   img4: {
-    backgroundImage: `url(${Img1})`,
+    backgroundImage: `url(${headPhone})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -27,12 +26,14 @@ const useStyles = makeStyles({
   },
 
   sec2: {
+    textAlign: 'center',
     color: '#666',
     borderRadius: '100px',
     background: 'linear-gradient(90deg, rgb(22, 21, 21) 20%, #3348 60%, #333 90%)',
     padding: '10px 30px',
-    width: '90vw',
-    height: '25vh'
+    width: '90vw'
+
+    // height: '25vh'
   },
   sec3: {
     backgroundColor: 'black',
@@ -43,7 +44,8 @@ const useStyles = makeStyles({
   },
 
   infoContainer: {
-    display: 'flex'
+    display: 'flex',
+    flexWrap: 'wrap'
   },
   content: {
     fontSize: '1.3rem',
@@ -54,41 +56,11 @@ const useStyles = makeStyles({
   imgContent: {
     flex: '50%',
     alignSelf: 'flex-start',
-    backgroundImage: `url(${Img4})`,
+    backgroundImage: `url(${gallery})`,
     backgroundSize: '200px 200px',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
     minHeight: '100px'
-    // '&:hover': {
-    //   opacity: '.7'
-    // }
-  },
-
-  gallery: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '1rem',
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  imgGallery: {
-    backgroundImage: `url(${Img5})`,
-    marginTop: '3rem',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    color: 'black',
-    width: '30vw',
-    height: '30vh',
-    textAlign: 'center',
-    fontStyle: 'italic',
-    fontWeight: 'bold',
-    fontFamily: 'cursive',
-    borderRadius: '20px',
-    '&:hover': {
-      opacity: '.7',
-      transform: 'scale(.8)'
-    }
   }
 });
 export default useStyles;

@@ -1,45 +1,38 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Img2 from '../../assets/img/AboutUs/img2.jpg';
-import Img4 from '../../assets/img/AboutUs/img5.jpg';
+import guitar from '../../assets/img/AboutUs/guitar.jpg';
+import ourStory from '../../assets/img/AboutUs/ourStory.jpg';
 
 const useStyles = makeStyles({
   img2: {
-    backgroundImage: `url(${Img2})`,
+    backgroundImage: `url(${guitar})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundAttachment: 'fixed',
-    minHeight: '700px',
-    display: 'flex'
-  },
-
-  section: {
-    textAlign: 'center'
+    minHeight: '800px'
   },
   sec1: {
     textAlign: 'center',
-    backgroundColor: 'black',
     color: '#666',
-    borderRadius: '80px',
+    borderRadius: '100px',
     background: 'linear-gradient(90deg, #333 20%, #3333 40%, rgb(22, 21, 21) 90%)',
-    width: '90vw',
-    height: '25vh'
+    padding: '10px 30px',
+    width: '90vw'
   },
-
   infoContainer: {
-    display: 'flex'
+    display: 'flex',
+    flexWrap: 'wrap'
   },
   content: {
-    // flex: '50%',
     fontSize: '1.3rem',
-
+    color: '#666',
     fontStyle: 'italic',
     padding: '1.5rem'
   },
   imgContent: {
     flex: '50%',
     alignSelf: 'flex-start',
-    backgroundImage: `url(${Img4})`,
+    backgroundImage: `url(${ourStory})`,
     backgroundSize: '200px 200px',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',

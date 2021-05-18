@@ -1,9 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles';
-import Img1 from '../../assets/img/AboutUs/img1.jpg';
+import headPhone from '../../assets/img/AboutUs/headPhone.jpg';
 
 const useStyles = makeStyles({
   img1: {
-    backgroundImage: `url(${Img1})`,
+    backgroundImage: `url(${headPhone})`,
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
