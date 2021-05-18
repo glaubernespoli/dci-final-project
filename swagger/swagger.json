@@ -1,10 +1,11 @@
 {
   "openapi" : "3.0.0",
   "info" : {
-    "title" : "Simple Inventory API",
-    "description" : "This is a simple API",
+    "title" : "Sell Your Records API",
+    "description" : "API for the DCI's final project 'Sell Your Records'.",
     "contact" : {
-      "email" : "you@your-company.com"
+      "name" : "Manonmani Selvakumar",
+      "email" : "mano.hicet@gmail.com"
     },
     "license" : {
       "name" : "Apache 2.0",
