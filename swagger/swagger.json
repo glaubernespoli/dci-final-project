@@ -18,8 +18,8 @@
     "description" : "SwaggerHub API Auto Mocking"
   } ],
   "tags" : [ {
-    "name" : "Products",
-    "description" : "Calls related to the products."
+    "name" : "Records",
+    "description" : "Calls related to the records."
   }, {
     "name" : "admins",
     "description" : "Secured Admin-only calls."
@@ -28,13 +28,13 @@
     "description" : "User settings calls"
   } ],
   "paths" : {
-    "/products" : {
-      "summary" : "Endpoints related to the products of the system.",
+    "/record" : {
+      "summary" : "Endpoints related to the records of the system.",
       "get" : {
-        "tags" : [ "Products" ],
-        "summary" : "Returns the list of products.",
-        "description" : "Returns the list of products, sorted by newest (by default).",
-        "operationId" : "findProducts",
+        "tags" : [ "Records" ],
+        "summary" : "Returns the list of records.",
+        "description" : "Returns the list of records, sorted by newest (by default).",
+        "operationId" : "findRecords",
         "parameters" : [ {
           "name" : "sortBy",
           "in" : "query",
@@ -49,13 +49,13 @@
         } ],
         "responses" : {
           "200" : {
-            "description" : "The list of products.",
+            "description" : "The list of records.",
             "content" : {
               "application/json" : {
                 "schema" : {
                   "type" : "array",
                   "items" : {
-                    "$ref" : "#/components/schemas/Product"
+                    "$ref" : "#/components/schemas/Record"
                   }
                 }
               }
@@ -63,11 +63,123 @@
           }
         }
       }
+    },
+    "/record/hot" : {
+      "get" : {
+        "tags" : [ "Records" ],
+        "summary" : "Returns the hot records/deals.",
+        "operationId" : "findHotRecords",
+        "responses" : {
+          "200" : {
+            "description" : "The list of hot records.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "maxItems" : 5,
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Record"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/record/s" : {
+      "summary" : "Record's search endpoint.",
+      "get" : {
+        "tags" : [ "Records" ],
+        "summary" : "Returns a list of records based on the search.",
+        "operationId" : "findRecordsBy",
+        "parameters" : [ {
+          "name" : "q",
+          "in" : "query",
+          "description" : "Makes a query by the given argument, matching against the record's name or group.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "ABBA"
+          }
+        }, {
+          "name" : "format",
+          "in" : "query",
+          "description" : "Makes a query by the given format.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Format"
+          }
+        }, {
+          "name" : "style",
+          "in" : "query",
+          "description" : "Makes a query by the given style.",
+          "required" : false,
+          "style" : "form",
+          "explode" : true,
+          "schema" : {
+            "$ref" : "#/components/schemas/Style"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "The list of records, based on the search.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Record"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/record/{id}" : {
+      "get" : {
+        "tags" : [ "Records" ],
+        "summary" : "Returns the information of an specific item.",
+        "operationId" : "findRecordByID",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "The record's ID.",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns the information of a specific record.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/Record"
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Invalid record ID."
+          }
+        }
+      }
     }
   },
   "components" : {
     "schemas" : {
-      "Product" : {
+      "Record" : {
         "required" : [ "id", "imageUrl", "name", "price", "summary" ],
         "type" : "object",
         "properties" : {
@@ -78,11 +190,22 @@
           },
           "name" : {
             "type" : "string",
+            "description" : "The name of the record.",
             "example" : "ABBA's New LP"
+          },
+          "group" : {
+            "type" : "string",
+            "description" : "The name of the group.",
+            "example" : "ABBA"
           },
           "summary" : {
             "type" : "string",
+            "description" : "A brief summary about this record.",
             "example" : "The long awaited new record from the classic Swedish pop group ABBA!!!!"
+          },
+          "description" : {
+            "type" : "string",
+            "description" : "A long description about this record."
           },
           "price" : {
             "type" : "number",
@@ -92,8 +215,26 @@
           "imageUrl" : {
             "type" : "string",
             "example" : "https://media1.jpc.de/image/w600/front/0/0600753337776.jpg"
+          },
+          "format" : {
+            "$ref" : "#/components/schemas/Format"
+          },
+          "style" : {
+            "$ref" : "#/components/schemas/Style"
           }
         }
+      },
+      "Format" : {
+        "type" : "string",
+        "description" : "The possible record's formats.",
+        "example" : "LP",
+        "enum" : [ "LP", "7\"", "CD", "Tape" ]
+      },
+      "Style" : {
+        "type" : "string",
+        "description" : "The possible record's styles.",
+        "example" : "Rock",
+        "enum" : [ "Rock", "Blues", "Punk", "Pop", "Jazz" ]
       }
     }
   }
