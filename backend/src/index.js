@@ -1,6 +1,8 @@
 import 'dotenv/config';
 import express from 'express';
+import mongoose from 'mongoose';
 import logger from 'morgan';
+import recordRouter from '../routes/recordsRoutes.js';
 
 //create app
 const app = express();
@@ -10,14 +12,29 @@ app.use(logger('dev')); //TODO customize logger
 app.use(express.json());
 
 //routes
+app.use('/record', recordRouter);
 
 //Start server
-//TODO set DB connection
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, (err) => {
-  if (err) {
+mongoose
+  .connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => {
+    console.log(
+      `Application successfuly connected to the mongodb database at [${process.env.MONGODB_URL}]!`
+    );
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, (err) => {
+      if (err) {
+        //TODO use the loger
+        console.log(err);
+      } else {
+        console.log(`Application listening to port ${PORT}`);
+      }
+    });
+  })
+  .catch((err) => {
+    //TODO use the loger
     console.log(err);
-  } else {
-    console.log(`Application listening to port ${PORT}`);
-  }
-});
+  });
