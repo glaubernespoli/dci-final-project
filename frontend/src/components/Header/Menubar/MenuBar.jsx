@@ -8,7 +8,8 @@ const MenuBar = () => (
     <Toolbar>
       <Music
         title="Music"
-        subFormats={['LP', 'vinyl', 'CD', 'Tape', 'DVD']}
+        subTitles={['New Release']}
+        subFormats={['LP', 'CD', 'Vynl', 'Tape', 'DVD']}
         subStyles={['Jazz', 'Blues', 'Rock', 'Pop', 'Funk']}
       />
       <Explore title="Explore" subExplores={['Popular Release', 'Recent Release', 'About Music']} />

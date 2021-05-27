@@ -5,7 +5,7 @@ import NestedMenuItem from 'material-ui-nested-menu-item';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
-const NavItem = ({ subFormats, subStyles, title }) => {
+const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -43,6 +43,13 @@ const NavItem = ({ subFormats, subStyles, title }) => {
           horizontal: 'left'
         }}
       >
+        {/* <MenuItem onClick={handleClose}>{subTitle}</MenuItem> */}
+        {subTitles.map((subTitle, index) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <MenuItem key={index} onClick={handleClose}>
+            {subTitle}
+          </MenuItem>
+        ))}
         <NestedMenuItem label="Format" parentMenuOpen={!!anchorEl} onClick={handleClose}>
           {subFormats.map((subFormat, index) => (
             // eslint-disable-next-line react/no-array-index-key
@@ -65,10 +72,12 @@ const NavItem = ({ subFormats, subStyles, title }) => {
 };
 NavItem.defaultProps = {
   subFormats: [],
-  subStyles: []
+  subStyles: [],
+  subTitles: []
 };
 NavItem.propTypes = {
   title: PropTypes.string.isRequired,
+  subTitles: PropTypes.arrayOf(PropTypes.string),
   subFormats: PropTypes.arrayOf(PropTypes.string),
   subStyles: PropTypes.arrayOf(PropTypes.string)
 };
