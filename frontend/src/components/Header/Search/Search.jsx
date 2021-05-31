@@ -12,7 +12,7 @@ const Search = () => {
         <SearchIcon />
       </div>
       <InputBase
-        placeholder="Search…"
+        placeholder="Search Your Records.."
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput
