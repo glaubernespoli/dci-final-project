@@ -1,7 +1,9 @@
+import React from 'react';
+import SearchContainer from './search-list/SearchContainer';
+
 const Search = () => (
   <div>
-    <h1>Hello Testing!!!</h1>
+    <SearchContainer />
   </div>
 );
-
 export default Search;

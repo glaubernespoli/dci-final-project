@@ -1,22 +1,24 @@
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import MyContext from '../../context/MyContext';
 import { SearchRoute } from '../../Routing/routes';
 // import { Link as RouterLink } from 'react-router-dom';
 import SearchStyle from './Search.style';
 
 const Search = () => {
   const classes = SearchStyle();
+  const context = useContext(MyContext);
+  const { setSearch } = context;
   const history = useHistory();
-  const [searchItem, setsearchItem] = useState('vinyl');
 
   // const handleChange = (event) => {
-  //   setsearchItem(event.target.value);
+  //   setSearch(event.target.value);
   // };
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') history.push(SearchRoute);
-    setsearchItem(event.target.value);
+    setSearch(event.target.value.trim());
 
     // send this search value
   };
@@ -36,7 +38,6 @@ const Search = () => {
         // onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
-      {searchItem}
     </div>
   );
 };
