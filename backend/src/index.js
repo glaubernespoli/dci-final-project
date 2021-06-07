@@ -1,3 +1,4 @@
+import cors from 'cors';
 import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
@@ -10,6 +11,7 @@ const app = express();
 //Middlewares
 app.use(logger('dev')); //TODO customize logger
 app.use(express.json());
+app.use(cors());
 
 //routes
 app.use('/record', recordRouter);
