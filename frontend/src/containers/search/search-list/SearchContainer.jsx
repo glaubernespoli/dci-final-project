@@ -11,7 +11,7 @@ const SearchContainer = () => {
   // const [page, setPage] = useState(0);
   // receive the context of the menubar--
 
-  // const RecordsDB = axios.get('http:localhost:5000/records/s',{});
+  // const RecordsDB = axios.get('http:localhost:5000/records/s',{style:search});
 
   // useeffect
   // search --menu onclick naviagtion
