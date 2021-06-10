@@ -4,12 +4,19 @@ class RecordController {
   findAll = (req, res) => {
     const { sortBy } = req.query;
 
+    const page = Math.max(0, req.params.page);
     recordService
-      .findAll(10, sortBy)
+      .findAll(page, sortBy)
       .then((result) => res.status(200).json(result))
       .catch((err) => res.status(500).json({ error: `${err.message}` }));
+    // .findBy
   };
 }
 
 const recordController = new RecordController();
 export default recordController;
+/* 
+{
+  total: 300,
+  itemsPerPage: 30
+} */
