@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import MyContext from '../../../context/MyContext';
@@ -11,7 +12,8 @@ const SearchContainer = () => {
   // const [page, setPage] = useState(0);
   // receive the context of the menubar--
 
-  // const RecordsDB = axios.get('http:localhost:5000/records/s',{style:search});
+  const RecordsDB = axios.get('http:localhost:5000/records/s', { search });
+  console.log(RecordsDB);
 
   // useeffect
   // search --menu onclick naviagtion

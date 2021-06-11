@@ -18,6 +18,10 @@ class RecordService {
         [sortBy]: 'asc'
     }) */
   };
+
+  /*   findBy = async () => {
+    return record.find();
+  }; */
 }
 
 const recordService = new RecordService();
