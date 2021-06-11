@@ -33,7 +33,6 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        getContentAnchorEl={null}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left'

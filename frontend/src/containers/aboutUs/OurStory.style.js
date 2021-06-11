@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import guitar from '../../assets/img/AboutUs/guitar.jpg';
 import ourStory from '../../assets/img/AboutUs/ourStory.jpg';
 

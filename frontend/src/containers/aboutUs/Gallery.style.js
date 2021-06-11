@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 import gallery from '../../assets/img/AboutUs/gallery.jpg';
 import headPhone from '../../assets/img/AboutUs/headPhone.jpg';
 

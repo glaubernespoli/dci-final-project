@@ -11,21 +11,16 @@ const FeedbackForm = () => {
           <Typography variant="h4" className={classes.team} color="white">
             Send us Your message
           </Typography>
+          <TextField id="name" label="Your Name" variant="standard" className={classes.input} />
           <TextField
-            id="filled-textarea"
-            label="Your Name"
-            variant="standard"
-            className={classes.input}
-          />
-          <TextField
-            id="filled-textarea"
+            id="email"
             label="Your Email Address"
             multiline
             variant="standard"
             className={classes.input}
           />
           <TextField
-            id="outlined-multiline-static"
+            id="message"
             label="Your Message"
             multiline
             rows={4}
