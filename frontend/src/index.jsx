@@ -7,6 +7,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import MyProvider from './context/MyProvider';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import darkTheme from './Theme/darkTheme';
@@ -16,7 +17,9 @@ ReactDOM.render(
     <StyledEngineProvider injectFirst>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <App />
+        <MyProvider>
+          <App />
+        </MyProvider>
       </ThemeProvider>
     </StyledEngineProvider>
   </React.StrictMode>,

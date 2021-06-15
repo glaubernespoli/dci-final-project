@@ -4,14 +4,27 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
+import MyContext from '../../../context/MyContext';
+import { AlbumEndPointRoute } from '../../../Routing/routes';
 import useStyles from './ProductList.style';
 
 const ProductItem = ({ item }) => {
   const classes = useStyles();
+
+  const context = useContext(MyContext);
+  const { setItem } = context;
+  const history = useHistory();
+
+  const clickHandle = () => {
+    history.push(AlbumEndPointRoute);
+    setItem(item);
+  };
+
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <ImageListItem key={item.img}>
+      <ImageListItem key={item.img} onClick={clickHandle}>
         <Box height="35vh">
           <img
             srcSet={`${item.img}?w=248&fit=crop&auto=format 1x`}
