@@ -65,8 +65,8 @@ const ContactUs = () => {
         <ProfileCard
           name="Gluber Naspoli"
           designation="Full Stack Developer"
-          img="https://picsum.photos/200/300?men"
-          skills="Java || JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery "
+          img="https://picsum.photos/200/300?random=1"
+          skills="JavaScript || React || NodeJs || MongoDB || BootStrap || Java || Sass || JQuery "
         />
         <ProfileCard
           name="Santiago Julian"

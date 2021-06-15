@@ -36,7 +36,7 @@ const ContactUsStyles = makeStyles((theme) => ({
   cardHeader: {
     display: 'flex',
     justifyContent: 'space-around',
-    padding: '1rem'
+    padding: '.5rem'
   },
   header: {
     letterSpacing: '1px',
