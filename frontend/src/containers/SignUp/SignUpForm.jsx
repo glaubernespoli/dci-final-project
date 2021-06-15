@@ -19,7 +19,7 @@ const SignUpForm = () => {
           label="First Name"
           variant="standard"
           type="text"
-          placeholder="Enter Your First Name"
+          // placeholder="Enter Your First Name"
           className={classes.textF}
         />
         <TextField
@@ -27,7 +27,7 @@ const SignUpForm = () => {
           label="Last Name"
           variant="standard"
           type="text"
-          placeholder="Enter Your Last Name"
+          // placeholder="Enter Your Last Name"
           className={classes.textF}
         />
         <TextField
@@ -35,7 +35,7 @@ const SignUpForm = () => {
           label="Email Address"
           variant="standard"
           type="email"
-          placeholder="Enter Your Email"
+          // placeholder="Enter Your Email"
           className={classes.textF}
         />
         <TextField
@@ -43,7 +43,7 @@ const SignUpForm = () => {
           label="Password"
           variant="standard"
           type="password"
-          placeholder="Enter Your Password"
+          // placeholder="Enter Your Password"
           className={classes.textF}
         />
         <TextField
@@ -51,7 +51,7 @@ const SignUpForm = () => {
           label="Confirm Password"
           variant="standard"
           type="password"
-          placeholder="Confirm Your Password"
+          // placeholder="Confirm Your Password"
           className={classes.textF}
         />
 
@@ -62,7 +62,7 @@ const SignUpForm = () => {
         </div>
         <Typography variant="p" className={classes.textF} fontFamily="monospace">
           already registered?
-          <Button color="inherit" size="small" component={Link} to={LoginRoute}>
+          <Button color="primary" size="medium" component={Link} to={LoginRoute}>
             LogIn
           </Button>
         </Typography>
