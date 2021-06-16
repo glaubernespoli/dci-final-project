@@ -29,7 +29,7 @@
     "object-curly-newline": "off",
     "comma-dangle": ["error", "never"],
     "linebreak-style": "off",
-    "react/destructuring-assignment": [2, "always", { "ignoreClassFields": true }],
-    "react/prop-types": "off"
+   /*  "react/destructuring-assignment": [2, "always", { "ignoreClassFields": true }],
+    "react/prop-types": "off" */
   }
 }

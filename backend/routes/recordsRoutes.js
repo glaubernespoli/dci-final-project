@@ -6,7 +6,7 @@ const router = Router();
 
 router.get('/', recordController.findAll);
 router.get('/hot');
-router.get('/s' /* , recordController.findBy */);
+router.get('/s', recordController.findBy);
 router.get('/:id');
 
 export default router;

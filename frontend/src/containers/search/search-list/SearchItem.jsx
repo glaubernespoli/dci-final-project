@@ -18,16 +18,18 @@ const SearchItem = ({ item }) => {
           />
           <br />
           <br />
+
           <h1>{item.name}</h1>
           <br />
-          <h2>
-            Group:
-            {item.group}
-          </h2>
+
           <br />
           <h5>
             Descr:
             {item.summary}
+          </h5>
+          <h5>
+            Format:
+            {item.format}
           </h5>
         </Box>
       </ImageListItem>
