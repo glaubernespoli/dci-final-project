@@ -4,7 +4,8 @@ import React, { useContext } from 'react';
 import MyContext from '../../context/MyContext';
 import useStyles from './Album.Styles';
 
-const AlbumEndPoint = () => {
+// should receive the id as the url param
+const RecordItem = () => {
   const classes = useStyles();
   const { item } = useContext(MyContext);
 
@@ -73,4 +74,4 @@ const AlbumEndPoint = () => {
   );
 };
 
-export default AlbumEndPoint;
+export default RecordItem;

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import MyContext from '../../../context/MyContext';
-import { AlbumEndPointRoute } from '../../../Routing/routes';
+import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './ProductList.style';
 
 const ProductItem = ({ item }) => {
@@ -18,7 +18,7 @@ const ProductItem = ({ item }) => {
   const history = useHistory();
 
   const clickHandle = () => {
-    history.push(AlbumEndPointRoute);
+    history.push(RecordRoute);
     setItem(item);
   };
 
