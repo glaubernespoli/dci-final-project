@@ -5,7 +5,7 @@ import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import MyContext from '../../../context/MyContext';
 import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './ProductList.style';
@@ -15,10 +15,10 @@ const ProductItem = ({ item }) => {
 
   const context = useContext(MyContext);
   const { setItem } = context;
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const clickHandle = () => {
-    history.push(RecordRoute);
+    navigate(RecordRoute);
     setItem(item);
   };
 

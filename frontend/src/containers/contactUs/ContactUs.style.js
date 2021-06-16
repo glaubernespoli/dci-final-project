@@ -1,4 +1,4 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/styles';
 
 const ContactUsStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +36,7 @@ const ContactUsStyles = makeStyles((theme) => ({
   cardHeader: {
     display: 'flex',
     justifyContent: 'space-around',
-    padding: '1rem'
+    padding: '.5rem'
   },
   header: {
     letterSpacing: '1px',

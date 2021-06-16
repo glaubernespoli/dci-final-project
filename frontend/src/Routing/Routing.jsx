@@ -1,4 +1,4 @@
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import AboutUsPage from '../containers/pages/AboutUsPage';
 import ContactUsPage from '../containers/pages/ContactUsPage';
 import HomePage from '../containers/pages/HomePage';
@@ -15,14 +15,14 @@ import {
 } from './routes';
 
 const Routing = () => (
-  <Switch>
-    <Route path={HomeRoute} exact component={HomePage} />
-    <Route path={AboutUsRoute} component={AboutUsPage} />
-    <Route path={ContactUsRoute} component={ContactUsPage} />
-    <Route path={LoginRoute} component={LoginPage} />
-    <Route path={SignUpRoute} component={SignUpPage} />
-    <Route path={RecordRoute} component={RecordItemPage} />
-  </Switch>
+  <Routes>
+    <Route path={HomeRoute} exact element={<HomePage />} />
+    <Route path={AboutUsRoute} element={<AboutUsPage />} />
+    <Route path={ContactUsRoute} element={<ContactUsPage />} />
+    <Route path={LoginRoute} element={<LoginPage />} />
+    <Route path={SignUpRoute} element={<SignUpPage />} />
+    <Route path={RecordRoute} element={<RecordItemPage />} />
+  </Routes>
 );
 
-export default withRouter(Routing);
+export default Routing;
