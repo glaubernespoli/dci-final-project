@@ -2,10 +2,10 @@
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import React, { useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import MyContext from '../../context/MyContext';
-import { SearchRoute } from '../../Routing/routes';
-import getData from './ApiSearch';
+import { useNavigate } from 'react-router-dom';
+import MyContext from '../../../context/MyContext';
+import { SearchRoute } from '../../../Routing/routes';
+import getData from '../ApiSearch';
 import SearchStyle from './Search.style';
 
 const Search = () => {
@@ -13,14 +13,14 @@ const Search = () => {
   const context = useContext(MyContext);
   const { setSearch, search, setRecords } = context;
 
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') history.push(SearchRoute);
+    if (event.key === 'Enter') navigate(SearchRoute);
     setSearch(event.target.value.trim());
     getData(search)
       .then((response) => {
@@ -37,7 +37,7 @@ const Search = () => {
         <SearchIcon />
       </div>
       <InputBase
-        placeholder="Search…"
+        placeholder="Search Your Records.."
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput

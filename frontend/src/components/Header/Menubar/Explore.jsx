@@ -1,10 +1,10 @@
 import { Button, Menu, MenuItem } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 
-const NavItem = ({ title, subItems }) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+const NavItem = ({ subExplores, title }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -22,7 +22,7 @@ const NavItem = ({ title, subItems }) => {
         onClick={handleClick}
       >
         {title}
-        {subItems.length ? <ArrowDropDownIcon /> : ''}
+        {subExplores.length ? <ArrowDropDownIcon /> : ''}
       </Button>
       <Menu
         id="demo-positioned-menu"
@@ -30,7 +30,6 @@ const NavItem = ({ title, subItems }) => {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        getContentAnchorEl={null}
         anchorOrigin={{
           vertical: 'bottom',
           horizontal: 'left'
@@ -40,10 +39,10 @@ const NavItem = ({ title, subItems }) => {
           horizontal: 'left'
         }}
       >
-        {subItems.map((subItem, index) => (
+        {subExplores.map((subExplore, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <MenuItem key={index} onClick={handleClose}>
-            {subItem}
+            {subExplore}
           </MenuItem>
         ))}
       </Menu>
@@ -51,11 +50,11 @@ const NavItem = ({ title, subItems }) => {
   );
 };
 NavItem.defaultProps = {
-  subItems: []
+  subExplores: []
 };
 NavItem.propTypes = {
   title: PropTypes.string.isRequired,
-  subItems: PropTypes.arrayOf(PropTypes.string)
+  subExplores: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default NavItem;

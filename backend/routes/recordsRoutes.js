@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import recordController from '../controller/recordController.js';
 
-//Router for '/records'
+//Router for '/record'
 const router = Router();
 
 router.get('/', recordController.findAll);

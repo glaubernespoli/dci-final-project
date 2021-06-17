@@ -1,4 +1,4 @@
-import LogoComponent from '../Header/Logo';
+import LogoComponent from '../Header/Logo/Logo';
 
 /*
 TODO : The Logo component is going to be imported from other component, please be aware

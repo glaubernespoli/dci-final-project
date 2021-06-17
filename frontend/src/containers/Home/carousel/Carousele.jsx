@@ -8,7 +8,7 @@ const Carousele = () => (
     <Grid item xs={12}>
       <Carousel animation="slide" interval={4000} navButtonsAlwaysVisible>
         {data.map((item) => (
-          <Item key={item} item={item} />
+          <Item key={item.id} item={item} />
         ))}
       </Carousel>
     </Grid>
