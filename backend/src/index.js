@@ -3,11 +3,13 @@ import express from 'express';
 import mongoose from 'mongoose';
 import logger from 'morgan';
 import recordRouter from '../routes/recordsRoutes.js';
+import auth from './middleware/auth.js';
 
 //create app
 const app = express();
 
 //Middlewares
+app.use(auth);
 app.use(logger('dev')); //TODO customize logger
 app.use(express.json());
 
