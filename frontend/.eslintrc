@@ -21,13 +21,14 @@
   "plugins": [
     "react",
     "react-hooks",
-    "jsx-a11y",
-    "prettier"
+    "jsx-a11y"
   ],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "object-curly-newline": "off",
     "comma-dangle": ["error", "never"],
-    "linebreak-style": "off"
+    "linebreak-style": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off"
   }
 }

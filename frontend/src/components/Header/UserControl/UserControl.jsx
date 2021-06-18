@@ -1,17 +1,9 @@
-import { Button, Toolbar } from '@material-ui/core';
-import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { LoginRoute } from '../../../Routing/routes';
+import { Toolbar } from '@material-ui/core';
+import AuthenticationButtonContainer from '../../button/authentication-button-container';
 
 const UserControl = () => (
   <Toolbar>
-    <Button color="secondary" variant="contained" component={Link} to={LoginRoute}>
-      LogIn
-    </Button>
-    <Button color="inherit">
-      <AddShoppingCartIcon />
-    </Button>
+    <AuthenticationButtonContainer />
   </Toolbar>
 );
 export default UserControl;
