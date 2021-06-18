@@ -41,8 +41,10 @@ const LoggedInButtonContainer = () => {
 
   const handleMenuClose = (callback) => {
     setAnchorEl(null);
-    callback();
+    if (callback) callback();
   };
+
+  const onClickRedirect = () => handleMenuClose();
 
   const onClickLogout = () =>
     handleMenuClose(() =>
@@ -77,10 +79,10 @@ const LoggedInButtonContainer = () => {
           horizontal: 'right'
         }}
         open={isMenuOpen}
-        onClose={handleMenuClose}
+        onClose={onClickRedirect}
       >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+        <MenuItem onClick={onClickRedirect}>Profile</MenuItem>
+        <MenuItem onClick={onClickRedirect}>My account</MenuItem>
         <MenuItem onClick={onClickLogout}>Logout</MenuItem>
       </Menu>
     </ButtonContainer>
