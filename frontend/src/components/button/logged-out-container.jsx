@@ -4,8 +4,10 @@ import SignUpButton from './signup-button';
 
 const LoggedOutButtonContainer = () => (
   <ButtonContainer>
-    <SignUpButton />
-    <LoginButton />
+    <>
+      <SignUpButton />
+      <LoginButton />
+    </>
   </ButtonContainer>
 );
 

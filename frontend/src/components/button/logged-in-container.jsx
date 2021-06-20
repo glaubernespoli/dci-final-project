@@ -1,9 +1,11 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { Menu, MenuItem } from '@material-ui/core';
+import { Link, Menu, MenuItem } from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import { makeStyles } from '@material-ui/styles';
 import { useState } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import { ProfileRoute } from '../../Routing/routes';
 import ButtonContainer from './button-container';
 
 const useStyles = makeStyles((theme) => ({
@@ -54,37 +56,43 @@ const LoggedInButtonContainer = () => {
     );
   return (
     <ButtonContainer>
-      <div className={classes.sectionDesktop}>
-        <IconButton
-          edge="end"
-          aria-label="account of current user"
-          aria-controls={menuId}
-          aria-haspopup="true"
-          onClick={handleProfileMenuOpen}
-          color="inherit"
+      <>
+        <div className={classes.sectionDesktop}>
+          <IconButton
+            edge="end"
+            aria-label="account of current user"
+            aria-controls={menuId}
+            aria-haspopup="true"
+            onClick={handleProfileMenuOpen}
+            color="inherit"
+          >
+            <AccountCircle />
+          </IconButton>
+        </div>
+        <Menu
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right'
+          }}
+          id={menuId}
+          keepMounted
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'right'
+          }}
+          open={isMenuOpen}
+          onClose={onClickRedirect}
         >
-          <AccountCircle />
-        </IconButton>
-      </div>
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: 'top',
-          horizontal: 'right'
-        }}
-        id={menuId}
-        keepMounted
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'right'
-        }}
-        open={isMenuOpen}
-        onClose={onClickRedirect}
-      >
-        <MenuItem onClick={onClickRedirect}>Profile</MenuItem>
-        <MenuItem onClick={onClickRedirect}>My account</MenuItem>
-        <MenuItem onClick={onClickLogout}>Logout</MenuItem>
-      </Menu>
+          <MenuItem onClick={onClickRedirect}>
+            <Link component={RouterLink} to={ProfileRoute} color="white" underline="none">
+              Profile
+            </Link>
+          </MenuItem>
+          <MenuItem onClick={onClickRedirect}>My account</MenuItem>
+          <MenuItem onClick={onClickLogout}>Logout</MenuItem>
+        </Menu>
+      </>
     </ButtonContainer>
   );
 };
