@@ -8,21 +8,14 @@ export default function FixedContainer() {
     <>
       <Paper>
         <Grid container className={classes.root}>
-          <Grid item xs={12} sm={6}>
+          <Grid item xs={12} className={classes.imagePhoneContainer}>
             <img
               src="https://www.discogs.com/images/app/phones.png"
               alt="googleplay"
               className={classes.imagePhone}
             />
           </Grid>
-          <Grid
-            container
-            xs={12}
-            sm={6}
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-          >
+          <Grid container direction="column" justifyContent="center" alignItems="center">
             <Grid item>
               <Typography variant="h6">
                 Next!
