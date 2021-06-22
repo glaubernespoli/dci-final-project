@@ -9,6 +9,7 @@
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
+    "eslint.workingDirectories":["admin", "frontend", "backend"],
     "[javascriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
