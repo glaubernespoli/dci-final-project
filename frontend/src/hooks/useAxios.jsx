@@ -40,12 +40,12 @@ export const useAxiosProtected = async (method, endpoint, axiosParams) => {
   const { getAccessTokenSilently } = useAuth0();
   const token = await getAccessTokenSilently();
 
-  const params = axiosParams;
+  const params = { ...axiosParams };
   params.headers = {
     Authorization: `Bearer ${token}`,
     ...params.headers
   };
-  useFetch({
+  return useFetch({
     url: endpoint,
     method,
     ...params
