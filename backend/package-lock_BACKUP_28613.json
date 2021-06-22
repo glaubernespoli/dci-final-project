@@ -4,11 +4,14 @@
   "lockfileVersion": 1,
   "requires": true,
   "dependencies": {
+<<<<<<< HEAD
+=======
     "@panva/asn1.js": {
       "version": "1.0.0",
       "resolved": "https://registry.npmjs.org/@panva/asn1.js/-/asn1.js-1.0.0.tgz",
       "integrity": "sha512-UdkG3mLEqXgnlKsWanWcgb6dOjUzJ+XC5f+aWw30qrtjxeNUSfKX1cd5FBzOaXQumoe9nIqeZUvrRJS03HCCtw=="
     },
+>>>>>>> 9a4a7a1b79c5403ca9ab716844287d319ce9ceff
     "@sindresorhus/is": {
       "version": "0.14.0",
       "resolved": "https://registry.npmjs.org/@sindresorhus/is/-/is-0.14.0.tgz",
