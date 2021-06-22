@@ -7,29 +7,25 @@ export default function FixedContainer() {
   return (
     <>
       <Paper>
-        <Grid container className={classes.root}>
-          <Grid item xs={12} className={classes.imagePhoneContainer}>
+        <Grid container direction="column" alignItems="center" className={classes.root}>
+          <Grid item xs={12}>
             <img
               src="https://www.discogs.com/images/app/phones.png"
               alt="googleplay"
               className={classes.imagePhone}
             />
           </Grid>
-          <Grid container direction="column" justifyContent="center" alignItems="center">
-            <Grid item>
-              <Typography variant="h6">
-                Next!
-                <em> Download SYR App </em>
-                Here!
-              </Typography>
-            </Grid>
-            <Grid item className={classes.imageIconContainer}>
-              <img
-                src="https://www.discogs.com/images/app/google-play-badge.png"
-                alt="googleplay icon"
-                className={classes.imageIcon}
-              />
-            </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h6" textAlign="center">
+              Next!
+              <em> Download SYR App </em>
+              Here!
+            </Typography>
+            <img
+              src="https://www.discogs.com/images/app/google-play-badge.png"
+              alt="googleplay icon"
+              className={classes.imageGooglePlay}
+            />
           </Grid>
         </Grid>
       </Paper>

@@ -5,16 +5,14 @@ const InfoStyle = makeStyles(() => ({
     padding: '12vw'
   },
   imagePhone: {
-    width: '40vw',
-    height: '60vh'
+    width: '60%',
+    display: 'block',
+    margin: '0 auto'
   },
-  imagePhoneContainer: {
-    display: 'flex',
-    justifyContent: 'center'
-  },
-  imageIcon: {
-    width: '30vw',
-    height: '15vh'
+  imageGooglePlay: {
+    width: '50%',
+    display: 'block',
+    margin: '0 auto'
   }
 }));
 
