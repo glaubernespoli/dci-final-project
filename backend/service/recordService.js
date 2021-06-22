@@ -17,13 +17,19 @@ class RecordService {
   };
 
   findBy = async (name, pageNumber, pageLimit) => {
-    return Record.find({ $or: [{ format: name }, { style: name }, { name: name }] })
+    const totalCount = Record.find({
+      $or: [{ format: name }, { style: name }, { name: name }, { artist: name }]
+    });
+
+    return Record.find({
+      $or: [{ format: name }, { style: name }, { name: name }, { artist: name }]
+    })
+      .collation({ locale: 'en', strength: 2 })
       .sort({
         format: 'asc'
-      })
-
-      .limit(parseInt(pageLimit))
-      .skip(parseInt(pageLimit) * pageNumber);
+      });
+    /*  .limit(parseInt(pageLimit))
+      .skip(parseInt(pageLimit) * pageNumber); */
   };
 }
 

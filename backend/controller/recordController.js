@@ -17,7 +17,7 @@ class RecordController {
     await recordService
       .findBy(name, pageNumber, pageLimit)
       .then((result) => {
-        res.status(200).json(result);
+        res.status(200).json({ total: result.length, result });
       })
       .catch((err) => res.status(500).json({ error: `${err.message}` }));
   };
