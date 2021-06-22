@@ -57,7 +57,7 @@ ProductItem.defaultProps = {
 };
 
 ProductItem.propTypes = {
-  item: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string]))
+  item: PropTypes.objectOf(PropTypes.string)
 };
 
 export default ProductItem;
