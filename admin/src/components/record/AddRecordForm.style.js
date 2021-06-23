@@ -5,8 +5,8 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     gap: '.5rem',
-    width: '40vw',
-    margin: '0 auto'
+    padding: '1rem',
+    background: '#AFBAB9'
   }
 });
 export default useStyles;
