@@ -38,6 +38,9 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
     setAnchorEl(null);
     setSearch(event.target.innerText);
     navigate(SearchRoute, `q=${search}&page=${pageNumber}`);
+    setSearch(event.target.innerText);
+    // eslint-disable-next-line no-alert
+    alert(event.target.innerText);
     getData(event.target.innerText)
       .then((response) => {
         setRecords(response.result);

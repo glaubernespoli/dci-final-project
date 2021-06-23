@@ -31,6 +31,18 @@ const Search = () => {
 
   const navigate = useNavigateParams();
 
+  // https://reactgo.com/react-get-query-params/
+  /*  const searchItem = useLocation().search;
+
+  if (searchItem) {
+    const value = new URLSearchParams(searchItem).get('q');
+    const page = new URLSearchParams(searchItem).get('page');
+    setSearch(value);
+    setPageNumber(page);
+  } else {
+    console.log('hello');
+  } */
+
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
@@ -78,15 +90,6 @@ const Search = () => {
     setPageNumber(page);
   }, []); */
   // const [t] = useState(localStorage.getItem('searcht'));
-
-  /*  useEffect(() => {
-
-    https://reactgo.com/react-get-query-params/
-    const { search } = useLocation();
-    const page = new URLSearchParams(search).get('page');
-    console.log(search);
-    console.log(page);
-  }, [search, pageNumber]); */
 
   useEffect(() => {
     if (search || pageNumber) {
