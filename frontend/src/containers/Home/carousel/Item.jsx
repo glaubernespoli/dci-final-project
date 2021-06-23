@@ -38,7 +38,7 @@ Item.defaultProps = {
 };
 
 Item.propTypes = {
-  item: PropTypes.objectOf(PropTypes.object)
+  item: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string]))
 };
 
 export default Item;

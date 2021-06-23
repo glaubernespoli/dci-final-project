@@ -23,7 +23,7 @@ MyProvider.defaultProps = {
 };
 
 MyProvider.propTypes = {
-  children: PropTypes.objectOf(PropTypes.object)
+  children: PropTypes.oneOfType([PropTypes.symbol, PropTypes.object])
 };
 
 export default MyProvider;
