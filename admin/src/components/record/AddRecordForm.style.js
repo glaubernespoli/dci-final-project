@@ -6,7 +6,7 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     gap: '.5rem',
     padding: '1rem',
-    background: '#AFBAB9'
+    borderRadius: '.5rem'
   }
 });
 export default useStyles;

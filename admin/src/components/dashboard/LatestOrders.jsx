@@ -1,6 +1,3 @@
-import moment from 'moment';
-import { v4 as uuid } from 'uuid';
-import PerfectScrollbar from 'react-perfect-scrollbar';
 import {
   Box,
   Button,
@@ -17,6 +14,9 @@ import {
   Tooltip
 } from '@material-ui/core';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import moment from 'moment';
+import PerfectScrollbar from 'react-perfect-scrollbar';
+import { v4 as uuid } from 'uuid';
 
 const orders = [
   {
@@ -90,51 +90,28 @@ const LatestOrders = (props) => (
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>
-                Order Ref
-              </TableCell>
-              <TableCell>
-                Customer
-              </TableCell>
+              <TableCell>Order Ref</TableCell>
+              <TableCell>Customer</TableCell>
               <TableCell sortDirection="desc">
-                <Tooltip
-                  enterDelay={300}
-                  title="Sort"
-                >
-                  <TableSortLabel
-                    active
-                    direction="desc"
-                  >
+                <Tooltip enterDelay={300} title="Sort">
+                  <TableSortLabel active direction="desc">
                     Date
                   </TableSortLabel>
                 </Tooltip>
               </TableCell>
-              <TableCell>
-                Status
-              </TableCell>
+              <TableCell>Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {orders.map((order) => (
-              <TableRow
-                hover
-                key={order.id}
-              >
-                <TableCell>
-                  {order.ref}
-                </TableCell>
-                <TableCell>
-                  {order.customer.name}
-                </TableCell>
+              <TableRow hover key={order.id}>
+                <TableCell>{order.ref}</TableCell>
+                <TableCell>{order.customer.name}</TableCell>
                 <TableCell>
                   {moment(order.createdAt).format('DD/MM/YYYY')}
                 </TableCell>
                 <TableCell>
-                  <Chip
-                    color="primary"
-                    label={order.status}
-                    size="small"
-                  />
+                  <Chip color="primary" label={order.status} size="small" />
                 </TableCell>
               </TableRow>
             ))}

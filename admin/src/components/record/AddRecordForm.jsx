@@ -48,7 +48,7 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={styless}>
-          <Paper className={classes.frm} variant="outlined" elevation={24}>
+          <Paper className={classes.frm} variant="outlined">
             <Typography
               id="modal-description"
               sx={{ mt: 2 }}
@@ -112,7 +112,7 @@ export default function BasicModal() {
               ))}
             </TextField>
             <TextField id="standard-basic" label="Country" variant="standard" />
-            <Button variant="inherit" component="label">
+            <Button variant="outlined" component="label">
               Upload Images
               <input type="file" accept="image/*" hidden />
             </Button>
