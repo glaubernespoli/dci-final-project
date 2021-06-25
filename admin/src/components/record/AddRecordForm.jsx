@@ -5,23 +5,24 @@ import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
-import formats from '../../__mocks__/recordsformats';
-import styles from '../../__mocks__/recordstyles';
+import formats from '../../__mocks__/recordFormats';
+import styles from '../../__mocks__/recordStyles';
 import useStyles from './AddRecordForm.style';
+// import { useAxios } from '/frontend/src/hooks/useAxios';
 
 const styless = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 500,
-  bgcolor: '#AFBAB9',
+  width: 600,
+  bgcolor: 'black',
   border: '2px solid #000',
   boxShadow: 24,
   p: 1
 };
 
-export default function BasicModal() {
+const AddRecordForm = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const [format, setFormat] = React.useState('');
@@ -36,6 +37,20 @@ export default function BasicModal() {
     setStyle(e.target.value);
   };
 
+  // const { data, error, isLoading } = useAxios('post', '/adminRecordRouter');
+
+  // if (isLoading) {
+  //   return <CircularProgress />;
+  // }
+
+  // if (error) {
+  //   return (
+  //     <div>
+  //       <p>{error.message}</p>
+  //     </div>
+  //   );
+  // }
+
   return (
     <div>
       <Button color="primary" variant="contained" onClick={handleOpen}>
@@ -47,7 +62,7 @@ export default function BasicModal() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <Box sx={styless}>
+        <Box sx={styless} component="form" method="post">
           <Paper className={classes.frm} variant="outlined">
             <Typography
               id="modal-description"
@@ -74,7 +89,12 @@ export default function BasicModal() {
               maxRows={10}
               variant="standard"
             />
-            <TextField id="standard-basic" label="Price" variant="standard" />
+            <TextField
+              id="standard-basic"
+              label="Price"
+              variant="standard"
+              type="Number"
+            />
             <TextField
               id="standard-select-currency-native"
               select
@@ -125,4 +145,5 @@ export default function BasicModal() {
       </Modal>
     </div>
   );
-}
+};
+export default AddRecordForm;
