@@ -18,22 +18,23 @@ const ProductItem = ({ item }) => {
   const navigate = useNavigate();
 
   const clickHandle = () => {
-    navigate(RecordRoute);
+    // eslint-disable-next-line no-underscore-dangle
+    navigate(RecordRoute(item._id));
     setItem(item);
   };
 
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <ImageListItem key={item.img} onClick={clickHandle}>
+      <ImageListItem key={item.imageUrl} onClick={clickHandle}>
         <Box height="35vh">
           <img
-            srcSet={`${item.img}?w=248&fit=crop&auto=format 1x`}
-            alt={item.title}
+            srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format 1x`}
+            alt={item.summary}
             className={classes.img}
           />
           <ImageListItemBar
-            title={item.title}
-            subtitle={item.author}
+            title={item.name}
+            subtitle={item.artist}
             actionIcon={
               // eslint-disable-next-line react/jsx-wrap-multilines
               <IconButton className={classes.icon}>
@@ -49,15 +50,37 @@ const ProductItem = ({ item }) => {
 
 ProductItem.defaultProps = {
   item: {
-    title: 'Error in Name',
-    subtitle: 'Error in Description',
-    author: 'Error in Author',
-    img: 'Img not Found'
+    name: 'Not available',
+    artist: 'Not available',
+    summary: 'Not available',
+    description: 'Not available',
+    price: 'Not available',
+    imageUrl: 'Not available',
+    format: 'Not available',
+    style: 'Not available',
+    label: 'Not available',
+    country: 'Not available',
+    releaseDate: 'Not available',
+    createdAt: 'Not available'
   }
 };
 
 ProductItem.propTypes = {
-  item: PropTypes.objectOf(PropTypes.string)
+  item: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    artist: PropTypes.string,
+    summary: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.number,
+    imageUrl: PropTypes.string,
+    format: PropTypes.string,
+    style: PropTypes.string,
+    label: PropTypes.string,
+    country: PropTypes.string,
+    releaseDate: PropTypes.string,
+    createdAt: PropTypes.string
+  })
 };
 
 export default ProductItem;
