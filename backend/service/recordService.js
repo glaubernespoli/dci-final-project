@@ -11,6 +11,10 @@ class RecordService {
     //TODO pagination with mongoose
     return Record.find();
   };
+
+  findById = async (id) => {
+    return Record.findById(id);
+  };
 }
 
 const recordService = new RecordService();

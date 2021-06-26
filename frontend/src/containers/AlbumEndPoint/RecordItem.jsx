@@ -1,14 +1,27 @@
 import { Button, Card, CardContent, CardMedia, Grid, Paper, Typography } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
-import React, { useContext } from 'react';
-import MyContext from '../../context/MyContext';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useAxios } from '../../hooks/useAxios';
 import useStyles from './Album.Styles';
 
 // should receive the id as the url param
-const RecordItem = () => {
+const RecordItem = ({ itemId }) => {
   const classes = useStyles();
-  const { item } = useContext(MyContext);
+  const { data: item, error, isLoading } = useAxios('get', `/record/${itemId}`);
 
+  if (isLoading) {
+    return <CircularProgress />;
+  }
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+
+  if (!item) {
+    return <div>Item not found!</div>;
+  }
   return (
     <>
       <Paper elevation={5} className={classes.paper}>
@@ -18,19 +31,19 @@ const RecordItem = () => {
               <CardMedia
                 className={classes.img}
                 component="img"
-                alt={item.subtitle}
+                alt={item.summary}
                 height="350"
-                image={item.img}
-                title={item.title}
+                image={item.imageUrl}
+                title={item.name}
               />
             </Grid>
             <Grid item xs={12} md={6} className={classes.albumInfo}>
               <CardContent>
                 <Typography variant="h3" component="div">
-                  {item.author}
+                  {item.artist}
                 </Typography>
                 <Typography variant="h5" component="div">
-                  {item.title}
+                  {item.name}
                 </Typography>
                 <Typography variant="h6" component="div">
                   Label:
@@ -38,7 +51,7 @@ const RecordItem = () => {
                 </Typography>
                 <Typography variant="h6" component="div">
                   Published Date:
-                  {item.date_of_publish}
+                  {item.releaseDate}
                 </Typography>
                 <Typography variant="h6" component="div">
                   Country:
@@ -72,6 +85,10 @@ const RecordItem = () => {
       </Paper>
     </>
   );
+};
+
+RecordItem.propTypes = {
+  itemId: PropTypes.string.isRequired
 };
 
 export default RecordItem;
