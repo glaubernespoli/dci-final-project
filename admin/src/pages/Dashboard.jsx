@@ -1,12 +1,12 @@
 import { Box, Container, Grid } from '@material-ui/core';
 import { Helmet } from 'react-helmet';
-import LatestOrders from 'src/components/dashboard//LatestOrders';
+import LatestOrders from 'src/components/dashboard/LatestOrders';
 import LatestProducts from 'src/components/dashboard/LatestRecords';
 
 const Dashboard = () => (
   <>
     <Helmet>
-      <title>Dashboard | Material Kit</title>
+      <title>Dashboard | Sell Yours Records</title>
     </Helmet>
     <Box
       sx={{
