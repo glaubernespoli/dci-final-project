@@ -30,6 +30,8 @@ class RecordService {
       });
     /*  .limit(parseInt(pageLimit))
       .skip(parseInt(pageLimit) * pageNumber); */
+  findById = async (id) => {
+    return Record.findById(id);
   };
 }
 

@@ -8,5 +8,7 @@ router.get('/', recordController.findAll);
 router.get('/hot');
 router.get('/s', recordController.findBy);
 router.get('/:id');
+router.get('/s');
+router.get('/:id', recordController.findById);
 
 export default router;

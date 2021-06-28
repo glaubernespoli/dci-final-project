@@ -13,8 +13,7 @@ import {
   BarChart as BarChartIcon,
   Settings as SettingsIcon,
   ShoppingBag as ShoppingBagIcon,
-  User as UserIcon,
-  Users as UsersIcon
+  User as UserIcon
 } from 'react-feather';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import NavItem from './NavItem';
@@ -33,11 +32,11 @@ const items = [
     icon: BarChartIcon,
     title: 'Dashboard'
   },
-  {
-    href: '/app/customers',
-    icon: UsersIcon,
-    title: 'Customers'
-  },
+  // {
+  //   href: '/app/customers',
+  //   icon: UsersIcon,
+  //   title: 'Customers'
+  // },
   {
     href: '/app/records',
     icon: ShoppingBagIcon,

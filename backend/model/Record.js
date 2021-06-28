@@ -61,6 +61,20 @@ const recordSchema = new mongoose.Schema({
     type: Date,
     required: true,
     default: Date.now
+  },
+  label: {
+    type: String,
+    required: false,
+    trim: true,
+    minLength: 3,
+    maxLength: 100
+  },
+  country: {
+    type: String,
+    required: false,
+    trim: true,
+    minLength: 3,
+    maxLength: 100
   }
   //TODO below field should be added after we have the security on!
   // createdBy: {

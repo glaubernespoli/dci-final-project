@@ -8,6 +8,7 @@ import {
   TextField
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
+import AddRecordForm from './AddRecordForm';
 
 const RecordListToolbar = (props) => (
   <Box {...props}>
@@ -17,10 +18,10 @@ const RecordListToolbar = (props) => (
         justifyContent: 'flex-end'
       }}
     >
-      <Button>Import</Button>
-      <Button sx={{ mx: 1 }}>Export</Button>
-      <Button color="primary" variant="contained">
-        Add Records
+      {/* <Button>Import</Button> */}
+      {/* <Button sx={{ mx: 1 }}>Export</Button> */}
+      <Button>
+        <AddRecordForm />
       </Button>
     </Box>
     <Box sx={{ mt: 3 }}>

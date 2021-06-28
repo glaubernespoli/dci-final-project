@@ -28,6 +28,7 @@ const Routing = () => (
     <Route path={SignUpRoute} element={<SignUpPage />} />
     <Route path={RecordRoute} element={<RecordItemPage />} />
     <Route path={SearchRoute} element={<SearchPage />} />
+    <Route path={RecordRoute(':id')} element={<RecordItemPage />} />
     <ProtectedRoute path={ProfileRoute} component={ProfilePage} />
   </Routes>
 );
