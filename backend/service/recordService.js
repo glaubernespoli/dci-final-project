@@ -28,7 +28,8 @@ class RecordService {
       .sort({
         format: 'asc'
       });
-    /*  .limit(parseInt(pageLimit))
+  };
+  /*  .limit(parseInt(pageLimit))
       .skip(parseInt(pageLimit) * pageNumber); */
   findById = async (id) => {
     return Record.findById(id);

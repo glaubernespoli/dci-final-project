@@ -14,11 +14,10 @@ class RecordController {
 
   findBy = async (req, res) => {
     const { name, pageNumber, pageLimit } = req.query;
-    await recordService
-      .findBy(name, pageNumber, pageLimit)
-      .then((result) => {
-        res.status(200).json({ total: result.length, result });
-      })
+    await recordService.findBy(name, pageNumber, pageLimit).then((result) => {
+      res.status(200).json({ total: result.length, result });
+    });
+  };
   findById = (req, res) => {
     const id = req.params.id;
     recordService
