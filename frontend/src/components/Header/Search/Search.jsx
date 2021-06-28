@@ -4,7 +4,7 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import { generatePath, useNavigate } from 'react-router-dom';
+import { generatePath, useLocation, useNavigate } from 'react-router-dom';
 import MyContext from '../../../context/MyContext';
 import { SearchRoute } from '../../../Routing/routes';
 import getData from '../ApiSearch';
@@ -25,23 +25,26 @@ const useNavigateParams = () => {
 const Search = () => {
   const classes = SearchStyle();
   const context = useContext(MyContext);
-  const { setSearch, search, setRecords, pageNumber } = context;
+  const { setSearch, search, setRecords, pageNumber, setPageNumber } = context;
   const [searchTerms, setSearchTerms] = useState([]);
   const searchTerm = [];
 
   const navigate = useNavigateParams();
 
   // https://reactgo.com/react-get-query-params/
-  /*  const searchItem = useLocation().search;
 
-  if (searchItem) {
-    const value = new URLSearchParams(searchItem).get('q');
-    const page = new URLSearchParams(searchItem).get('page');
-    setSearch(value);
-    setPageNumber(page);
-  } else {
-    console.log('hello');
-  } */
+  const searchItem = useLocation().search;
+
+  useEffect(() => {
+    if (searchItem) {
+      const value = new URLSearchParams(searchItem).get('q');
+      const page = new URLSearchParams(searchItem).get('page');
+      setSearch(value);
+      setPageNumber(page);
+    } else {
+      console.log('hello');
+    }
+  }, []);
 
   const handleChange = (event) => {
     setSearch(event.target.value);
@@ -80,16 +83,6 @@ const Search = () => {
         console.log(err.status);
       });
   };
-  /*
-  useEffect(() => {
-    const urlString = window.location;
-    const url = new URL(urlString);
-    const name = url.searchParams.get('q');
-    const page = url.searchParams.get('page');
-    setSearch(name);
-    setPageNumber(page);
-  }, []); */
-  // const [t] = useState(localStorage.getItem('searcht'));
 
   useEffect(() => {
     if (search || pageNumber) {
@@ -112,8 +105,8 @@ const Search = () => {
       <div className={classes.searchIcon}>
         <SearchIcon />
       </div>
-
-      {/*  <Autocomplete
+      {/*
+      <Autocomplete
         id="combo-box-demo"
         options={[
           { title: 'The Shawshank Redemption', year: 1994 },
@@ -121,8 +114,6 @@ const Search = () => {
           { title: 'The Godfather: Part II', year: 1974 },
           { title: 'The Dark Knight', year: 2008 }
         ]}
-        getOptionLabel={(option) => option.title}
-        style={{ width: 300 }}
         renderInput={(params) => {
           const { InputLabelProps, InputProps, ...rest } = params;
           return (
@@ -136,6 +127,7 @@ const Search = () => {
           );
         }}
       /> */}
+
       <InputBase
         placeholder="Search Your Records.."
         id="search"
