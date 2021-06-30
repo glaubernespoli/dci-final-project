@@ -47,7 +47,7 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
 };
 
 DashboardNavbar.propTypes = {
-  onMobileNavOpen: PropTypes.func
+  onMobileNavOpen: PropTypes.func.isRequired
 };
 
 export default DashboardNavbar;

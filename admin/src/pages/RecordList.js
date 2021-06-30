@@ -1,9 +1,9 @@
 // eslint-disable-next-line object-curly-newline
 import { Box, Container, Grid, Pagination } from '@material-ui/core';
 import { Helmet } from 'react-helmet';
-import ProductCard from 'src/components/record/RecordCard';
-import ProductListToolbar from 'src/components/record/RecordListToolbar';
-import records from 'src/__mocks__/records';
+import ProductCard from '../components/record/RecordCard';
+import ProductListToolbar from '../components/record/RecordListToolbar';
+import records from '../__mocks__/records';
 
 const RecordList = () => (
   <>

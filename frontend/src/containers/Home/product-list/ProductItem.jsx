@@ -18,7 +18,6 @@ const ProductItem = ({ item }) => {
   const navigate = useNavigate();
 
   const clickHandle = () => {
-    // eslint-disable-next-line no-underscore-dangle
     navigate(RecordRoute(item._id));
     setItem(item);
   };

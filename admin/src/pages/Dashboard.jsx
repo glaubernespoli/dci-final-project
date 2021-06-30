@@ -1,7 +1,7 @@
 import { Box, Container, Grid } from '@material-ui/core';
 import { Helmet } from 'react-helmet';
-import LatestOrders from 'src/components/dashboard/LatestOrders';
-import LatestProducts from 'src/components/dashboard/LatestRecords';
+import LatestOrders from '../components/dashboard/LatestOrders';
+import LatestProducts from '../components/dashboard/LatestRecords';
 
 const Dashboard = () => (
   <>
