@@ -1,36 +1,39 @@
 {
-  "root": true,
   "env": {
-    "es6": true,
-    "browser": true
+    "browser": true,
+    "es2021": true,
+    "jest": true
   },
   "extends": [
-    "airbnb"
+    "react-app",
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended"
   ],
-  "settings": {
-    "import/resolver": {
-      "node": {
-        "paths": [
-          "."
-        ],
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
-      }
-    }
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
   },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "jsx-a11y"
+  ],
   "rules": {
-    "comma-dangle": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "max-len": "off",
-    "no-console": "off",
-    "no-plusplus": "off",
-    "react/forbid-prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "object-curly-newline": "off",
+    "comma-dangle": ["error", "never"],
+    "linebreak-style": "off",
+    "implicit-arrow-linebreak": "off",
+    "function-paren-newline": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
     "react/jsx-filename-extension": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/require-default-props": "off",
-    "linebreak-style": "off"
+    "react/forbid-prop-types": "off",
+    "operator-linebreak": "off"
   }
 }
