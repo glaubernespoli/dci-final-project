@@ -4,16 +4,30 @@ import { useEffect, useState } from 'react';
 
 axios.defaults.baseURL = process.env.REACT_APP_SERVER_URL;
 
-const useFetch = (axiosParams) => {
+const useAxios = (method, endpoint, axiosParams) => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { getAccessTokenSilently } = useAuth0();
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+
+      const token = await getAccessTokenSilently();
+
+      const params = { ...axiosParams };
+      params.headers = {
+        Authorization: `Bearer ${token}`,
+        ...params.headers
+      };
       try {
-        const result = await axios.request(axiosParams);
+        const result = await axios.request({
+          url: `/admin${endpoint}`,
+          method,
+          ...params
+        });
         setData(result.data);
       } catch (e) {
         setError(e);
@@ -29,25 +43,4 @@ const useFetch = (axiosParams) => {
   return { data, error, isLoading };
 };
 
-export const useAxios = (method, endpoint, axiosParams) =>
-  useFetch({
-    url: endpoint,
-    method,
-    ...axiosParams
-  });
-
-export const useAxiosProtected = async (method, endpoint, axiosParams) => {
-  const { getAccessTokenSilently } = useAuth0();
-  const token = await getAccessTokenSilently();
-
-  const params = { ...axiosParams };
-  params.headers = {
-    Authorization: `Bearer ${token}`,
-    ...params.headers
-  };
-  return useFetch({
-    url: endpoint,
-    method,
-    ...params
-  });
-};
+export default useAxios;

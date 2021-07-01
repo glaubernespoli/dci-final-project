@@ -1,9 +1,8 @@
 // eslint-disable-next-line object-curly-newline
-import { Box, Container, Grid, Pagination } from '@material-ui/core';
+import { Box, Container, Pagination } from '@material-ui/core';
 import { Helmet } from 'react-helmet';
-import ProductCard from '../components/record/RecordCard';
+import LatestProducts from '../components/dashboard/LatestRecords';
 import ProductListToolbar from '../components/record/RecordListToolbar';
-import records from '../__mocks__/records';
 
 const RecordList = () => (
   <>
@@ -19,15 +18,7 @@ const RecordList = () => (
     >
       <Container maxWidth={false}>
         <ProductListToolbar />
-        <Box sx={{ pt: 3 }}>
-          <Grid container spacing={3}>
-            {records.map((record) => (
-              <Grid item key={records.id} lg={4} md={6} xs={12}>
-                <ProductCard record={record} />
-              </Grid>
-            ))}
-          </Grid>
-        </Box>
+        <LatestProducts sx={{ height: '100%' }} />
         <Box
           sx={{
             display: 'flex',
