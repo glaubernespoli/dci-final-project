@@ -1,9 +1,15 @@
 import { useAuth0 } from '@auth0/auth0-react';
-import { AppBar, Box, Hidden, IconButton, Toolbar } from '@material-ui/core';
+import {
+  AppBar,
+  Box,
+  Hidden,
+  IconButton,
+  Link,
+  Toolbar
+} from '@material-ui/core';
 import LogoutOutlined from '@material-ui/icons/LogoutOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import PropTypes from 'prop-types';
-import { Link as RouterLink } from 'react-router-dom';
 import Logo from './Logo';
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
@@ -16,9 +22,9 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   return (
     <AppBar elevation={0} {...rest}>
       <Toolbar>
-        <RouterLink to="/">
+        <Link href={process.env.REACT_APP_FRONTEND_ROUTE}>
           <Logo />
-        </RouterLink>
+        </Link>
         <Box sx={{ flexGrow: 1 }} />
         <Hidden lgDown>
           <IconButton color="inherit" onClick={doLogout}>
