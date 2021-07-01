@@ -1,38 +1,34 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import {
   AppBar,
-  Badge,
   Box,
   Hidden,
   IconButton,
+  Link,
   Toolbar
 } from '@material-ui/core';
-// import InputIcon from '@material-ui/icons/Input';
+import LogoutOutlined from '@material-ui/icons/LogoutOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import Logo from './Logo';
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
-  const [notifications] = useState([]);
+  const { logout } = useAuth0();
 
+  const doLogout = () =>
+    logout({
+      returnTo: `${process.env.REACT_APP_FRONTEND_ROUTE}`
+    });
   return (
     <AppBar elevation={0} {...rest}>
       <Toolbar>
-        <RouterLink to="/">
+        <Link href={process.env.REACT_APP_FRONTEND_ROUTE}>
           <Logo />
-        </RouterLink>
+        </Link>
         <Box sx={{ flexGrow: 1 }} />
         <Hidden lgDown>
-          <IconButton color="inherit">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon />
-            </Badge>
+          <IconButton color="inherit" onClick={doLogout}>
+            <LogoutOutlined />
           </IconButton>
           <IconButton color="inherit">{/* <InputIcon /> */}</IconButton>
         </Hidden>
@@ -47,7 +43,7 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
 };
 
 DashboardNavbar.propTypes = {
-  onMobileNavOpen: PropTypes.func
+  onMobileNavOpen: PropTypes.func.isRequired
 };
 
 export default DashboardNavbar;
