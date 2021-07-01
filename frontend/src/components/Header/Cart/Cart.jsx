@@ -19,7 +19,7 @@ const Cart = () => {
     <div>
       <Button color="inherit" onClick={CartNavigateTo}>
         <AddShoppingCartIcon />
-        {cartItems.length}
+        <h4 style={{ color: 'yellow' }}>{cartItems.length}</h4>
       </Button>
     </div>
   );

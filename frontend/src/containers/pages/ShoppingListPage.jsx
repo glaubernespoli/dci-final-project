@@ -4,6 +4,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import React, { useContext } from 'react';
 import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
@@ -20,8 +22,6 @@ const useStyles = makeStyles({
   },
   subroot1: {
     display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
     flexDirection: 'column'
   },
   h1: {
@@ -66,7 +66,7 @@ const ShoppingList = () => {
 
   return (
     <div>
-      <Card className={classes.empty}>
+      <Card>
         {cartItems.length === 0 && (
           <Typography component="h1" textAlign="center">
             {' '}
@@ -77,19 +77,26 @@ const ShoppingList = () => {
       <Card className={classes.root} variant="outlined">
         <Card>
           {cartItems.length > 0 && (
-            <h1 className={classes.h1}> You have {cartItems.length} record select to buy</h1>
+            <Typography>
+              <h1 className={classes.h1}>Your Cart History</h1>
+              <hr />
+              <h3 className={classes.h1}>
+                {' '}
+                You have <strong style={{ color: 'yellow' }}>{cartItems.length}</strong> record
+                selected to buy!!!
+              </h3>
+            </Typography>
           )}
         </Card>
-
         {cartItems.map((cartItem) => (
           <CardContent key={cartItem.id} className={classes.subroot}>
             <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
             <Typography>{cartItem.name}</Typography>
             <Button onClick={() => onAdd(cartItem)} variant="outlined">
-              +
+              <AddIcon />
             </Button>
             <Button onClick={() => onRemove(cartItem)} variant="outlined">
-              -
+              <RemoveIcon />
             </Button>
             <Typography component="h2">
               {cartItem.qty} * {cartItem.price.toFixed(2)}
@@ -97,42 +104,41 @@ const ShoppingList = () => {
             </Typography>
           </CardContent>
         ))}
+        <hr />
+        {cartItems.length !== 0 && (
+          <CardContent className={classes.subroot1}>
+            <div className={classes.ty}>
+              <h3>Item Price</h3>
+              <h3>
+                {itemPrice.toFixed(2)}
+                {'\u20AC'}
+              </h3>
+            </div>
+            <div className={classes.ty}>
+              <h3>Tax Price</h3>
+              <h3>
+                {taxPrice.toFixed(2)}
+                {'\u20AC'}
+              </h3>
+            </div>
+            <div className={classes.ty}>
+              <h3>Shipping Price</h3>
+              <h3>
+                {shippingPrice.toFixed(2)}
+                {'\u20AC'}
+              </h3>
+            </div>
+            <div className={classes.ty}>
+              <h3>Total Price</h3>
+              <h3>
+                {totalPrice.toFixed(2)}
+                {'\u20AC'}
+              </h3>
+            </div>
+            <Button variant="outlined">check it Out !!!</Button>
+          </CardContent>
+        )}
       </Card>
-      {cartItems.length !== 0 && (
-        <div className={classes.subroot1}>
-          <hr />
-          <div className={classes.ty}>
-            <div>Item Price</div>
-            <div>
-              {itemPrice.toFixed(2)}
-              {'\u20AC'}
-            </div>
-          </div>
-          <div className={classes.ty}>
-            <div>Tax Price</div>
-            <div>
-              {taxPrice.toFixed(2)}
-              {'\u20AC'}
-            </div>
-          </div>
-          <div className={classes.ty}>
-            <div>Shipping Price</div>
-            <div>
-              {shippingPrice.toFixed(2)}
-              {'\u20AC'}
-            </div>
-          </div>
-          <hr />
-          <div className={classes.ty}>
-            <div>Total Price</div>
-            <div>
-              {totalPrice.toFixed(2)}
-              {'\u20AC'}
-            </div>
-          </div>
-          <Button variant="outlined">check it Out !!!</Button>
-        </div>
-      )}
     </div>
   );
 };
