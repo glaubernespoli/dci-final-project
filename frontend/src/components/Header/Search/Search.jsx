@@ -58,23 +58,23 @@ const Search = () => {
       });
   }, [SearchRoute, pageNumber]);
 
-  const handleChange = (event) => {
+  /*  const handleChange = (event) => {
     setSearch(event.target.value);
   };
-
+ */
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
       navigate(SearchRoute, `q=${search}&page=${pageNumber}`);
     }
     setSearch(event.target.value.trim());
 
-    getData(search)
+    /*    getData(search)
       .then((response) => {
         setRecords(response.result);
       })
       .catch((err) => {
         console.log(err.status);
-      });
+      }); */
   };
 
   return (
@@ -91,7 +91,8 @@ const Search = () => {
           input: classes.inputInput
         }}
         inputProps={{ 'aria-label': 'search' }}
-        onChange={handleChange}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
         onKeyPress={handleKeyPress}
       />
     </div>
