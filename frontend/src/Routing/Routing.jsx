@@ -6,6 +6,7 @@ import HomePage from '../containers/pages/HomePage';
 import LoginPage from '../containers/pages/LoginPage';
 import ProfilePage from '../containers/pages/ProfilePage';
 import RecordItemPage from '../containers/pages/RecordItemPage';
+import ShoppingList from '../containers/pages/ShoppingListPage';
 import SignUpPage from '../containers/pages/SignUpPage';
 import {
   AboutUsRoute,
@@ -14,6 +15,7 @@ import {
   LoginRoute,
   ProfileRoute,
   RecordRoute,
+  ShoppingListRoute,
   SignUpRoute
 } from './routes';
 
@@ -25,6 +27,8 @@ const Routing = () => (
     <Route path={LoginRoute} element={<LoginPage />} />
     <Route path={SignUpRoute} element={<SignUpPage />} />
     <Route path={RecordRoute(':id')} element={<RecordItemPage />} />
+    <Route path={ShoppingListRoute} element={<ShoppingList />} />
+
     <ProtectedRoute path={ProfileRoute} component={ProfilePage} />
   </Routes>
 );

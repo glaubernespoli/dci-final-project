@@ -2,13 +2,16 @@ import { Button, Card, CardContent, CardMedia, Grid, Paper, Typography } from '@
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
+import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
 import useStyles from './Album.Styles';
 
 // should receive the id as the url param
 const RecordItem = ({ itemId }) => {
   const classes = useStyles();
+  const context = useContext(MyContext);
+  const { cartItems, setCartItems } = context;
   const { data: item, error, isLoading } = useAxios('get', `/record/${itemId}`);
 
   if (isLoading) {
@@ -22,6 +25,10 @@ const RecordItem = ({ itemId }) => {
   if (!item) {
     return <div>Item not found!</div>;
   }
+
+  const addToCart = () => {
+    setCartItems([...cartItems, item]);
+  };
   return (
     <>
       <Paper elevation={5} className={classes.paper}>
@@ -67,9 +74,16 @@ const RecordItem = ({ itemId }) => {
                 </Typography>
                 <Typography variant="h6" component="div">
                   {item.price}
-                </Typography>
 
-                <Button variant="outlined" endIcon={<AddShoppingCartIcon />}>
+                  {'\u20AC'}
+                </Typography>
+                <hr />
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  endIcon={<AddShoppingCartIcon />}
+                  onClick={() => addToCart(item)}
+                >
                   ADD TO SHOPPING CART
                 </Button>
               </CardContent>
