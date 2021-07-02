@@ -1,24 +1,19 @@
 import jwt from 'express-jwt';
-// import { auth as openIDAuth } from 'express-openid-connect';
+import jwtAuthz from 'express-jwt-authz';
 import { expressJwtSecret } from 'jwks-rsa';
-
-// export const auth = openIDAuth({
-//   authRequired: false,
-//   auth0Logout: true,
-//   issuerBaseURL: process.env.ISSUER_BASE_URL,
-//   baseURL: process.env.BASE_URL,
-//   clientID: process.env.CLIENT_ID,
-//   secret: process.env.SECRET
-// });
 
 export const jwtCheck = jwt({
   secret: expressJwtSecret({
     cache: true,
     rateLimit: true,
     jwksRequestsPerMinute: 5,
-    jwksUri: `${process.env.ISSUER_BASE_URL}.well-known/jwks.json`
+    jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`
   }),
-  audience: process.env.BASE_URL,
-  issuer: process.env.ISSUER_BASE_URL,
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: `https://${process.env.AUTH0_DOMAIN}/`,
   algorithms: ['RS256']
+});
+
+export const checkAdmin = jwtAuthz(['admin:all'], {
+  customScopeKey: 'permissions'
 });

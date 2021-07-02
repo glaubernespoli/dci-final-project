@@ -1,16 +1,12 @@
-import { Link as RouterLink } from 'react-router-dom';
-import { AppBar, Toolbar } from '@material-ui/core';
+import { AppBar, Link, Toolbar } from '@material-ui/core';
 import Logo from './Logo';
 
 const MainNavbar = (props) => (
-  <AppBar
-    elevation={0}
-    {...props}
-  >
+  <AppBar elevation={0} {...props}>
     <Toolbar sx={{ height: 64 }}>
-      <RouterLink to="/">
+      <Link href={process.env.REACT_APP_FRONTEND_ROUTE}>
         <Logo />
-      </RouterLink>
+      </Link>
     </Toolbar>
   </AppBar>
 );
