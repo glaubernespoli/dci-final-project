@@ -7,7 +7,7 @@ import React, { useContext, useEffect } from 'react';
 import { generatePath, useLocation, useNavigate } from 'react-router-dom';
 import MyContext from '../../../context/MyContext';
 import { SearchRoute } from '../../../Routing/routes';
-import getData from '../ApiSearch';
+// import getData from '../ApiSearch';
 import SearchStyle from './Search.style';
 
 const useNavigateParams = () => {
@@ -25,7 +25,7 @@ const useNavigateParams = () => {
 const Search = () => {
   const classes = SearchStyle();
   const context = useContext(MyContext);
-  const { setSearch, search, setRecords, pageNumber, setPageNumber } = context;
+  const { setSearch, search, /* setRecords,  */ pageNumber, setPageNumber } = context;
 
   const navigate = useNavigateParams();
 
@@ -38,7 +38,7 @@ const Search = () => {
       setSearch(value);
       setPageNumber(page);
     } else {
-      console.log('hello');
+      console.log('test');
     }
   }, []);
 
@@ -48,7 +48,7 @@ const Search = () => {
     }
   }, [SearchRoute, pageNumber]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     getData(search)
       .then((response) => {
         setRecords(response.result);
@@ -56,7 +56,7 @@ const Search = () => {
       .catch((err) => {
         console.log(err.status);
       });
-  }, [SearchRoute, pageNumber]);
+  }, [SearchRoute, pageNumber]); */
 
   /*  const handleChange = (event) => {
     setSearch(event.target.value);
