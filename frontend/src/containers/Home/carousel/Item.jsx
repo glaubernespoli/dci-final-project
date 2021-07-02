@@ -2,23 +2,19 @@ import { Box } from '@material-ui/core';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import MyContext from '../../../context/MyContext';
 import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './Carousel.style';
 
 const Item = ({ item }) => {
   const classes = useStyles();
 
-  const context = useContext(MyContext);
-  const { setItem } = context;
   const navigate = useNavigate();
 
   const clickHandle = () => {
     // eslint-disable-next-line no-underscore-dangle
     navigate(RecordRoute(item._id));
-    setItem(item);
   };
 
   return (

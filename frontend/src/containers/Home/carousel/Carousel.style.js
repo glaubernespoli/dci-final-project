@@ -1,15 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
-  root: {
-    height: '80vh'
-  },
-  container: {
-    paddingTop: '1rem'
-  },
-  imageListItem: {
-    width: '70vw'
-  },
   imageItemContainer: {
     width: '80%',
     height: '70vh',
@@ -19,6 +10,9 @@ const useStyles = makeStyles({
   },
   img: {
     objectFit: 'cover'
+  },
+  imageListItem: {
+    width: '70vw'
   }
 });
 
