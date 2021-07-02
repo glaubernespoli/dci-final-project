@@ -28,7 +28,6 @@ const ProductContainer = () => {
       </Grid>
       <Grid container spacing={4} justifyContent="center" className={classes.container}>
         {data.map((item) => (
-          // eslint-disable-next-line no-underscore-dangle
           <ProductItem key={item._id} item={item} />
         ))}
       </Grid>

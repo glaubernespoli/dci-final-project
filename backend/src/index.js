@@ -4,22 +4,28 @@ import express from 'express';
 import helmet from 'helmet';
 import mongoose from 'mongoose';
 import logger from 'morgan';
-import profileRouter from '../routes/profileRouter.js';
-import recordRouter from '../routes/recordsRoutes.js';
+import adminRoutes from '../routes/adminRoutes.js';
+import profileRoutes from '../routes/profileRoutes.js';
+import recordRoutes from '../routes/recordsRoutes.js';
 
 //create app
 const app = express();
 
 //Middlewares
 app.use(helmet());
-app.use(cors());
+app.use(
+  cors({
+    origin: [process.env.CLIENT_ORIGIN_URL, process.env.ADMIN_ORIGIN_URL]
+  })
+);
 app.use(logger('dev')); //TODO customize logger
 app.use(express.json());
 app.use(cors());
 
 //routes
-app.use('/record', recordRouter);
-app.use('/profile', profileRouter);
+app.use('/record', recordRoutes);
+app.use('/profile', profileRoutes);
+app.use('/admin', adminRoutes);
 
 //Start server
 mongoose

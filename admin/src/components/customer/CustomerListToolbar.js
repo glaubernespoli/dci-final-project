@@ -3,9 +3,9 @@ import {
   Button,
   Card,
   CardContent,
-  TextField,
   InputAdornment,
-  SvgIcon
+  SvgIcon,
+  TextField
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
 
@@ -17,16 +17,9 @@ const CustomerListToolbar = (props) => (
         justifyContent: 'flex-end'
       }}
     >
-      <Button>
-        Import
-      </Button>
-      <Button sx={{ mx: 1 }}>
-        Export
-      </Button>
-      <Button
-        color="primary"
-        variant="contained"
-      >
+      <Button>Import</Button>
+      <Button sx={{ mx: 1 }}>Export</Button>
+      <Button color="primary" variant="contained">
         Add customer
       </Button>
     </Box>
@@ -39,10 +32,7 @@ const CustomerListToolbar = (props) => (
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
-                    <SvgIcon
-                      fontSize="small"
-                      color="action"
-                    >
+                    <SvgIcon fontSize="small" color="action">
                       <SearchIcon />
                     </SvgIcon>
                   </InputAdornment>
