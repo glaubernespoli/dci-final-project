@@ -3,26 +3,27 @@ import { Button, Typography } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
+import PaymentIcon from '@material-ui/icons/Payment';
 import RemoveIcon from '@material-ui/icons/Remove';
 import React, { useContext } from 'react';
 import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
 
 const useStyles = makeStyles({
-  root: {
-    minWidth: 70
-  },
+  // root: {
+  //   minWidth: 70
+  // },
   subroot: {
     display: 'flex',
-    justifyContent: 'center',
-    alignContent: 'center',
-    gap: 10
+    justifyContent: 'space-around'
   },
-  subroot1: {
+  priceDetails: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    margin: '0 auto'
   },
   h1: {
     textAlign: 'center'
@@ -36,7 +37,19 @@ const useStyles = makeStyles({
 const ShoppingList = () => {
   const classes = useStyles();
   const { cartItems, setCartItems } = useContext(MyContext);
-  const { data: item } = useAxios('get', '/record');
+  // const { data: item } = useAxios('get', '/record');
+  const { data: item, error, isLoading } = useAxios('get', '/record');
+  if (isLoading) {
+    return <CircularProgress />;
+  }
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+
+  if (!item) {
+    return <div>Item not found!</div>;
+  }
 
   // Handling Adding and removing records in the basket
   const onAdd = () => {
@@ -58,9 +71,9 @@ const ShoppingList = () => {
 
   // Summary of Price list
 
-  const itemPrice = cartItems.reduce((a, c) => a + c.price * c.qty, 0);
-  const taxPrice = itemPrice * 0.19;
-  const shippingPrice = itemPrice > 200 ? 0 : 20;
+  const itemPrice = cartItems.reduce((acc, curr) => acc + curr.price, 0);
+  const taxPrice = itemPrice * 0.15;
+  const shippingPrice = itemPrice > 100 ? 0 : 5.99;
   const totalPrice = itemPrice + taxPrice + shippingPrice;
 
   return (
@@ -79,11 +92,11 @@ const ShoppingList = () => {
             <Typography>
               <h1 className={classes.h1}>Your Cart History</h1>
               <hr />
-              <h3 className={classes.h1}>
+              <p className={classes.h1}>
                 {' '}
                 You have <strong style={{ color: 'yellow' }}>{cartItems.length}</strong> record
                 selected to buy!!!
-              </h3>
+              </p>
             </Typography>
           )}
         </Card>
@@ -91,52 +104,61 @@ const ShoppingList = () => {
           <CardContent key={cartItem.id} className={classes.subroot}>
             <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
             <Typography>{cartItem.name}</Typography>
-            <Button onClick={() => onAdd()} variant="outlined">
-              <AddIcon />
-            </Button>
-            <Button onClick={() => onRemove()} variant="outlined">
-              <RemoveIcon />
-            </Button>
+
             <Typography component="h2">
               {cartItem.qty} * {cartItem.price.toFixed(2)}
               {'\u20AC'}
             </Typography>
+            <div>
+              <Button onClick={() => onAdd(item)} variant="outlined">
+                <AddIcon />
+              </Button>
+              <Button onClick={() => onRemove(item)} variant="outlined">
+                <RemoveIcon />
+              </Button>
+            </div>
           </CardContent>
         ))}
         <hr />
 
         {cartItems.length !== 0 && (
-          <CardContent className={classes.subroot1}>
-            <div className={classes.ty}>
-              <h3>Item Price</h3>
-              <h3>
-                {itemPrice.toFixed(2)}
-                {'\u20AC'}
-              </h3>
-            </div>
-            <div className={classes.ty}>
-              <h3>Tax Price</h3>
-              <h3>
-                {taxPrice.toFixed(2)}
-                {'\u20AC'}
-              </h3>
-            </div>
-            <div className={classes.ty}>
-              <h3>Shipping Price</h3>
-              <h3>
-                {shippingPrice.toFixed(2)}
-                {'\u20AC'}
-              </h3>
-            </div>
-            <div className={classes.ty}>
-              <h3>Total Price</h3>
-              <h3>
-                {totalPrice.toFixed(2)}
-                {'\u20AC'}
-              </h3>
-            </div>
-            <Button variant="outlined">check it Out !!!</Button>
-          </CardContent>
+          <Card>
+            <CardContent className={classes.priceDetails}>
+              <div className={classes.ty}>
+                <p>Item Price : </p>
+                <p>
+                  {itemPrice.toFixed(2)}
+                  {'\u20AC'}
+                </p>
+              </div>
+              <div className={classes.ty}>
+                <p>Tax Price (19%) : </p>
+                <p>
+                  {taxPrice.toFixed(2)}
+                  {'\u20AC'}
+                </p>
+              </div>
+              <div className={classes.ty}>
+                <p>Shipping Cost : </p>
+                <p>
+                  {shippingPrice.toFixed(2)}
+                  {'\u20AC'}
+                </p>
+              </div>
+              <div className={classes.ty}>
+                <h3>Total Price : </h3>
+                <h3>
+                  {totalPrice.toFixed(2)}
+                  {'\u20AC'}
+                </h3>
+              </div>
+
+              <Button variant="contained" color="primary">
+                Go for Payment Method
+                <PaymentIcon />
+              </Button>
+            </CardContent>
+          </Card>
         )}
       </Card>
     </div>

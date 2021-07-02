@@ -7,12 +7,11 @@ import { ShoppingListRoute } from '../../../Routing/routes';
 
 const Cart = () => {
   const context = useContext(MyContext);
-  const { cartItems, setCartItemPage } = context;
+  const { cartItems } = context;
   const navigate = useNavigate();
 
   const CartNavigateTo = () => {
     navigate(ShoppingListRoute);
-    setCartItemPage(cartItems);
   };
 
   return (

@@ -5,12 +5,9 @@ import MyContext from './MyContext';
 const MyProvider = ({ children }) => {
   const [item, setItem] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  const [CartItemPage, setCartItemPage] = useState([]);
 
   return (
-    <MyContext.Provider
-      value={{ item, cartItems, CartItemPage, setItem, setCartItems, setCartItemPage }}
-    >
+    <MyContext.Provider value={{ item, cartItems, setItem, setCartItems }}>
       {children}
     </MyContext.Provider>
   );
