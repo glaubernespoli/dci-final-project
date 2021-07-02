@@ -35,8 +35,7 @@ const useStyles = makeStyles({
 
 const ShoppingList = () => {
   const classes = useStyles();
-  const context = useContext(MyContext);
-  const { cartItems, setCartItems } = context;
+  const { cartItems, setCartItems } = useContext(MyContext);
   const { data: item } = useAxios('get', '/record');
 
   // Handling Adding and removing records in the basket
@@ -92,10 +91,10 @@ const ShoppingList = () => {
           <CardContent key={cartItem.id} className={classes.subroot}>
             <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
             <Typography>{cartItem.name}</Typography>
-            <Button onClick={() => onAdd(cartItem)} variant="outlined">
+            <Button onClick={() => onAdd()} variant="outlined">
               <AddIcon />
             </Button>
-            <Button onClick={() => onRemove(cartItem)} variant="outlined">
+            <Button onClick={() => onRemove()} variant="outlined">
               <RemoveIcon />
             </Button>
             <Typography component="h2">
@@ -105,6 +104,7 @@ const ShoppingList = () => {
           </CardContent>
         ))}
         <hr />
+
         {cartItems.length !== 0 && (
           <CardContent className={classes.subroot1}>
             <div className={classes.ty}>

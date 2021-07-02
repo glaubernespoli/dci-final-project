@@ -10,8 +10,7 @@ import useStyles from './Album.Styles';
 // should receive the id as the url param
 const RecordItem = ({ itemId }) => {
   const classes = useStyles();
-  const context = useContext(MyContext);
-  const { cartItems, setCartItems } = context;
+  const { cartItems, setCartItems } = useContext(MyContext);
   const { data: item, error, isLoading } = useAxios('get', `/record/${itemId}`);
 
   if (isLoading) {
