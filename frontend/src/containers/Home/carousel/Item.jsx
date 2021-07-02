@@ -1,44 +1,80 @@
-import { Button, Grid, Paper, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
+import ImageListItem from '@material-ui/core/ImageListItem';
+import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import MyContext from '../../../context/MyContext';
+import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './Carousel.style';
 
 const Item = ({ item }) => {
   const classes = useStyles();
+
+  const context = useContext(MyContext);
+  const { setItem } = context;
+  const navigate = useNavigate();
+
+  const clickHandle = () => {
+    // eslint-disable-next-line no-underscore-dangle
+    navigate(RecordRoute(item._id));
+    setItem(item);
+  };
+
   return (
-    <Paper elevation={5}>
-      <Grid container direction="column" justifyContent="space-between" className={classes.root}>
-        <Grid item>
-          <Typography align="center" gutterBottom variant="h3">
-            {item.name}
-          </Typography>
-        </Grid>
-
-        <Grid item>
-          <Typography align="center" gutterBottom paragraph variant="caption">
-            {item.description}
-          </Typography>
-        </Grid>
-
-        <Grid item>
-          <Button fullWidth size="large" color="primary" variant="contained">
-            Check it out!
-          </Button>
-        </Grid>
-      </Grid>
-    </Paper>
+    <Box
+      onClick={clickHandle}
+      className={classes.container}
+      sx={{
+        '&:hover': {
+          opacity: [0.8, 0.7, 0.6],
+          cursor: 'pointer'
+        }
+      }}
+    >
+      <Box className={classes.imageItemContainer}>
+        <ImageListItem className={classes.imageListItem} key={item.imageUrl}>
+          <img srcSet={item.imageUrl} alt={item.description} className={classes.img} />
+          <ImageListItemBar title={item.name} subtitle={item.artist} />
+        </ImageListItem>
+      </Box>
+    </Box>
   );
 };
 
 Item.defaultProps = {
   item: {
-    name: 'Error in Name',
-    description: 'Error in Description'
+    name: 'Not available',
+    artist: 'Not available',
+    summary: 'Not available',
+    description: 'Not available',
+    price: 'Not available',
+    imageUrl: 'Not available',
+    format: 'Not available',
+    style: 'Not available',
+    label: 'Not available',
+    country: 'Not available',
+    releaseDate: 'Not available',
+    createdAt: 'Not available'
   }
 };
 
 Item.propTypes = {
-  item: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.number, PropTypes.string]))
+  item: PropTypes.shape({
+    _id: PropTypes.string,
+    name: PropTypes.string,
+    artist: PropTypes.string,
+    summary: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.number,
+    imageUrl: PropTypes.string,
+    format: PropTypes.string,
+    style: PropTypes.string,
+    label: PropTypes.string,
+    country: PropTypes.string,
+    releaseDate: PropTypes.string,
+    createdAt: PropTypes.string
+  })
 };
 
 export default Item;

@@ -26,9 +26,20 @@ const ProductItem = ({ item }) => {
   return (
     <Grid item xs={12} sm={6} md={4}>
       <ImageListItem key={item.imageUrl} onClick={clickHandle}>
-        <Box height="35vh">
+        <Box
+          height="35vh"
+          sx={{
+            '&:hover': {
+              opacity: [0.9, 0.8, 0.7],
+              cursor: 'pointer',
+              transition: 'transform .4s',
+              transform: 'scale(1.1)'
+            }
+          }}
+        >
           <img
-            srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format 1x`}
+            srcSet={item.imageUrl}
+            // srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format 1x`}
             alt={item.summary}
             className={classes.img}
           />
