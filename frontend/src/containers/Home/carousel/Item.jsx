@@ -13,14 +13,12 @@ const Item = ({ item }) => {
   const navigate = useNavigate();
 
   const clickHandle = () => {
-    // eslint-disable-next-line no-underscore-dangle
     navigate(RecordRoute(item._id));
   };
 
   return (
     <Box
       onClick={clickHandle}
-      className={classes.container}
       sx={{
         '&:hover': {
           opacity: [0.8, 0.7, 0.6],

@@ -7,7 +7,7 @@ import Item from './Item';
 const Carousele = () => {
   const classes = useStyles();
 
-  const { data, error, isLoading } = useAxios('get', '/record');
+  const { data, error, isLoading } = useAxios('get', '/record/hot');
 
   if (isLoading) {
     return <CircularProgress />;
@@ -30,7 +30,6 @@ const Carousele = () => {
       className={classes.root}
     >
       {data.map((item) => (
-        // eslint-disable-next-line no-underscore-dangle
         <Item key={item._id} item={item} />
       ))}
     </Carousel>

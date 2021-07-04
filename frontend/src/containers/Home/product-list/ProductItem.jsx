@@ -31,12 +31,7 @@ const ProductItem = ({ item }) => {
             }
           }}
         >
-          <img
-            srcSet={item.imageUrl}
-            // srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format 1x`}
-            alt={item.summary}
-            className={classes.img}
-          />
+          <img srcSet={item.imageUrl} alt={item.summary} className={classes.img} />
           <ImageListItemBar
             title={item.name}
             subtitle={item.artist}
