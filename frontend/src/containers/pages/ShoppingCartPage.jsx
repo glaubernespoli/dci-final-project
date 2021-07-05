@@ -3,7 +3,6 @@ import { Button, Typography } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import PaymentIcon from '@material-ui/icons/Payment';
@@ -13,12 +12,9 @@ import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
 
 const useStyles = makeStyles({
-  // root: {
-  //   minWidth: 70
-  // },
-  subroot: {
+  root: {
     display: 'flex',
-    justifyContent: 'space-around'
+    justifyContent: 'space-evenly'
   },
   priceDetails: {
     display: 'flex',
@@ -37,35 +33,44 @@ const useStyles = makeStyles({
 const ShoppingList = () => {
   const classes = useStyles();
   const { cartItems, setCartItems } = useContext(MyContext);
-  // const { data: item } = useAxios('get', '/record');
-  const { data: item, error, isLoading } = useAxios('get', '/record');
-  if (isLoading) {
-    return <CircularProgress />;
-  }
+  const { data: item } = useAxios('get', '/record');
+  // if (isLoading) {
+  //   return <CircularProgress />;
+  // }
 
-  if (error) {
-    return <div>{error.message}</div>;
-  }
+  // if (error) {
+  //   return <div>{error.message}</div>;
+  // }
 
-  if (!item) {
-    return <div>Item not found!</div>;
-  }
+  // if (!item) {
+  //   return <div>Item not found!</div>;
+  // }
 
   // Handling Adding and removing records in the basket
   const onAdd = () => {
-    const exist = cartItems.find((x) => x.id === item.id);
-    if (exist) {
-      setCartItems(cartItems.map((x) => (x.id === item.id ? { ...exist, qty: exist.qty + 1 } : x)));
+    const ItemExist = cartItems.find((x) => x.id === item._id);
+    if (ItemExist) {
+      setCartItems(
+        // eslint-disable-next-line no-confusing-arrow
+        cartItems.map((x) =>
+          x.id === item._id ? { ...ItemExist, quantity: ItemExist.quantity + 1 } : x
+        )
+      );
     } else {
-      setCartItems([...cartItems, { ...item, qty: 1 }]);
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
     }
   };
   const onRemove = () => {
-    const exist = cartItems.find((x) => x.id === item.id);
-    if (exist) {
-      setCartItems(cartItems.filter((x) => x.id !== item.id));
+    const ItemExist = cartItems.find((x) => x.id === item._id);
+    if (ItemExist) {
+      setCartItems(cartItems.filter((x) => x.id !== item._id));
     } else {
-      setCartItems(cartItems.map((x) => (x.id === item.id ? { ...exist, qty: exist.qty - 1 } : x)));
+      setCartItems(
+        // eslint-disable-next-line no-confusing-arrow
+        cartItems.map((x) =>
+          x.id === item._id ? { ...ItemExist, quantity: ItemExist.quantity - 1 } : x
+        )
+      );
     }
   };
 
@@ -73,8 +78,14 @@ const ShoppingList = () => {
 
   const itemPrice = cartItems.reduce((acc, curr) => acc + curr.price, 0);
   const taxPrice = itemPrice * 0.15;
-  const shippingPrice = itemPrice > 100 ? 0 : 5.99;
+  const shippingPrice = itemPrice > 100 ? 0 : 4.99;
   const totalPrice = itemPrice + taxPrice + shippingPrice;
+
+  // checkoutPayment handling
+  const checkoutPayment = () => {
+    // eslint-disable-next-line no-alert
+    alert(`Your Total price ${totalPrice.toFixed(2)} `);
+  };
 
   return (
     <div>
@@ -86,34 +97,34 @@ const ShoppingList = () => {
           </Typography>
         )}
       </Card>
-      <Card className={classes.root} variant="outlined">
+      <Card variant="outlined">
         <Card>
           {cartItems.length > 0 && (
             <Typography>
-              <h1 className={classes.h1}>Your Cart History</h1>
+              <h1 className={classes.h1}>Your Musical Album</h1>
               <hr />
-              <p className={classes.h1}>
+              <h3 className={classes.h1}>
                 {' '}
-                You have <strong style={{ color: 'yellow' }}>{cartItems.length}</strong> record
+                You have <strong style={{ color: 'yellow' }}> {cartItems.length} </strong> record
                 selected to buy!!!
-              </p>
+              </h3>
             </Typography>
           )}
         </Card>
         {cartItems.map((cartItem) => (
-          <CardContent key={cartItem.id} className={classes.subroot}>
+          <CardContent key={cartItem.id} className={classes.root}>
             <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
             <Typography>{cartItem.name}</Typography>
 
             <Typography component="h2">
-              {cartItem.qty} * {cartItem.price.toFixed(2)}
+              {cartItem.quantity} *{cartItem.price.toFixed(2)}
               {'\u20AC'}
             </Typography>
             <div>
-              <Button onClick={() => onAdd(item)} variant="outlined">
+              <Button onClick={() => onAdd(cartItem)} variant="outlined">
                 <AddIcon />
               </Button>
-              <Button onClick={() => onRemove(item)} variant="outlined">
+              <Button onClick={() => onRemove(cartItem)} variant="outlined">
                 <RemoveIcon />
               </Button>
             </div>
@@ -132,7 +143,7 @@ const ShoppingList = () => {
                 </p>
               </div>
               <div className={classes.ty}>
-                <p>Tax Price (19%) : </p>
+                <p>Tax cost (19%) : </p>
                 <p>
                   {taxPrice.toFixed(2)}
                   {'\u20AC'}
@@ -153,8 +164,8 @@ const ShoppingList = () => {
                 </h3>
               </div>
 
-              <Button variant="contained" color="primary">
-                Go for Payment Method
+              <Button variant="contained" color="primary" onClick={checkoutPayment}>
+                checkout for Payment
                 <PaymentIcon />
               </Button>
             </CardContent>

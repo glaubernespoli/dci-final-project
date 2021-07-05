@@ -20,8 +20,6 @@ const ProductContainer = () => {
       </div>
     );
   }
-  // eslint-disable-next-line no-console
-  console.log(data);
   return (
     <Paper elevation={5} className={classes.paper}>
       <Grid container className={classes.typography}>
