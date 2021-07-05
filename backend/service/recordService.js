@@ -15,6 +15,10 @@ class RecordService {
   findById = async (id) => {
     return Record.findById(id);
   };
+
+  findHot = async (hot) => {
+    return Record.find(hot);
+  };
 }
 
 const recordService = new RecordService();

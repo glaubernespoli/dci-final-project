@@ -9,7 +9,6 @@ const recordSchema = new mongoose.Schema({
     minLength: 3,
     maxLength: 100
   },
-
   artist: {
     type: String,
     required: true,
@@ -75,6 +74,11 @@ const recordSchema = new mongoose.Schema({
     trim: true,
     minLength: 3,
     maxLength: 100
+  },
+  hot: {
+    type: Boolean,
+    required: true,
+    default: false
   }
   //TODO below field should be added after we have the security on!
   // createdBy: {
