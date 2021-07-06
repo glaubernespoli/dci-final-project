@@ -26,7 +26,6 @@ const Routing = () => (
     <Route path={ContactUsRoute} element={<ContactUsPage />} />
     <Route path={LoginRoute} element={<LoginPage />} />
     <Route path={SignUpRoute} element={<SignUpPage />} />
-    <Route path={RecordRoute} element={<RecordItemPage />} />
     <Route path={SearchRoute} element={<SearchPage />} />
     <Route path={RecordRoute(':id')} element={<RecordItemPage />} />
     <ProtectedRoute path={ProfileRoute} component={ProfilePage} />

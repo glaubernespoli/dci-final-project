@@ -1,22 +1,29 @@
 /* eslint-disable no-console */
+import { Grid, Paper, Typography } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import React, { useContext } from 'react';
 import ReactPaginate from 'react-paginate';
-import MyContext from '../../../context/MyContext';
-import { useAxios } from '../../../hooks/useAxios';
+import { useSearchParams } from 'react-router-dom';
+import { useAxios } from '../../hooks/useAxios';
 import NoContent from './NoContent';
 import SearchItem from './SearchItem';
 import useStyles from './SearchList.style';
 
 const SearchContainer = () => {
   const classes = useStyles();
-  const context = useContext(MyContext);
-  const { search, pageNumber, setPageNumber, records } = context;
+
+  const [searchParams, setSearchParams] = useSearchParams({});
+  const q = searchParams.get('q');
+  const page = searchParams.get('page') || 0;
+
   const { data, error, isLoading } = useAxios('get', '/record/s', {
     params: {
-      name: search
+      q,
+      page
     }
   });
+
+  // useeffect
+  // keep track on page and q
 
   if (isLoading) {
     return <CircularProgress />;
@@ -29,19 +36,22 @@ const SearchContainer = () => {
       </div>
     );
   }
-
-  console.log(data.response);
-
-  const recordsPerpage = 5;
-  const pagesVisited = pageNumber * recordsPerpage;
-  const displayRecords = records.slice(pagesVisited, pagesVisited + recordsPerpage);
-  const pageCount = Math.ceil(records.length / recordsPerpage);
+  console.log(data.paging);
 
   const changePage = ({ selected }) => {
-    setPageNumber(selected);
+    setSearchParams({
+      q,
+      page: selected
+    });
+
+    // useeffect
+    // keep track on page and q
+
+    // setPageNumber(selected);
+    // here you update the url
   };
 
-  if (!Array.isArray(displayRecords) || !displayRecords.length) {
+  if (!Array.isArray(data.data) || !data.data.length) {
     return (
       <>
         <NoContent />
@@ -51,14 +61,20 @@ const SearchContainer = () => {
 
   return (
     <>
-      {displayRecords.map((record) => (
-        <SearchItem key={record.id} item={record} />
-      ))}
-
+      <Paper elevation={5} className={classes.paper}>
+        <Grid container className={classes.typography}>
+          <Typography variant="h3">Search Results.....</Typography>
+        </Grid>
+        <Grid container spacing={4} justifyContent="center" className={classes.container}>
+          {data.data.map((record) => (
+            <SearchItem key={record.id} item={record} />
+          ))}
+        </Grid>
+      </Paper>
       <ReactPaginate
         previousLabel="previous"
         nextLabel="next"
-        pageCount={pageCount}
+        pageCount={data.paging.pages}
         onPageChange={changePage}
         containerClassName={classes.paginationBttns}
         previousLinkClassName={classes.previousBttn}

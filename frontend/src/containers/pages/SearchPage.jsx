@@ -1,6 +1,6 @@
 import React from 'react';
-import Search from '../search/Search';
+import SearchComponent from '../search/SearchContainer';
 
-const SearchPage = () => <Search />;
+const SearchPage = () => <SearchComponent />;
 
 export default SearchPage;

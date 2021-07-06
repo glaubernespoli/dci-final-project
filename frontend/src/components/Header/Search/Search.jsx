@@ -3,50 +3,55 @@
 
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
-import React, { useContext, useEffect } from 'react';
-import { generatePath, useLocation, useNavigate } from 'react-router-dom';
-import MyContext from '../../../context/MyContext';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SearchRoute } from '../../../Routing/routes';
-// import getData from '../ApiSearch';
 import SearchStyle from './Search.style';
 
 const useNavigateParams = () => {
   const navigate = useNavigate();
 
-  return (url, params) => {
-    const path = generatePath(':url?:queryString', {
-      url,
-      queryString: params
+  return (url, params, page) => {
+    navigate({
+      pathname: url,
+      search: `?q=${params}&page=${page}`
     });
-    navigate(path);
   };
 };
 
 const Search = () => {
   const classes = SearchStyle();
-  const context = useContext(MyContext);
-  const { setSearch, search, /* setRecords,  */ pageNumber, setPageNumber } = context;
+  const [searchQuery, setSearchQuery] = useState('');
+  // eslint-disable-next-line no-unused-vars
+  const [page, setPage] = useState('0');
+
+  // const [searchParams, setSearchParams] = useSearchParams({});
 
   const navigate = useNavigateParams();
 
-  const searchItem = useLocation().search;
+  // const searchItem = useLocation().search;
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (searchItem) {
       const value = new URLSearchParams(searchItem).get('q');
       const page = new URLSearchParams(searchItem).get('page');
-      setSearch(value);
-      setPageNumber(page);
+      setSearchParams({
+        q: value,
+        page
+      });
+      // setSearch(value);
+      // setPageNumber(page);
     } else {
       console.log('test');
     }
-  }, []);
+  }, []); */
 
-  useEffect(() => {
-    if (search || pageNumber) {
-      navigate(SearchRoute, `q=${search}&page=${pageNumber}`);
+  /* useEffect(() => {
+    if (searchParams.search || searchParams.pageNumber) {
+      // navigate(SearchRoute, searchParams);
+      // capture the values from the url and set the searchParams
     }
-  }, [SearchRoute, pageNumber]);
+  }, [SearchRoute, searchParams]); */
 
   /*   useEffect(() => {
     getData(search)
@@ -58,23 +63,11 @@ const Search = () => {
       });
   }, [SearchRoute, pageNumber]); */
 
-  /*  const handleChange = (event) => {
-    setSearch(event.target.value);
-  };
- */
   const handleKeyPress = (event) => {
     if (event.key === 'Enter') {
-      navigate(SearchRoute, `q=${search}&page=${pageNumber}`);
+      // setSearchParams({ q: searchQuery });
+      navigate(SearchRoute, searchQuery, page);
     }
-    setSearch(event.target.value.trim());
-
-    /*    getData(search)
-      .then((response) => {
-        setRecords(response.result);
-      })
-      .catch((err) => {
-        console.log(err.status);
-      }); */
   };
 
   return (
@@ -91,8 +84,8 @@ const Search = () => {
           input: classes.inputInput
         }}
         inputProps={{ 'aria-label': 'search' }}
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
         onKeyPress={handleKeyPress}
       />
     </div>

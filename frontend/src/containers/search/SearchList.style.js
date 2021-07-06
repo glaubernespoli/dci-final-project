@@ -17,6 +17,7 @@ const useStyles = makeStyles({
   container: {
     paddingLeft: '10vw',
     paddingRight: '10vw',
+    marginBottom: '3rem',
     paddingTop: '5vh',
     paddingBottom: '10vh'
   },
@@ -25,8 +26,12 @@ const useStyles = makeStyles({
     height: '100%',
     objectFit: 'cover'
   },
+  /*    content_Align: {
+    display: 'flex'
+  },
+ */
   paginationBttns: {
-    width: '81%',
+    width: '100%',
     height: '2rem',
     listStyle: 'none',
     display: 'flex',
