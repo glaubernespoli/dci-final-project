@@ -1,17 +1,38 @@
-import { Grid } from '@material-ui/core';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import Carousel from 'react-material-ui-carousel';
-import data from './dataAPI';
+import { useAxios } from '../../../hooks/useAxios';
+import useStyles from './Carousel.style';
 import Item from './Item';
 
-const Carousele = () => (
-  <Grid container>
-    <Grid item xs={12}>
-      <Carousel animation="slide" interval={4000} navButtonsAlwaysVisible>
-        {data.map((item) => (
-          <Item key={item.id} item={item} />
-        ))}
-      </Carousel>
-    </Grid>
-  </Grid>
-);
+const Carousele = () => {
+  const classes = useStyles();
+
+  const { data, error, isLoading } = useAxios('get', '/record/hot');
+
+  if (isLoading) {
+    return <CircularProgress />;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <p>{error.message}</p>
+      </div>
+    );
+  }
+
+  return (
+    <Carousel
+      animation="slide"
+      fullHeightHover
+      interval={3000}
+      navButtonsAlwaysVisible
+      className={classes.root}
+    >
+      {data.map((item) => (
+        <Item key={item._id} item={item} />
+      ))}
+    </Carousel>
+  );
+};
 export default Carousele;
