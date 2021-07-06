@@ -32,7 +32,7 @@ const useStyles = makeStyles({
 
 const ShoppingList = () => {
   const classes = useStyles();
-  const { cartItems, setCartItems } = useContext(MyContext);
+  const { cart, setCart } = useContext(MyContext);
   const { data: item } = useAxios('get', '/record');
   // if (isLoading) {
   //   return <CircularProgress />;
@@ -48,26 +48,26 @@ const ShoppingList = () => {
 
   // Handling Adding and removing records in the basket
   const onAdd = () => {
-    const ItemExist = cartItems.find((x) => x.id === item._id);
+    const ItemExist = cart.find((x) => x.id === item._id);
     if (ItemExist) {
-      setCartItems(
+      setCart(
         // eslint-disable-next-line no-confusing-arrow
-        cartItems.map((x) =>
+        cart.map((x) =>
           x.id === item._id ? { ...ItemExist, quantity: ItemExist.quantity + 1 } : x
         )
       );
     } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+      setCart([...cart, { ...item, quantity: 1 }]);
     }
   };
   const onRemove = () => {
-    const ItemExist = cartItems.find((x) => x.id === item._id);
+    const ItemExist = cart.find((x) => x.id === item._id);
     if (ItemExist) {
-      setCartItems(cartItems.filter((x) => x.id !== item._id));
+      setCart(cart.filter((x) => x.id !== item._id));
     } else {
-      setCartItems(
+      setCart(
         // eslint-disable-next-line no-confusing-arrow
-        cartItems.map((x) =>
+        cart.map((x) =>
           x.id === item._id ? { ...ItemExist, quantity: ItemExist.quantity - 1 } : x
         )
       );
@@ -76,7 +76,7 @@ const ShoppingList = () => {
 
   // Summary of Price list
 
-  const itemPrice = cartItems.reduce((acc, curr) => acc + curr.price, 0);
+  const itemPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
   const taxPrice = itemPrice * 0.15;
   const shippingPrice = itemPrice > 100 ? 0 : 4.99;
   const totalPrice = itemPrice + taxPrice + shippingPrice;
@@ -90,7 +90,7 @@ const ShoppingList = () => {
   return (
     <div>
       <Card>
-        {cartItems.length === 0 && (
+        {cart.length === 0 && (
           <Typography component="h1" textAlign="center">
             {' '}
             Your Shopping Basket is Empty
@@ -99,19 +99,19 @@ const ShoppingList = () => {
       </Card>
       <Card variant="outlined">
         <Card>
-          {cartItems.length > 0 && (
+          {cart.length > 0 && (
             <Typography>
               <h1 className={classes.h1}>Your Musical Album</h1>
               <hr />
               <h3 className={classes.h1}>
                 {' '}
-                You have <strong style={{ color: 'yellow' }}> {cartItems.length} </strong> record
+                You have <strong style={{ color: 'yellow' }}> {cart.length} </strong> record
                 selected to buy!!!
               </h3>
             </Typography>
           )}
         </Card>
-        {cartItems.map((cartItem) => (
+        {cart.map((cartItem) => (
           <CardContent key={cartItem.id} className={classes.root}>
             <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
             <Typography>{cartItem.name}</Typography>
@@ -132,7 +132,7 @@ const ShoppingList = () => {
         ))}
         <hr />
 
-        {cartItems.length !== 0 && (
+        {cart.length !== 0 && (
           <Card>
             <CardContent className={classes.priceDetails}>
               <div className={classes.ty}>
