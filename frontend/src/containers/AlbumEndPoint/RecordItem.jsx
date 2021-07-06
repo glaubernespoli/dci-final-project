@@ -2,7 +2,6 @@ import { Button, Card, CardContent, CardMedia, Grid, Paper, Typography } from '@
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
-import React from 'react';
 import { useAxios } from '../../hooks/useAxios';
 import useStyles from './Album.Styles';
 
