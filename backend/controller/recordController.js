@@ -1,6 +1,8 @@
 import recordService from '../service/recordService.js';
 
 class RecordController {
+  itemsPerPage = process.env.ITEMS_PER_PAGE || 3;
+
   findAll = (req, res) => {
     const { sortBy } = req.query;
     /* 
@@ -13,10 +15,29 @@ class RecordController {
   };
 
   findBy = async (req, res) => {
-    const { name, pageNumber, pageLimit } = req.query;
-    await recordService.findBy(name, pageNumber, pageLimit).then((result) => {
-      res.status(200).json({ total: result.length, result });
-    });
+    const { q, page } = req.query;
+
+    let status = 200;
+    let result;
+    try {
+      const data = await recordService.findBy(q, page, this.itemsPerPage);
+
+      const total = await recordService.findByCount(q, page, this.itemsPerPage);
+      console.log(total);
+      result = {
+        data,
+        paging: {
+          total,
+          page: page || 0,
+          pages: Math.ceil(total / this.itemsPerPage)
+        }
+      };
+    } catch (err) {
+      status = 500;
+      result = { error: `${err.message}` };
+    } finally {
+      res.status(status).json(result);
+    }
   };
   findById = (req, res) => {
     const id = req.params.id;
@@ -29,8 +50,3 @@ class RecordController {
 
 const recordController = new RecordController();
 export default recordController;
-/* 
-{
-  total: 300,
-  itemsPerPage: 30
-} */

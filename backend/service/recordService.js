@@ -7,30 +7,28 @@ class RecordService {
 
   findAll = async (sortBy) => {
     const validSortByValues = ['releaseDate', 'name'];
-    //TODO what is the best way to validate the body and query on express? make a search on it
-    // if (validSortByValues.includes(sortBy)) {
-
-    // }
-    //TODO see how to sort the results with mongoose
-    //TODO pagination with mongoose
     return Record.find();
   };
 
   findBy = async (name, pageNumber, pageLimit) => {
-    const totalCount = Record.find({
-      $or: [{ format: name }, { style: name }, { name: name }, { artist: name }]
-    });
-
+    const limit = parseInt(pageLimit);
+    const offset = parseInt(pageLimit * (pageNumber || 0));
     return Record.find({
       $or: [{ format: name }, { style: name }, { name: name }, { artist: name }]
     })
       .collation({ locale: 'en', strength: 2 })
-      .sort({
-        format: 'asc'
-      });
+      .limit(limit)
+      .skip(offset);
   };
-  /*  .limit(parseInt(pageLimit))
-      .skip(parseInt(pageLimit) * pageNumber); */
+
+  findByCount = async (name, pageNumber, pageLimit) => {
+    const limit = parseInt(pageLimit);
+    const offset = parseInt(pageLimit * (pageNumber || 0));
+    return Record.find({
+      $or: [{ format: name }, { style: name }, { name: name }, { artist: name }]
+    }).countDocuments();
+  };
+
   findById = async (id) => {
     return Record.findById(id);
   };
