@@ -20,6 +20,7 @@ const ProductContainer = () => {
       </div>
     );
   }
+
   return (
     <Paper elevation={5} className={classes.paper}>
       <Grid container className={classes.typography}>

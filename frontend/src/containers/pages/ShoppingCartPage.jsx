@@ -9,7 +9,6 @@ import PaymentIcon from '@material-ui/icons/Payment';
 import RemoveIcon from '@material-ui/icons/Remove';
 import React, { useContext } from 'react';
 import MyContext from '../../context/MyContext';
-import { useAxios } from '../../hooks/useAxios';
 
 const useStyles = makeStyles({
   root: {
@@ -33,42 +32,29 @@ const useStyles = makeStyles({
 const ShoppingList = () => {
   const classes = useStyles();
   const { cart, setCart } = useContext(MyContext);
-  const { data: item } = useAxios('get', '/record');
-  // if (isLoading) {
-  //   return <CircularProgress />;
-  // }
 
-  // if (error) {
-  //   return <div>{error.message}</div>;
-  // }
-
-  // if (!item) {
-  //   return <div>Item not found!</div>;
-  // }
-
-  // Handling Adding and removing records in the basket
-  const onAdd = () => {
-    const ItemExist = cart.find((x) => x.id === item._id);
+  const onAdd = (cartItem) => {
+    const ItemExist = cart.find((x) => x.id === cartItem.id);
     if (ItemExist) {
       setCart(
         // eslint-disable-next-line no-confusing-arrow
         cart.map((x) =>
-          x.id === item._id ? { ...ItemExist, quantity: ItemExist.quantity + 1 } : x
+          x.id === cartItem.id ? { ...ItemExist, quantity: ItemExist.quantity + 1 } : x
         )
       );
     } else {
-      setCart([...cart, { ...item, quantity: 1 }]);
+      setCart([...cart, { ...cartItem, quantity: 1 }]);
     }
   };
-  const onRemove = () => {
-    const ItemExist = cart.find((x) => x.id === item._id);
+  const onRemove = (cartItem) => {
+    const ItemExist = cart.find((x) => x.id === cartItem.id);
     if (ItemExist) {
-      setCart(cart.filter((x) => x.id !== item._id));
+      setCart(cart.filter((x) => x.id !== cartItem.id));
     } else {
       setCart(
         // eslint-disable-next-line no-confusing-arrow
         cart.map((x) =>
-          x.id === item._id ? { ...ItemExist, quantity: ItemExist.quantity - 1 } : x
+          x.id === cartItem.id ? { ...ItemExist, quantity: ItemExist.quantity - 1 } : x
         )
       );
     }
@@ -76,7 +62,7 @@ const ShoppingList = () => {
 
   // Summary of Price list
 
-  const itemPrice = cart.reduce((acc, curr) => acc + curr.price, 0);
+  const itemPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
   const taxPrice = itemPrice * 0.15;
   const shippingPrice = itemPrice > 100 ? 0 : 4.99;
   const totalPrice = itemPrice + taxPrice + shippingPrice;
@@ -105,29 +91,29 @@ const ShoppingList = () => {
               <hr />
               <h3 className={classes.h1}>
                 {' '}
-                You have <strong style={{ color: 'yellow' }}> {cart.length} </strong> record
-                selected to buy!!!
+                You have selected <strong style={{ color: 'yellow' }}> {cart.length} </strong>{' '}
+                record to buy!!!
               </h3>
             </Typography>
           )}
         </Card>
         {cart.map((cartItem) => (
           <CardContent key={cartItem.id} className={classes.root}>
-            <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
-            <Typography>{cartItem.name}</Typography>
-
             <Typography component="h2">
-              {cartItem.quantity} *{cartItem.price.toFixed(2)}
+              qty : {cartItem.quantity} price :{cartItem.price.toFixed(2)}
               {'\u20AC'}
             </Typography>
             <div>
-              <Button onClick={() => onAdd(cartItem)} variant="outlined">
+              <Button variant="outlined" onClick={() => onAdd(cartItem)}>
                 <AddIcon />
               </Button>
-              <Button onClick={() => onRemove(cartItem)} variant="outlined">
+              <Button variant="outlined" onClick={() => onRemove(cartItem)}>
                 <RemoveIcon />
               </Button>
             </div>
+            <Typography>{cartItem.name}</Typography>
+
+            <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
           </CardContent>
         ))}
         <hr />
@@ -165,7 +151,7 @@ const ShoppingList = () => {
               </div>
 
               <Button variant="contained" color="primary" onClick={checkoutPayment}>
-                checkout for Payment
+                Checkout for Payment
                 <PaymentIcon />
               </Button>
             </CardContent>
