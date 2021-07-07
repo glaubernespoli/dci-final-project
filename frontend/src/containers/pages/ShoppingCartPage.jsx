@@ -4,9 +4,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
 import PaymentIcon from '@material-ui/icons/Payment';
-import RemoveIcon from '@material-ui/icons/Remove';
 import React, { useContext } from 'react';
 import MyContext from '../../context/MyContext';
 
@@ -36,12 +34,20 @@ const ShoppingList = () => {
   const onAdd = (cartItem) => {
     const ItemExist = cart.find((x) => x.id === cartItem.id);
     if (ItemExist) {
-      setCart(
-        // eslint-disable-next-line no-confusing-arrow
-        cart.map((x) =>
-          x.id === cartItem.id ? { ...ItemExist, quantity: ItemExist.quantity + 1 } : x
-        )
-      );
+      if (ItemExist.quantity) {
+        setCart(
+          // eslint-disable-next-line no-confusing-arrow
+          cart.map((x) => {
+            if (ItemExist.id === x.id) {
+              ItemExist.quantity += 1;
+              return ItemExist;
+              // eslint-disable-next-line no-else-return
+            } else {
+              return x;
+            }
+          })
+        );
+      }
     } else {
       setCart([...cart, { ...cartItem, quantity: 1 }]);
     }
@@ -49,14 +55,22 @@ const ShoppingList = () => {
   const onRemove = (cartItem) => {
     const ItemExist = cart.find((x) => x.id === cartItem.id);
     if (ItemExist) {
-      setCart(cart.filter((x) => x.id !== cartItem.id));
-    } else {
-      setCart(
-        // eslint-disable-next-line no-confusing-arrow
-        cart.map((x) =>
-          x.id === cartItem.id ? { ...ItemExist, quantity: ItemExist.quantity - 1 } : x
-        )
-      );
+      if (ItemExist.quantity === 1) {
+        setCart(cart.filter((x) => x.id !== cartItem.id));
+      } else {
+        setCart(
+          // eslint-disable-next-line no-confusing-arrow
+          cart.map((x) => {
+            if (ItemExist.id === x.id) {
+              ItemExist.quantity -= 1;
+              return ItemExist;
+              // eslint-disable-next-line no-else-return
+            } else {
+              return x;
+            }
+          })
+        );
+      }
     }
   };
 
@@ -66,6 +80,7 @@ const ShoppingList = () => {
   const taxPrice = itemPrice * 0.15;
   const shippingPrice = itemPrice > 100 ? 0 : 4.99;
   const totalPrice = itemPrice + taxPrice + shippingPrice;
+  const cartQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
 
   // checkoutPayment handling
   const checkoutPayment = () => {
@@ -91,7 +106,7 @@ const ShoppingList = () => {
               <hr />
               <h3 className={classes.h1}>
                 {' '}
-                You have selected <strong style={{ color: 'yellow' }}> {cart.length} </strong>{' '}
+                You have selected <strong style={{ color: 'yellow' }}> {cartQuantity} </strong>{' '}
                 record to buy!!!
               </h3>
             </Typography>
@@ -99,23 +114,27 @@ const ShoppingList = () => {
         </Card>
         {cart.map((cartItem) => (
           <CardContent key={cartItem.id} className={classes.root}>
-            <Typography component="h2">
-              qty : {cartItem.quantity} price :{cartItem.price.toFixed(2)}
-              {'\u20AC'}
-            </Typography>
+            <div style={{ backgroundColor: 'black', padding: '.25rem 1rem', fontWeight: 'bolder' }}>
+              {cartItem.quantity} * {cartItem.price.toFixed(2)} {'\u20AC'}
+            </div>
             <div>
-              <Button variant="outlined" onClick={() => onAdd(cartItem)}>
-                <AddIcon />
+              <Button variant="outlined" color="inherit" onClick={() => onAdd(cartItem)}>
+                +
               </Button>
-              <Button variant="outlined" onClick={() => onRemove(cartItem)}>
-                <RemoveIcon />
+              <Button
+                variant="outlined"
+                color="inherit"
+                onClick={() => onRemove(cartItem)}
+                style={{ margin: '0 1rem' }}
+              >
+                -
               </Button>
             </div>
-            <Typography>{cartItem.name}</Typography>
-
+            <div style={{ fontWeight: 'bolder' }}>{cartItem.name}</div>
             <Avatar alt="Avatar" variant="square" src={cartItem.imageUrl} />
           </CardContent>
         ))}
+
         <hr />
 
         {cart.length !== 0 && (

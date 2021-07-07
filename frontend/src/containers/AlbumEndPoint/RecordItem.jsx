@@ -25,7 +25,15 @@ const RecordItem = ({ itemId }) => {
     return <div>Item not found!</div>;
   }
   const addToCart = () => {
-    setCart([...cart, item]);
+    const foundIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+    if (foundIndex >= 0) {
+      const copyCart = [...cart];
+      copyCart[foundIndex].quantity += 1;
+      setCart([...copyCart]);
+    } else {
+      item.quantity = 1;
+      setCart([...cart, item]);
+    }
   };
 
   return (

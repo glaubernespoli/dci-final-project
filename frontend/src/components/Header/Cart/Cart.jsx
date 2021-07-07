@@ -8,7 +8,7 @@ import { ShoppingCartRoute } from '../../../Routing/routes';
 const Cart = () => {
   const { cart } = useContext(MyContext);
   const navigate = useNavigate();
-
+  const cartQuantity = cart.reduce((acc, curr) => acc + curr.quantity, 0);
   const navigateTo = () => {
     navigate(ShoppingCartRoute);
   };
@@ -16,7 +16,7 @@ const Cart = () => {
     <div>
       <Button color="inherit" onClick={() => navigateTo()}>
         <AddShoppingCartIcon />
-        {cart.length > 0 && <Typography style={{ color: 'yellow' }}>{cart.length}</Typography>}
+        {cart.length > 0 && <Typography style={{ color: 'yellow' }}>{cartQuantity}</Typography>}
       </Button>
     </div>
   );
