@@ -1,5 +1,6 @@
 import { AppBar, Toolbar } from '@material-ui/core';
 import React from 'react';
+import Cart from './Cart/Cart';
 import HeaderStyles from './Header.styles';
 import Logo from './Logo/Logo';
 import MenuBar from './Menubar/MenuBar';
@@ -16,6 +17,7 @@ const Header = () => {
           <Logo />
           <MenuBar />
           <SearchItem />
+          <Cart />
           <UserControl />
         </Toolbar>
       </AppBar>

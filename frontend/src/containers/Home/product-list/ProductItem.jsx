@@ -4,17 +4,31 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
+// import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+// import MyContext from '../../../context/MyContext';
 import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './ProductList.style';
 
 const ProductItem = ({ item }) => {
+  // const { cart, setCart } = useContext(MyContext);
+
   const classes = useStyles();
 
   const navigate = useNavigate();
-
   const clickHandle = () => {
     navigate(RecordRoute(item._id));
+  };
+  const addToCart = () => {
+    // const foundIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+    // if (foundIndex >= 0) {
+    //   const copyCart = [...cart];
+    //   copyCart[foundIndex].quantity += 1;
+    //   setCart([...copyCart]);
+    // } else {
+    //   item.quantity = 1;
+    //   setCart([...cart, item]);
+    // }
   };
 
   return (
@@ -37,7 +51,7 @@ const ProductItem = ({ item }) => {
             subtitle={item.artist}
             actionIcon={
               // eslint-disable-next-line react/jsx-wrap-multilines
-              <IconButton className={classes.icon}>
+              <IconButton className={classes.icon} onClick={addToCart}>
                 <AddShoppingCartIcon />
               </IconButton>
             }

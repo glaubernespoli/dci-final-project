@@ -2,6 +2,8 @@ import { Button, Card, CardContent, CardMedia, Grid, Paper, Typography } from '@
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
 import useStyles from './Album.Styles';
 
@@ -9,6 +11,7 @@ import useStyles from './Album.Styles';
 const RecordItem = ({ itemId }) => {
   const classes = useStyles();
   const { data: item, error, isLoading } = useAxios('get', `/record/${itemId}`);
+  const { cart, setCart } = useContext(MyContext);
 
   if (isLoading) {
     return <CircularProgress />;
@@ -21,6 +24,18 @@ const RecordItem = ({ itemId }) => {
   if (!item) {
     return <div>Item not found!</div>;
   }
+  const addToCart = () => {
+    const foundIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
+    if (foundIndex >= 0) {
+      const copyCart = [...cart];
+      copyCart[foundIndex].quantity += 1;
+      setCart([...copyCart]);
+    } else {
+      item.quantity = 1;
+      setCart([...cart, item]);
+    }
+  };
+
   return (
     <>
       <Paper elevation={5} className={classes.paper}>
@@ -66,9 +81,16 @@ const RecordItem = ({ itemId }) => {
                 </Typography>
                 <Typography variant="h6" component="div">
                   {item.price}
-                </Typography>
 
-                <Button variant="outlined" endIcon={<AddShoppingCartIcon />}>
+                  {'\u20AC'}
+                </Typography>
+                <hr />
+                <Button
+                  variant="outlined"
+                  color="inherit"
+                  endIcon={<AddShoppingCartIcon />}
+                  onClick={() => addToCart()}
+                >
                   ADD TO SHOPPING CART
                 </Button>
               </CardContent>
