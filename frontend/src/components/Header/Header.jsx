@@ -8,6 +8,7 @@ import UserControl from './UserControl/UserControl';
 
 const Header = () => {
   const classes = HeaderStyles();
+
   return (
     <>
       <AppBar position="sticky" color="inherit">
