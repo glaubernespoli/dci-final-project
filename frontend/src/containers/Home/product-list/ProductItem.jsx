@@ -6,35 +6,24 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import addToCartHandle from '../../../components/Header/Cart/CountCartItem';
 import MyContext from '../../../context/MyContext';
-import { useAxios } from '../../../hooks/useAxios';
 import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './ProductList.style';
 
 const ProductItem = ({ item }) => {
   const classes = useStyles();
   const navigate = useNavigate();
-
   const { cart, setCart } = useContext(MyContext);
-  const { data } = useAxios('get', '/record');
 
   const clickHandle = () => {
     navigate(RecordRoute(item._id));
   };
 
-  // Handling the addToCart button
+  // // Handling the addToCart button
   const addToCart = (e) => {
     e.stopPropagation();
-
-    const foundIndex = cart.findIndex((cartItem) => cartItem.id === data.id);
-    if (foundIndex >= 0) {
-      const copyCart = [...cart];
-      copyCart[foundIndex].quantity += 1;
-      setCart([...copyCart]);
-    } else {
-      data.quantity = 1;
-      setCart([...cart, data]);
-    }
+    addToCartHandle(item, cart, setCart);
   };
 
   return (
@@ -57,7 +46,7 @@ const ProductItem = ({ item }) => {
             subtitle={item.artist}
             actionIcon={
               // eslint-disable-next-line react/jsx-wrap-multilines
-              <IconButton className={classes.icon} onClick={addToCart}>
+              <IconButton className={classes.icon} onClick={(e) => addToCart(e)}>
                 <AddShoppingCartIcon />
               </IconButton>
             }
@@ -81,7 +70,8 @@ ProductItem.defaultProps = {
     label: 'Not available',
     country: 'Not available',
     releaseDate: 'Not available',
-    createdAt: 'Not available'
+    createdAt: 'Not available',
+    quantity: 'Not available'
   }
 };
 
@@ -99,7 +89,8 @@ ProductItem.propTypes = {
     label: PropTypes.string,
     country: PropTypes.string,
     releaseDate: PropTypes.string,
-    createdAt: PropTypes.string
+    createdAt: PropTypes.string,
+    quantity: PropTypes.number
   })
 };
 

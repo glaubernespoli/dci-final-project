@@ -3,6 +3,8 @@ import { Button, Typography } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 import PaymentIcon from '@material-ui/icons/Payment';
 import React, { useContext } from 'react';
 import MyContext from '../../../context/MyContext';
@@ -12,14 +14,14 @@ const ShoppingList = () => {
   const classes = shoppingCartItemStyles();
   const { cart, setCart } = useContext(MyContext);
 
-  const onAdd = (cartItem) => {
-    const ItemExist = cart.find((x) => x.id === cartItem.id);
+  const onAdd = (itemID) => {
+    const ItemExist = cart.find((x) => x._id === itemID);
     if (ItemExist) {
       if (ItemExist.quantity) {
         setCart(
           // eslint-disable-next-line no-confusing-arrow
           cart.map((x) => {
-            if (ItemExist.id === x.id) {
+            if (ItemExist._id === x._id) {
               ItemExist.quantity += 1;
               return ItemExist;
               // eslint-disable-next-line no-else-return
@@ -29,20 +31,18 @@ const ShoppingList = () => {
           })
         );
       }
-    } else {
-      setCart([...cart, { ...cartItem, quantity: 1 }]);
     }
   };
-  const onRemove = (cartItem) => {
-    const ItemExist = cart.find((x) => x.id === cartItem.id);
+  const onRemove = (itemID) => {
+    const ItemExist = cart.find((x) => x._id === itemID);
     if (ItemExist) {
       if (ItemExist.quantity === 1) {
-        setCart(cart.filter((x) => x.id !== cartItem.id));
+        setCart(cart.filter((x) => x._id !== itemID));
       } else {
         setCart(
           // eslint-disable-next-line no-confusing-arrow
           cart.map((x) => {
-            if (ItemExist.id === x.id) {
+            if (ItemExist._id === x._id) {
               ItemExist.quantity -= 1;
               return ItemExist;
               // eslint-disable-next-line no-else-return
@@ -94,30 +94,29 @@ const ShoppingList = () => {
           )}
         </Card>
         {cart.map((cartItem) => (
-          <CardContent key={cartItem.id} className={classes.root}>
-            <div style={{ padding: '.25rem 1rem', fontWeight: 'bolder' }}>
+          <CardContent key={cartItem._id} className={classes.root}>
+            <div style={{ fontWeight: 'bolder' }}>
               {cartItem.quantity} * {cartItem.price.toFixed(2)} {'\u20AC'}
             </div>
+
+            <div style={{ fontWeight: 'bolder' }}>{cartItem.name}</div>
             <div className={classes.btn}>
               <Button
-                variant="outlined"
+                variant="standard"
                 color="inherit"
                 size="small"
-                onClick={() => onAdd(cartItem)}
+                onClick={() => onAdd(cartItem._id)}
               >
-                +
+                <AddIcon />
               </Button>
               <Button
-                variant="outlined"
+                variant="standard"
                 color="inherit"
                 size="small"
-                onClick={() => onRemove(cartItem)}
+                onClick={() => onRemove(cartItem._id)}
               >
-                -
+                <DeleteIcon />
               </Button>
-            </div>
-            <div style={{ fontWeight: 'bolder' }} className={classes.avatar}>
-              {cartItem.name}
             </div>
             <Avatar
               alt="Avatar"
@@ -143,7 +142,7 @@ const ShoppingList = () => {
               <div className={classes.ty}>
                 <p>Shipping Cost : </p>
                 <p>
-                  {shippingPrice}
+                  {shippingPrice.toFixed(2)}
                   {'\u20AC'}
                 </p>
               </div>

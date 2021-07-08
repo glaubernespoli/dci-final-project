@@ -3,6 +3,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
+import addToCartHandle from '../../components/Header/Cart/CountCartItem';
 import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
 import useStyles from './Album.Styles';
@@ -25,15 +26,16 @@ const RecordItem = ({ itemId }) => {
     return <div>Item not found!</div>;
   }
   const addToCart = () => {
-    const foundIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
-    if (foundIndex >= 0) {
-      const copyCart = [...cart];
-      copyCart[foundIndex].quantity += 1;
-      setCart([...copyCart]);
-    } else {
-      item.quantity = 1;
-      setCart([...cart, item]);
-    }
+    // const foundIndex = cart.findIndex((cartItem) => cartItem._id === item._id);
+    // if (foundIndex >= 0) {
+    //   const copyCart = [...cart];
+    //   copyCart[foundIndex].quantity += 1;
+    //   setCart([...copyCart]);
+    // } else {
+    //   item.quantity = 1;
+    //   setCart([...cart, item]);
+    // }
+    addToCartHandle(item, cart, setCart);
   };
 
   return (

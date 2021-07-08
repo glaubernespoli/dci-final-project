@@ -8,8 +8,10 @@ const useStyles = makeStyles(() => ({
     justifyContent: 'center',
     '@media(max-Width : 600px)': {
       display: 'flex',
-      // flexDirection: 'row',
-      justifyContent: 'left'
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      width: '80vw',
+      padding: '.5rem 0'
     }
   },
   link: {

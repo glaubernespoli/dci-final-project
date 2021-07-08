@@ -5,13 +5,13 @@ const shoppingCartItemStyles = makeStyles({
     display: 'flex',
     justifyContent: 'space-evenly',
     '@media(max-Width:600px)': {
-      fontSize: '.8rem',
-      fontWeight: 'bold'
+      fontSize: '.6rem'
     }
   },
   btn: {
     '@media(max-Width:600px)': {
-      display: 'flex'
+      display: 'flex',
+      justifyContent: 'center'
     }
   },
   avatar: {
