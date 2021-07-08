@@ -4,31 +4,37 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
-// import { useContext } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import MyContext from '../../../context/MyContext';
+import MyContext from '../../../context/MyContext';
+import { useAxios } from '../../../hooks/useAxios';
 import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './ProductList.style';
 
 const ProductItem = ({ item }) => {
-  // const { cart, setCart } = useContext(MyContext);
-
   const classes = useStyles();
-
   const navigate = useNavigate();
+
+  const { cart, setCart } = useContext(MyContext);
+  const { data } = useAxios('get', '/record');
+
   const clickHandle = () => {
     navigate(RecordRoute(item._id));
   };
-  const addToCart = () => {
-    // const foundIndex = cart.findIndex((cartItem) => cartItem.id === item.id);
-    // if (foundIndex >= 0) {
-    //   const copyCart = [...cart];
-    //   copyCart[foundIndex].quantity += 1;
-    //   setCart([...copyCart]);
-    // } else {
-    //   item.quantity = 1;
-    //   setCart([...cart, item]);
-    // }
+
+  // Handling the addToCart button
+  const addToCart = (e) => {
+    e.stopPropagation();
+
+    const foundIndex = cart.findIndex((cartItem) => cartItem.id === data.id);
+    if (foundIndex >= 0) {
+      const copyCart = [...cart];
+      copyCart[foundIndex].quantity += 1;
+      setCart([...copyCart]);
+    } else {
+      data.quantity = 1;
+      setCart([...cart, data]);
+    }
   };
 
   return (

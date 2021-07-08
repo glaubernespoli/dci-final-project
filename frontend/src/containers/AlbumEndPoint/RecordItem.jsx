@@ -46,40 +46,44 @@ const RecordItem = ({ itemId }) => {
                 className={classes.img}
                 component="img"
                 alt={item.summary}
-                height="350"
                 image={item.imageUrl}
                 title={item.name}
               />
             </Grid>
             <Grid item xs={12} md={6} className={classes.albumInfo}>
               <CardContent>
-                <Typography variant="h3" component="div">
-                  {item.artist}
+                <Typography variant="h3" component="div" className={classes.mediaQueryFont}>
+                  <h3>{item.artist}</h3>
                 </Typography>
-                <Typography variant="h5" component="div">
-                  {item.name}
+                <Typography variant="h5" component="div" className={classes.mediaQueryFont}>
+                  <h3>{item.name}</h3>
                 </Typography>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" className={classes.mediaQueryButton}>
                   Label:
                   {item.label}
                 </Typography>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" className={classes.mediaQueryButton}>
                   Published Date:
                   {item.releaseDate}
                 </Typography>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" className={classes.mediaQueryButton}>
                   Country:
                   {item.country}
                 </Typography>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" className={classes.mediaQueryButton}>
                   Format:
                   {item.format}
                 </Typography>
-                <Typography variant="h6" component="div">
+                <Typography variant="h6" component="div" className={classes.mediaQueryButton}>
                   Style:
                   {item.style}
                 </Typography>
-                <Typography variant="h6" component="div">
+                <Typography
+                  variant="h6"
+                  component="div"
+                  color="yellow"
+                  className={classes.mediaQueryButton}
+                >
                   {item.price}
 
                   {'\u20AC'}
@@ -90,6 +94,7 @@ const RecordItem = ({ itemId }) => {
                   color="inherit"
                   endIcon={<AddShoppingCartIcon />}
                   onClick={() => addToCart()}
+                  className={classes.mediaQueryButton}
                 >
                   ADD TO SHOPPING CART
                 </Button>

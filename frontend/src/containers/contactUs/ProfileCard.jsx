@@ -10,7 +10,7 @@ const ProfileCard = ({ name, designation, img, skills }) => {
     <div>
       <Card className={classes.card}>
         <CardActionArea>
-          <CardMedia component="img" alt="G" height="220" image={img} className={classes.image} />
+          <CardMedia component="img" alt="G" image={img} className={classes.image} />
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
               <span className={classes.span}>{name}</span>
