@@ -4,25 +4,19 @@ const useStyles = makeStyles({
   paper: {
     marginTop: '8vh',
     marginBottom: '8vh',
-    border: '1px solid black'
+    paddingTop: '10vh',
+    border: '1px solid #999',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   container: {
-    paddingLeft: '10vw',
-    paddingRight: '10vw',
-    paddingTop: '5vh',
-    paddingBottom: '10vh'
-  },
-  imgContainer: {
-    padding: '1rem'
+    width: '65vw'
   },
   img: {
-    width: '100%',
-    objectFit: 'cover',
-    borderRadius: '5px',
-    border: '3px solid #111'
-  },
-  albumInfo: {
-    padding: '1rem'
+    width: '95%',
+    height: '95%',
+    objectFit: 'contain'
   },
   description: {
     padding: '2rem'
