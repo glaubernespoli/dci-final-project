@@ -1,18 +1,25 @@
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
+  root: {
+    marginTop: '3rem'
+  },
   imageItemContainer: {
-    width: '80%',
-    height: '70vh',
+    width: '75vh',
     margin: '0 auto',
     display: 'flex',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    border: '1px solid #555 '
+  },
+  imageContainer: {
+    width: '100%',
+    height: '75vh'
   },
   img: {
-    objectFit: 'cover'
-  },
-  imageListItem: {
-    width: '70vw'
+    width: '100%',
+    height: '100%',
+    objectFit: 'contain'
   }
 });
 

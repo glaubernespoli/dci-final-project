@@ -19,9 +19,9 @@ const ProductItem = ({ item }) => {
 
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <ImageListItem key={item.imageUrl} onClick={clickHandle}>
+      <ImageListItem key={item.imageUrl} onClick={clickHandle} sx={{ width: '40vh' }}>
         <Box
-          height="35vh"
+          height="40vh"
           sx={{
             '&:hover': {
               opacity: [0.9, 0.8, 0.7],
