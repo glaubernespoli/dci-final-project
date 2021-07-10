@@ -2,13 +2,14 @@ import { makeStyles } from '@material-ui/styles';
 
 const shoppingCartItemStyles = makeStyles({
   root: {
-    display: 'flex',
-    justifyContent: 'space-evenly',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
     '@media(max-Width:600px)': {
       fontSize: '.6rem'
     }
   },
   btn: {
+    display: 'flex',
     '@media(max-Width:600px)': {
       display: 'flex',
       justifyContent: 'center'
