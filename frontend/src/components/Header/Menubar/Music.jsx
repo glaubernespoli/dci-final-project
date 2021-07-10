@@ -1,5 +1,6 @@
 import { Button, Menu, MenuItem } from '@material-ui/core';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 // eslint-disable-next-line import/no-unresolved
 import NestedMenuItem from 'material-ui-nested-menu-item';
 import PropTypes from 'prop-types';
@@ -23,9 +24,10 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
         color="inherit"
         onClick={handleClick}
       >
+        <LibraryMusicIcon style={{ display: 'flex', margin: '0 1.5rem' }} />
         {title}
         {/* {subItems.length ?<ArrowDropDownIcon /> : ''} */}
-        <ArrowDropDownIcon />
+        <ArrowRightIcon />
       </Button>
       <Menu
         id="demo-positioned-menu"
@@ -34,12 +36,12 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
+          vertical: 'right',
+          horizontal: 'right'
         }}
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
+          vertical: 'right',
+          horizontal: 'bottom'
         }}
       >
         {/* <MenuItem onClick={handleClose}>{subTitle}</MenuItem> */}

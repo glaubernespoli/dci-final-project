@@ -6,11 +6,8 @@ import Music from './Music';
 
 const useStyles = makeStyles({
   root: {
-    '@media(max-Width : 600px)': {
-      position: 'absolute',
-      top: '3rem',
-      left: '0rem'
-    }
+    display: 'flex',
+    flexDirection: 'column'
   }
 });
 

@@ -1,38 +1,48 @@
 import AppBar from '@material-ui/core/AppBar';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Divider from '@material-ui/core/Divider';
+import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
+import List from '@material-ui/core/List';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { useTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
+import clsx from 'clsx';
 import React from 'react';
-import ShoppingCart from './Cart/Cart';
-import HeaderStyles from './HeaderResponsive.Style';
+import Cart from './Cart/Cart';
+import HeaderResponsiveStyles from './HeaderResponsive.Style';
 import Logo from './Logo/Logo';
 import MenuBar from './Menubar/MenuBar';
 import Search from './Search/Search';
 import UserControl from './UserControl/UserControl';
 
-const HeaderResponsive = () => {
-  // Handle DrawerToggle
-  // const { window } = props;
-  // const theme = useTheme();
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+export default function HeaderDrawer() {
+  const classes = HeaderResponsiveStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const handleDrawerOpen = () => {
+    setOpen(true);
   };
 
-  const classes = HeaderStyles();
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-  //   const handleProfileMenuOpen = (event) => {
-  //     setAnchorEl(event.currentTarget);
-  //   };
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
@@ -79,52 +89,57 @@ const HeaderResponsive = () => {
       </MenuItem>
 
       <MenuItem>
-        <ShoppingCart />
+        <Cart />
       </MenuItem>
-      {/* <MenuItem onClick={handleProfileMenuOpen}>
+      <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          {/* <AccountCircle /> */}
         </IconButton>
         <p>Profile</p>
-      </MenuItem> */}
+      </MenuItem>
     </Menu>
   );
 
   return (
-    <div className={classes.grow}>
-      <AppBar position="static" color="inherit">
-        <Toolbar className={classes.root}>
-          <div>
-            <Logo />
-          </div>
+    <div>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        className={clsx(classes.appBar, {
+          [classes.appBarShift]: open
+        })}
+        color="inherit"
+      >
+        <Toolbar classes={classes.root}>
           <IconButton
-            // edge="start"
-            className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerToggle}
+            onClick={handleDrawerOpen}
+            edge="start"
+            className={clsx(classes.menuButton, open && classes.hide)}
           >
             <MenuIcon />
           </IconButton>
-
           <div>
-            <MenuBar />
+            <Logo />
           </div>
           <div>
             <Search />
           </div>
+          <div>
+            <UserControl />
+          </div>
+          <div>
+            <Cart />
+          </div>
           {/* <div className={classes.grow} /> */}
           <div>
-            <div className={classes.root}>
-              <UserControl />
-
-              <ShoppingCart />
-            </div>
+            {/* <div className={classes.root} /> */}
             {/* <IconButton
               //   edge="end"
               aria-label="account of current user"
@@ -149,9 +164,28 @@ const HeaderResponsive = () => {
           </div>
         </Toolbar>
       </AppBar>
+      <Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        color="inherit"
+        open={open}
+        classes={{
+          paper: classes.drawerPaper
+        }}
+      >
+        <div className={classes.drawerHeader}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </div>
+        <Divider />
+        <List>
+          <MenuBar />
+        </List>
+      </Drawer>
       {renderMobileMenu}
       {renderMenu}
     </div>
   );
-};
-export default HeaderResponsive;
+}

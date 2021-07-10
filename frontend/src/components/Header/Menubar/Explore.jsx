@@ -1,5 +1,6 @@
 import { Button, Menu, MenuItem } from '@material-ui/core';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ExploreIcon from '@material-ui/icons/Explore';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
@@ -21,8 +22,9 @@ const NavItem = ({ subExplores, title }) => {
         color="inherit"
         onClick={handleClick}
       >
+        <ExploreIcon style={{ display: 'flex', margin: '0 1rem' }} />
         {title}
-        {subExplores.length ? <ArrowDropDownIcon /> : ''}
+        {subExplores.length ? <ArrowRightIcon /> : ''}
       </Button>
       <Menu
         id="demo-positioned-menu"
@@ -31,12 +33,12 @@ const NavItem = ({ subExplores, title }) => {
         open={Boolean(anchorEl)}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
+          vertical: 'right',
+          horizontal: 'right'
         }}
         transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
+          vertical: 'right',
+          horizontal: 'bottom'
         }}
       >
         {subExplores.map((subExplore, index) => (
