@@ -2,10 +2,10 @@
 /* eslint-disable no-console */
 import { Grid, Paper, Typography } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useAxios } from '../../hooks/useAxios';
 import NoContent from './NoContent';
 import SearchItem from './SearchItem';
 import useStyles from './SearchList.style';
@@ -29,17 +29,38 @@ const SearchContainer = () => {
   const q = searchParams.get('q');
   const page = searchParams.get('page') || 0;
 
-  const { data, error, isLoading } = useAxios('get', '/record/s', {
-    params: {
-      q,
-      page
-    }
-  });
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+
+      try {
+        const result = await axios.request({
+          method: 'get',
+          url: '/record/s',
+          params: {
+            q,
+            page
+          }
+        });
+        setData(result.data);
+      } catch (e) {
+        setError(e);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [q, page]);
 
   // useeffect
   // keep track on page and q
 
-  if (isLoading) {
+  if (loading) {
     return <CircularProgress />;
   }
 
