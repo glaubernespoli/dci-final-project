@@ -6,11 +6,11 @@ const HederStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1
   },
-  // root: {
-  //   display: 'flex',
-  //   width: '100%',
-  //   justifyContent: 'space-around'
-  // },
+  root: {
+    display: 'flex',
+    // width: '100%',
+    justifyContent: 'space-around'
+  },
 
   menuButton: {
     marginRight: theme.spacing(2)

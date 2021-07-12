@@ -7,7 +7,7 @@ import Music from './Music';
 const useStyles = makeStyles({
   root: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'row'
   }
 });
 

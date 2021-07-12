@@ -99,9 +99,6 @@ const HeaderResponsive = () => {
     <div className={classes.grow}>
       <AppBar position="static" color="inherit">
         <Toolbar className={classes.root}>
-          <div>
-            <Logo />
-          </div>
           <IconButton
             // edge="start"
             className={classes.menuButton}
@@ -111,7 +108,9 @@ const HeaderResponsive = () => {
           >
             <MenuIcon />
           </IconButton>
-
+          <div>
+            <Logo />
+          </div>
           <div>
             <MenuBar />
           </div>
