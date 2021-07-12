@@ -5,7 +5,7 @@ const getData = async (search) => {
   try {
     const response = await axios.get('http://localhost:5000/record/s', {
       params: {
-        name: search
+        q: search
       }
     });
     return response.data;

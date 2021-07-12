@@ -1,15 +1,29 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 import { Grid, Paper, Typography } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import React from 'react';
 import ReactPaginate from 'react-paginate';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useAxios } from '../../hooks/useAxios';
 import NoContent from './NoContent';
 import SearchItem from './SearchItem';
 import useStyles from './SearchList.style';
 
+const useNavigateParams = () => {
+  const navigate = useNavigate();
+
+  return (url, params, page) => {
+    navigate({
+      pathname: url,
+      search: `?q=${params}&page=${page}`
+    });
+  };
+};
+
 const SearchContainer = () => {
   const classes = useStyles();
+  const navigate = useNavigateParams();
 
   const [searchParams, setSearchParams] = useSearchParams({});
   const q = searchParams.get('q');
@@ -36,9 +50,12 @@ const SearchContainer = () => {
       </div>
     );
   }
+
   console.log(data.paging);
 
   const changePage = ({ selected }) => {
+    // here you update the url
+    // setPageNumber(selected);
     setSearchParams({
       q,
       page: selected
@@ -46,9 +63,6 @@ const SearchContainer = () => {
 
     // useeffect
     // keep track on page and q
-
-    // setPageNumber(selected);
-    // here you update the url
   };
 
   if (!Array.isArray(data.data) || !data.data.length) {
@@ -74,6 +88,8 @@ const SearchContainer = () => {
       <ReactPaginate
         previousLabel="previous"
         nextLabel="next"
+        activePage={data.paging.page}
+        forcePage={data.paging.page}
         pageCount={data.paging.pages}
         onPageChange={changePage}
         containerClassName={classes.paginationBttns}
@@ -81,6 +97,7 @@ const SearchContainer = () => {
         nextLinkClassName={classes.nextBttn}
         disabledClassName={classes.paginationDisabled}
         activeClassName={classes.paginationActive}
+        forceClassName={classes.paginationActive}
       />
     </>
   );

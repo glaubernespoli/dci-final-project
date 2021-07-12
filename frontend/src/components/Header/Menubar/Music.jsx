@@ -1,33 +1,29 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-console */
 import { Button, Menu, MenuItem } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 // eslint-disable-next-line import/no-unresolved
 import NestedMenuItem from 'material-ui-nested-menu-item';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, useState } from 'react';
-import { generatePath, useNavigate } from 'react-router-dom';
-import MyContext from '../../../context/MyContext';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SearchRoute } from '../../../Routing/routes';
-import getData from '../ApiSearch';
 
 const useNavigateParams = () => {
   const navigate = useNavigate();
 
-  return (url, params) => {
-    const path = generatePath(':url?:queryString', {
-      url,
-      queryString: params
+  return (url, params, page) => {
+    navigate({
+      pathname: url,
+      search: `?q=${params}&page=${page}`
     });
-    navigate(path);
   };
 };
 
 const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-  const context = useContext(MyContext);
-  const { setSearch, search, setRecords, pageNumber } = context;
 
+  const [page, setPage] = useState('0');
   const navigate = useNavigateParams();
 
   const handleClick = (event) => {
@@ -35,36 +31,9 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
   };
 
   const handleClose = (event) => {
+    navigate(SearchRoute, event.target.innerText, page);
     setAnchorEl(null);
-    setSearch(event.target.innerText);
-    navigate(SearchRoute, `q=${event.target.innerText}&page=${pageNumber}`);
-
-    // eslint-disable-next-line no-alert
-    alert(event.target.innerText);
-    getData(event.target.innerText)
-      .then((response) => {
-        setRecords(response.result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
   };
-
-  useEffect(() => {
-    if (search || pageNumber) {
-      navigate(SearchRoute, `q=${search}&page=${pageNumber}`);
-    }
-  }, [SearchRoute, pageNumber]);
-
-  useEffect(() => {
-    getData(search)
-      .then((response) => {
-        setRecords(response.result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [SearchRoute, pageNumber]);
 
   return (
     <>
@@ -100,7 +69,7 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
             {subTitle}
           </MenuItem>
         ))}
-        <NestedMenuItem label="Format" parentMenuOpen={!!anchorEl} onClick={handleClose}>
+        <NestedMenuItem label="Format" parentMenuOpen={!!anchorEl}>
           {subFormats.map((subFormat, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <MenuItem key={index} onClick={handleClose}>
@@ -108,7 +77,7 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
             </MenuItem>
           ))}
         </NestedMenuItem>
-        <NestedMenuItem label="Style" parentMenuOpen={!!anchorEl} onClick={handleClose}>
+        <NestedMenuItem label="Style" parentMenuOpen={!!anchorEl}>
           {subStyles.map((subStyle, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <MenuItem key={index} onClick={handleClose}>
