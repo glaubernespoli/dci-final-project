@@ -2,8 +2,8 @@ import { makeStyles } from '@material-ui/styles';
 
 const shoppingCartItemStyles = makeStyles({
   root: {
-    display: 'flex',
-    justifyContent: 'space-around',
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr 1fr 1fr',
     '@media(max-Width:600px)': {
       fontSize: '.6rem'
     }
@@ -44,7 +44,7 @@ const shoppingCartItemStyles = makeStyles({
   emptyCart: {
     height: '80vh',
     '@media(max-Width:600px)': {
-      height: '45vh'
+      height: '55vh'
     }
   }
 });

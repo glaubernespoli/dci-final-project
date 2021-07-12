@@ -7,7 +7,9 @@ import Music from './Music';
 const useStyles = makeStyles({
   root: {
     display: 'flex',
-    flexDirection: 'row'
+    '@media (max-Width: 700px)': {
+      display: 'none'
+    }
   }
 });
 

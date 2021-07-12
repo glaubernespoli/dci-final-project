@@ -1,7 +1,6 @@
 import { Button, Menu, MenuItem } from '@material-ui/core';
 // import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 // eslint-disable-next-line import/no-unresolved
 import NestedMenuItem from 'material-ui-nested-menu-item';
 import PropTypes from 'prop-types';
@@ -25,7 +24,7 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
         color="inherit"
         onClick={handleClick}
       >
-        <LibraryMusicIcon style={{ display: 'flex', margin: '0 1.5rem' }} />
+        {/* <LibraryMusicIcon style={{ display: 'flex', margin: '0 1.5rem' }} /> */}
         {title}
         {/* {subItems.length ?<ArrowDropDownIcon /> : ''} */}
         {/* <ArrowRightIcon /> */}
