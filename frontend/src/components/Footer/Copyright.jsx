@@ -10,7 +10,7 @@ const Copyright = () => {
       <Typography className={classes.copyright} variant="p">
         {'Copyright © '}
         <Link color="inherit" href={SocialLinks.sellyourrecords}>
-          Sell your records
+          Sell-Your-Records
         </Link>
         <Typography className={classes.copyright} variant="p">
           {' '}

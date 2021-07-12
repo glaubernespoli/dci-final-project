@@ -5,6 +5,8 @@ const shoppingCartItemStyles = makeStyles({
     display: 'grid',
     gridTemplateColumns: '1fr 1fr 1fr 1fr',
     '@media(max-Width:600px)': {
+      gridTemplateColumns: '1fr 1fr 1fr',
+
       fontSize: '.6rem'
     }
   },
