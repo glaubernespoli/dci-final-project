@@ -20,6 +20,8 @@ const useStyles = makeStyles({
     }
   },
   container: {
+    width: '70vw',
+    margin: '0 auto',
     paddingLeft: '10vw',
     paddingRight: '10vw',
     paddingTop: '5vh',
