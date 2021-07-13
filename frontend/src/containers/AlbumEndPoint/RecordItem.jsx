@@ -45,27 +45,37 @@ const RecordItem = ({ itemId }) => {
                 {item.name}
               </Typography>
               <Typography variant="h6" component="div">
-                Label:
-                {item.label}
+                Label: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.label}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Published Date:
-                {formattedDate}
+                Published Date: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {formattedDate}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Country:
-                {item.country}
+                Country: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.country}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Format:
-                {item.format}
+                Format: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.format}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Style:
-                {item.style}
+                Style: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.style}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                {item.price}
+                {`${item.price}€`}
               </Typography>
 
               <Button variant="outlined" endIcon={<AddShoppingCartIcon />}>
