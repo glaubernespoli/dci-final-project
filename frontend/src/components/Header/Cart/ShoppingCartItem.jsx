@@ -4,8 +4,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
 import PaymentIcon from '@material-ui/icons/Payment';
+import RemoveIcon from '@material-ui/icons/Remove';
 import React, { useContext } from 'react';
 import MyContext from '../../../context/MyContext';
 import shoppingCartItemStyles from './ShoppingCart.style';
@@ -115,7 +115,7 @@ const ShoppingList = () => {
                 size="small"
                 onClick={() => onRemove(cartItem._id)}
               >
-                <DeleteIcon />
+                <RemoveIcon />
               </Button>
             </div>
             <Avatar
