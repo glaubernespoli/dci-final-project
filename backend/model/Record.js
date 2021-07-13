@@ -80,7 +80,7 @@ const recordSchema = new mongoose.Schema({
     required: true,
     default: false
   },
-  quantity: {
+  quantities: {
     type: Number,
     required: true
   }
