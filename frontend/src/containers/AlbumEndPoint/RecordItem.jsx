@@ -88,7 +88,7 @@ const RecordItem = ({ itemId }) => {
                 </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Available Items: &nbsp;
+                Available Quantity: &nbsp;
                 <Typography variant="subtitle1" display="inline">
                   {item.quantity}
                 </Typography>
