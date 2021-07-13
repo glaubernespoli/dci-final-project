@@ -82,9 +82,17 @@ const RecordItem = ({ itemId }) => {
                 </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                {`${item.price}€`}
+                Price: &nbsp;
+                <Typography variant="h6" component="inline">
+                  {`${item.price}€`}
+                </Typography>
               </Typography>
-
+              <Typography variant="h6" component="div">
+                Available Quantity: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.quantity}
+                </Typography>
+              </Typography>
               <Button
                 variant="outlined"
                 endIcon={<AddShoppingCartIcon />}

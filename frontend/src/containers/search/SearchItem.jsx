@@ -1,4 +1,4 @@
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import ImageListItem from '@material-ui/core/ImageListItem';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -9,24 +9,15 @@ const SearchItem = ({ item }) => {
 
   return (
     <Grid item xs={12} sm={6} md={4}>
-      <ImageListItem key={item.imageUrl} className={classes.content_Align}>
-        <Box height="35vh">
-          <img
-            srcSet={`${item.imageUrl}?w=248&fit=crop&auto=format 1x`}
-            alt={item.name}
-            className={classes.img}
-          />
-          <Box>
-            <h1>{item.name}</h1>
-
-            <br />
-            <br />
-            <h5>
+      <ImageListItem key={item.imageUrl} className={classes.content_Align} sx={{ width: '40vh' }}>
+        <Box height="40vh">
+          <img srcSet={item.imageUrl} alt={item.name} className={classes.img} />
+          <Box className={classes.imageContent}>
+            <Typography variant="h4">{item.name}</Typography>
+            <Typography variant="h6">
               Format:
               {item.format}
-            </h5>
-            <br />
-            <br />
+            </Typography>
           </Box>
         </Box>
       </ImageListItem>
