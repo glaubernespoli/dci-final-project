@@ -5,17 +5,8 @@ import MyContext from './MyContext';
 
 const MyProvider = ({ children }) => {
   const [search, setSearch] = useState('');
-  const [records, setRecords] = useState([]);
-  const [item, setItem] = useState([]);
-  const [pageNumber, setPageNumber] = useState(0);
 
-  return (
-    <MyContext.Provider
-      value={{ search, setSearch, records, setRecords, item, setItem, pageNumber, setPageNumber }}
-    >
-      {children}
-    </MyContext.Provider>
-  );
+  return <MyContext.Provider value={{ search, setSearch }}>{children}</MyContext.Provider>;
 };
 
 MyProvider.defaultProps = {

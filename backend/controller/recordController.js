@@ -1,7 +1,7 @@
 import recordService from '../service/recordService.js';
 
 class RecordController {
-  itemsPerPage = process.env.ITEMS_PER_PAGE || 3;
+  itemsPerPage = process.env.ITEMS_PER_PAGE || 30;
 
   findAll = (req, res) => {
     const { sortBy } = req.query;

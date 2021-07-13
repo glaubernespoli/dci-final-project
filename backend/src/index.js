@@ -20,7 +20,6 @@ app.use(
 );
 app.use(logger('dev')); //TODO customize logger
 app.use(express.json());
-app.use(cors());
 
 //routes
 app.use('/record', recordRoutes);

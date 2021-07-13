@@ -60,8 +60,6 @@ const SearchContainer = () => {
     );
   }
 
-  console.log(data.paging);
-
   const changePage = ({ selected }) => {
     // here you update the url
     // setPageNumber(selected);
