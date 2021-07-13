@@ -21,6 +21,8 @@ const useStyles = makeStyles({
     paddingTop: '5vh',
     paddingBottom: '10vh'
   },
+  imageContent: {},
+
   img: {
     width: '100%',
     height: '100%',
