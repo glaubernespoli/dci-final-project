@@ -13,6 +13,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExploreIcon from '@material-ui/icons/Explore';
+import HomeIcon from '@material-ui/icons/Home';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoreIcon from '@material-ui/icons/MoreVert';
@@ -77,7 +78,7 @@ const HeaderMobile = () => {
     <>
       <div>
         <AppBar position="sticky" color="inherit">
-          <Toolbar className={classes.mobileAppBar}>
+          <Toolbar>
             <IconButton onClick={handleDrawerOpen} className={classes.menuButton} color="inherit">
               <MenuIcon />
             </IconButton>
@@ -128,10 +129,10 @@ const HeaderMobile = () => {
         </div>
         <Divider />
         <List>
-          {['Music', 'Explore'].map((text, index) => (
+          {['Home', 'Music', 'Explore'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>
-                {index % 2 === 0 ? <LibraryMusicIcon /> : <ExploreIcon />}
+                {index % 3 === 0 ? <HomeIcon /> : <LibraryMusicIcon /> || <ExploreIcon />}
               </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>

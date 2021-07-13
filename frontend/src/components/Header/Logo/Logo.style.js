@@ -5,11 +5,7 @@ const logoStyle = makeStyles({
     width: '4rem',
     height: '3rem',
     '@media( max-Width: 600px)': {
-      width: '3rem',
-      height: '2rem',
-      position: 'absolute',
-      top: '-2.3rem',
-      left: '.5rem'
+      display: 'none'
     }
   }
 });
