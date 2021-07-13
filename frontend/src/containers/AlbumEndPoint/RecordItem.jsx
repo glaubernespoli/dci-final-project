@@ -2,6 +2,9 @@ import { Button, CardContent, CardMedia, Grid, Paper, Typography } from '@materi
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import addToCartHandle from '../../components/Header/Cart/CountCartItem';
+import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
 import useStyles from './Album.Styles';
 
@@ -9,6 +12,7 @@ import useStyles from './Album.Styles';
 const RecordItem = ({ itemId }) => {
   const classes = useStyles();
   const { data: item, error, isLoading } = useAxios('get', `/record/${itemId}`);
+  const { cart, setCart } = useContext(MyContext);
 
   if (isLoading) {
     return <CircularProgress />;
@@ -21,8 +25,11 @@ const RecordItem = ({ itemId }) => {
   if (!item) {
     return <div>Item not found!</div>;
   }
-
+  const addToCart = () => {
+    addToCartHandle(item, cart, setCart);
+  };
   const formattedDate = new Date(item.releaseDate).toLocaleDateString();
+
   return (
     <>
       <Paper elevation={5} className={classes.paper}>
@@ -45,30 +52,53 @@ const RecordItem = ({ itemId }) => {
                 {item.name}
               </Typography>
               <Typography variant="h6" component="div">
-                Label:
-                {item.label}
+                Label: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.label}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Published Date:
-                {formattedDate}
+                Published Date: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {formattedDate}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Country:
-                {item.country}
+                Country: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.country}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Format:
-                {item.format}
+                Format: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.format}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Style:
-                {item.style}
+                Style: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.style}
+                </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                {item.price}
+                Price: &nbsp;
+                <Typography variant="h6" component="inline">
+                  {`${item.price}€`}
+                </Typography>
               </Typography>
-
-              <Button variant="outlined" endIcon={<AddShoppingCartIcon />}>
+              <Typography variant="h6" component="div">
+                Available Quantity: &nbsp;
+                <Typography variant="subtitle1" display="inline">
+                  {item.quantity}
+                </Typography>
+              </Typography>
+              <Button
+                variant="outlined"
+                endIcon={<AddShoppingCartIcon />}
+                onClick={() => addToCart()}
+                className={classes.mediaQueryButton}
+              >
                 ADD TO SHOPPING CART
               </Button>
             </CardContent>

@@ -14,6 +14,12 @@ const searchStyle = makeStyles((theme) => ({
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),
       width: 'auto'
+    },
+    '@media(max-Width : 600px)': {
+      position: 'absolute',
+      top: '1rem',
+      right: '3.5rem',
+      width: '60%'
     }
   },
   searchIcon: {

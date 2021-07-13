@@ -13,7 +13,12 @@ const ProfileCardStyles = makeStyles((theme) => ({
     boxShadow: '0 0 3px black'
   },
   image: {
-    padding: '.75rem'
+    padding: '.75rem',
+    height: '200px',
+    '@media(max-Width: 600px)': {
+      height: '150px',
+      padding: '.25rem'
+    }
   }
 }));
 

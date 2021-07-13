@@ -23,6 +23,7 @@ ReactDOM.render(
       </ThemeProvider>
     </StyledEngineProvider>
   </React.StrictMode>,
+
   document.getElementById('root')
 );
 

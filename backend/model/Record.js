@@ -79,6 +79,10 @@ const recordSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
     default: false
+  },
+  quantity: {
+    type: Number,
+    required: true
   }
   //TODO below field should be added after we have the security on!
   // createdBy: {

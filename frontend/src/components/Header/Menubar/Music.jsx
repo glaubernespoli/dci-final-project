@@ -1,17 +1,37 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Button, Menu, MenuItem } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 // eslint-disable-next-line import/no-unresolved
 import NestedMenuItem from 'material-ui-nested-menu-item';
 import PropTypes from 'prop-types';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { SearchRoute } from '../../../Routing/routes';
+
+const useNavigateParams = () => {
+  const navigate = useNavigate();
+
+  return (url, params, page) => {
+    navigate({
+      pathname: url,
+      search: `?q=${params}&page=${page}`
+    });
+  };
+};
 
 const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
   const [anchorEl, setAnchorEl] = useState(null);
+
+  const [page, setPage] = useState('0');
+  const navigate = useNavigateParams();
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose = (event) => {
+    navigate(SearchRoute, event.target.innerText, page);
     setAnchorEl(null);
   };
 
@@ -49,7 +69,7 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
             {subTitle}
           </MenuItem>
         ))}
-        <NestedMenuItem label="Format" parentMenuOpen={!!anchorEl} onClick={handleClose}>
+        <NestedMenuItem label="Format" parentMenuOpen={!!anchorEl}>
           {subFormats.map((subFormat, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <MenuItem key={index} onClick={handleClose}>
@@ -57,7 +77,7 @@ const NavItem = ({ subFormats, subStyles, title, subTitles }) => {
             </MenuItem>
           ))}
         </NestedMenuItem>
-        <NestedMenuItem label="Style" parentMenuOpen={!!anchorEl} onClick={handleClose}>
+        <NestedMenuItem label="Style" parentMenuOpen={!!anchorEl}>
           {subStyles.map((subStyle, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <MenuItem key={index} onClick={handleClose}>

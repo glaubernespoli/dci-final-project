@@ -4,17 +4,26 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 import ImageListItemBar from '@material-ui/core/ImageListItemBar';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import addToCartHandle from '../../../components/Header/Cart/CountCartItem';
+import MyContext from '../../../context/MyContext';
 import { RecordRoute } from '../../../Routing/routes';
 import useStyles from './ProductList.style';
 
 const ProductItem = ({ item }) => {
   const classes = useStyles();
-
   const navigate = useNavigate();
+  const { cart, setCart } = useContext(MyContext);
 
   const clickHandle = () => {
     navigate(RecordRoute(item._id));
+  };
+
+  // // Handling the addToCart button
+  const addToCart = (e) => {
+    e.stopPropagation();
+    addToCartHandle(item, cart, setCart);
   };
 
   return (
@@ -37,7 +46,7 @@ const ProductItem = ({ item }) => {
             subtitle={item.artist}
             actionIcon={
               // eslint-disable-next-line react/jsx-wrap-multilines
-              <IconButton className={classes.icon}>
+              <IconButton className={classes.icon} onClick={(e) => addToCart(e)}>
                 <AddShoppingCartIcon />
               </IconButton>
             }
@@ -61,7 +70,8 @@ ProductItem.defaultProps = {
     label: 'Not available',
     country: 'Not available',
     releaseDate: 'Not available',
-    createdAt: 'Not available'
+    createdAt: 'Not available',
+    quantity: 'Not available'
   }
 };
 
@@ -79,7 +89,8 @@ ProductItem.propTypes = {
     label: PropTypes.string,
     country: PropTypes.string,
     releaseDate: PropTypes.string,
-    createdAt: PropTypes.string
+    createdAt: PropTypes.string,
+    quantity: PropTypes.number
   })
 };
 
