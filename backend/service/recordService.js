@@ -1,15 +1,32 @@
 import Record from '../model/Record.js';
 
 class RecordService {
-  findAll = async (limit, sortBy) => {
-    const validSortByValues = ['releaseDate', 'name'];
-    //TODO what is the best way to validate the body and query on express? make a search on it
-    // if (validSortByValues.includes(sortBy)) {
+  itemsPerPage = process.env.ITEMS_PER_PAGE || 30;
 
-    // }
-    //TODO see how to sort the results with mongoose
-    //TODO pagination with mongoose
+  //https://stackoverflow.com/questions/5539955/how-to-paginate-with-mongoose-in-node-js
+
+  findAll = async (sortBy) => {
+    const validSortByValues = ['releaseDate', 'name'];
     return Record.find();
+  };
+
+  findBy = async (name, pageNumber, pageLimit) => {
+    const limit = parseInt(pageLimit);
+    const offset = parseInt(pageLimit * (pageNumber || 0));
+    return Record.find({
+      $or: [{ format: name }, { style: name }, { name: name }, { artist: name }]
+    })
+      .collation({ locale: 'en', strength: 2 })
+      .limit(limit)
+      .skip(offset);
+  };
+
+  findByCount = async (name, pageNumber, pageLimit) => {
+    const limit = parseInt(pageLimit);
+    const offset = parseInt(pageLimit * (pageNumber || 0));
+    return Record.find({
+      $or: [{ format: name }, { style: name }, { name: name }, { artist: name }]
+    }).countDocuments();
   };
 
   findById = async (id) => {
