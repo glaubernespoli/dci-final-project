@@ -88,9 +88,9 @@ const RecordItem = ({ itemId }) => {
                 </Typography>
               </Typography>
               <Typography variant="h6" component="div">
-                Available Quantity: &nbsp;
+                Available Items: &nbsp;
                 <Typography variant="subtitle1" display="inline">
-                  {item.quantity}
+                  {item.quantities}
                 </Typography>
               </Typography>
               <Button
