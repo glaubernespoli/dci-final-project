@@ -34,8 +34,9 @@ const RecordItem = ({ itemId }) => {
     <>
       <Paper elevation={5} className={classes.paper}>
         <Grid container className={classes.container}>
-          <Grid item xs={12} md={6} className={classes.imgContainer}>
+          <Grid item xs={12} md={6} className={classes.imgContainer} sx={{ width: '30vw' }}>
             <CardMedia
+              height="30vw"
               className={classes.img}
               component="img"
               alt={item.summary}
