@@ -24,7 +24,7 @@ const ProductContainer = () => {
   return (
     <Paper elevation={5} className={classes.paper}>
       <Grid container className={classes.typography}>
-        <Typography variant="h3">Category</Typography>
+        <Typography variant="h3">Our Collection</Typography>
       </Grid>
       <Grid container spacing={4} justifyContent="center" className={classes.container}>
         {data.map((item) => (
