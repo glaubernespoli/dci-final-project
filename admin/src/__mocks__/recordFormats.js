@@ -8,8 +8,8 @@ export default [
     label: 'CD'
   },
   {
-    value: 'Vynl',
-    label: 'Vynl'
+    value: 'Vinyl',
+    label: 'Vinyl'
   },
   {
     value: 'Tape',

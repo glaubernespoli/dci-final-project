@@ -1,13 +1,16 @@
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   frm: {
-    with: '10rem',
     display: 'flex',
-    flexDirection: 'column',
-    gap: '.5rem',
+    flexWrap: 'wrap',
+    gap: '1.5rem',
     padding: '1rem',
     borderRadius: '.5rem'
+  },
+
+  btnContainer: {
+    width: '100%'
   }
 });
 export default useStyles;
