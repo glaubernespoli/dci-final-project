@@ -4,8 +4,11 @@ import MyContext from './MyContext';
 
 const MyProvider = ({ children }) => {
   const [item, setItem] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  return <MyContext.Provider value={{ item, setItem }}>{children}</MyContext.Provider>;
+  return (
+    <MyContext.Provider value={{ item, setItem, cart, setCart }}>{children}</MyContext.Provider>
+  );
 };
 
 MyProvider.defaultProps = {

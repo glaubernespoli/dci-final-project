@@ -50,7 +50,7 @@ const ContactUs = () => {
       {/* Feedback from customer side */}
 
       <div className={classes.feedback}>
-        <Grid item xs={6}>
+        <Grid item>
           <FeedBack />
         </Grid>
       </div>
@@ -70,7 +70,7 @@ const ContactUs = () => {
         />
         <ProfileCard
           name="Santiago Julian"
-          designation="Front-End Developer"
+          designation="Full Stack Developer"
           img="https://picsum.photos/200/300?random=2"
           skills="JavaScript || React || CSS|| HTML || BootStrap || Sass || JQuery || Materials UI"
         />
@@ -78,13 +78,13 @@ const ContactUs = () => {
       <div className={classes.cardHeader}>
         <ProfileCard
           name="Arifur Rahman Arif"
-          designation="Web Developer"
+          designation="Full Stack Developer"
           img="https://picsum.photos/200/300?random=3"
           skills="JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery || ExpressJs"
         />
         <ProfileCard
           name="ManonMani Selvakumar"
-          designation="Back-End Developer"
+          designation="Full Stack Developer"
           img="https://picsum.photos/200/300?women"
           skills="JavaScript || React || NodeJs || MongoDB || BootStrap || Sass || JQuery || ExpressJs"
         />
@@ -94,21 +94,18 @@ const ContactUs = () => {
 
       <Grid item xs={12} spacing={6}>
         <div className={classes.foot1}>
-          <Typography
-            variant="h6"
-            fontFamily="monospace"
-            align="center"
-            padding=".5rem"
-            color="white"
-          >
-            <span className={classes.span}>More infos:</span>
+          <span className={classes.span}>More infos:</span>
+          <div>
+            <span className={classes.foot}>
+              <MailOutlineIcon />
+              sellyoursRecords@gamil.com
+            </span>
             <br />
-            <MailOutlineIcon className={classes.foot} />
-            sellyoursRecords@gamil.com
-            <br />
-            <CallIcon className={classes.foot} />
-            Mobile No:+4901234567890
-          </Typography>
+            <span className={classes.foot}>
+              <CallIcon />
+              Mobile No:+4901234567890
+            </span>
+          </div>
         </div>
       </Grid>
     </div>

@@ -4,10 +4,10 @@ import { AboutUsRoute, ContactUsRoute } from '../../Routing/routes';
 import useStyles from './Info.style';
 
 const Info = () => {
-  const classes = useStyles();
+  const { infoStyle } = useStyles();
 
   return (
-    <div className={classes.infoStyle}>
+    <div className={infoStyle}>
       <Typography variant="p" component="div">
         <Link component={RouterLink} to={AboutUsRoute} color="white">
           About Us

@@ -17,15 +17,25 @@ const ContactUsStyles = makeStyles((theme) => ({
   },
 
   icon1: {
-    margin: theme.spacing(2)
+    margin: theme.spacing(2),
+    '@media(max-Width : 600px)': {
+      fontSize: '1rem'
+    }
   },
   foot: {
-    margin: theme.spacing(0, 2)
+    padding: '0 1rem',
+    '@media(max-Width : 600px)': {
+      fontSize: '.8rem'
+    }
   },
   foot1: {
-    boxShadow: '0 0 2px',
+    boxShadow: '0 0 1px',
     borderRadius: '.1rem',
-    padding: '.5rem'
+    padding: '.5rem',
+    textAlign: 'center',
+    '@media(max-Width : 600px)': {
+      boxShadow: 'none'
+    }
   },
   span: {
     fontWeight: 'bold',
@@ -36,12 +46,20 @@ const ContactUsStyles = makeStyles((theme) => ({
   cardHeader: {
     display: 'flex',
     justifyContent: 'space-around',
-    padding: '.5rem'
+    padding: '.5rem',
+    '@media(max-Width : 600px)': {
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '0'
+    }
   },
   header: {
     letterSpacing: '1px',
     textTransform: 'uppercase',
-    margin: theme.spacing(1, 0)
+    margin: theme.spacing(1, 0),
+    '@media(max-Width : 600px)': {
+      fontSize: '1.5rem'
+    }
   },
 
   team: {
@@ -50,12 +68,20 @@ const ContactUsStyles = makeStyles((theme) => ({
     margin: theme.spacing(2, 0),
     fontFamily: 'monospace',
     letterSpacing: '1px',
-    textTransform: 'uppercase'
+    textTransform: 'uppercase',
+    '@media(max-Width : 600px)': {
+      fontSize: '1.5rem'
+    }
   },
   feedback: {
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    '@media(max-Width : 600px)': {
+      display: 'flex',
+      justifyContent: 'left',
+      width: '50vw'
+    }
   }
 }));
 

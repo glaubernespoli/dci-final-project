@@ -1,13 +1,19 @@
+import { makeStyles } from '@material-ui/core/styles';
 import LogoComponent from '../Header/Logo/Logo';
 
-/*
-TODO : The Logo component is going to be imported from other component, please be aware
-if Arif is doing this
-*/
+const useStyles = makeStyles({
+  root: {
+    '@media(max-Width : 600px)': {
+      display: 'none'
+    }
+  }
+});
 
 export default function Logo() {
+  const { root } = useStyles();
+
   return (
-    <div>
+    <div className={root}>
       <LogoComponent />
     </div>
   );

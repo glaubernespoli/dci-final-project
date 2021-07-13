@@ -2,6 +2,9 @@ import { Button, CardContent, CardMedia, Grid, Paper, Typography } from '@materi
 import CircularProgress from '@material-ui/core/CircularProgress';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import addToCartHandle from '../../components/Header/Cart/CountCartItem';
+import MyContext from '../../context/MyContext';
 import { useAxios } from '../../hooks/useAxios';
 import useStyles from './Album.Styles';
 
@@ -9,6 +12,7 @@ import useStyles from './Album.Styles';
 const RecordItem = ({ itemId }) => {
   const classes = useStyles();
   const { data: item, error, isLoading } = useAxios('get', `/record/${itemId}`);
+  const { cart, setCart } = useContext(MyContext);
 
   if (isLoading) {
     return <CircularProgress />;
@@ -21,8 +25,11 @@ const RecordItem = ({ itemId }) => {
   if (!item) {
     return <div>Item not found!</div>;
   }
-
+  const addToCart = () => {
+    addToCartHandle(item, cart, setCart);
+  };
   const formattedDate = new Date(item.releaseDate).toLocaleDateString();
+
   return (
     <>
       <Paper elevation={5} className={classes.paper}>
@@ -78,7 +85,12 @@ const RecordItem = ({ itemId }) => {
                 {`${item.price}€`}
               </Typography>
 
-              <Button variant="outlined" endIcon={<AddShoppingCartIcon />}>
+              <Button
+                variant="outlined"
+                endIcon={<AddShoppingCartIcon />}
+                onClick={() => addToCart()}
+                className={classes.mediaQueryButton}
+              >
                 ADD TO SHOPPING CART
               </Button>
             </CardContent>
