@@ -40,7 +40,7 @@ const Search = () => {
       </div>
 
       <InputBase
-        placeholder="Search Your Records.."
+        placeholder="Search records.."
         id="search"
         classes={{
           root: classes.inputRoot,
