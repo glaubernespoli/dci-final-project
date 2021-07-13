@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Card,
   CardContent,
   InputAdornment,
@@ -8,7 +7,7 @@ import {
   TextField
 } from '@material-ui/core';
 import { Search as SearchIcon } from 'react-feather';
-import AddRecordForm from './AddRecordForm';
+import AddRecordDialog from './AddRecordDialog';
 
 const RecordListToolbar = (props) => (
   <Box {...props}>
@@ -18,11 +17,7 @@ const RecordListToolbar = (props) => (
         justifyContent: 'flex-end'
       }}
     >
-      {/* <Button>Import</Button> */}
-      {/* <Button sx={{ mx: 1 }}>Export</Button> */}
-      <Button>
-        <AddRecordForm />
-      </Button>
+      <AddRecordDialog />
     </Box>
     <Box sx={{ mt: 3 }}>
       <Card>

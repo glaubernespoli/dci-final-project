@@ -1,149 +1,353 @@
-import { Paper } from '@material-ui/core';
-import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Modal from '@material-ui/core/Modal';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
-import * as React from 'react';
+import {
+  Box,
+  Button,
+  Checkbox,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  FormControlLabel,
+  InputAdornment,
+  MenuItem,
+  TextField
+} from '@material-ui/core';
+import { DropzoneArea } from 'material-ui-dropzone';
+import PropTypes from 'prop-types';
+import { Controller, useForm } from 'react-hook-form';
 import formats from '../../__mocks__/recordFormats';
-import styles from '../../__mocks__/recordStyles';
+import recordStyles from '../../__mocks__/recordStyles';
 import useStyles from './AddRecordForm.style';
-// import { useAxios } from '/frontend/src/hooks/useAxios';
 
-const styless = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 600,
-  bgcolor: 'black',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 1
-};
-
-const AddRecordForm = () => {
+const AddRecordForm = ({ handleClose, open }) => {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  const [format, setFormat] = React.useState('');
-  const [style, setStyle] = React.useState('');
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const { handleSubmit, control } = useForm();
 
-  const handleChangeFormat = (e) => {
-    setFormat(e.target.value);
+  // eslint-disable-next-line no-unused-vars
+  const onSubmit = (data) => {
+    handleClose();
   };
-  const handleChangeStyle = (e) => {
-    setStyle(e.target.value);
-  };
-
-  // const { data, error, isLoading } = useAxios('post', '/adminRecordRouter');
-
-  // if (isLoading) {
-  //   return <CircularProgress />;
-  // }
-
-  // if (error) {
-  //   return (
-  //     <div>
-  //       <p>{error.message}</p>
-  //     </div>
-  //   );
-  // }
 
   return (
-    <div>
-      <Button color="primary" variant="contained" onClick={handleOpen}>
-        Add Record
-      </Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={styless} component="form" method="post">
-          <Paper className={classes.frm} variant="outlined">
-            <Typography
-              id="modal-description"
-              sx={{ mt: 2 }}
-              align="center"
-              variant="h3"
-              color="primary"
-            >
-              RECORD DETAILS
-            </Typography>
-            <TextField id="standard-basic" label="Name" variant="standard" />
-            <TextField id="standard-basic" label="Group" variant="standard" />
-            <TextField
-              id="standard-basic"
-              label="Summary"
-              multiline
-              maxRows={3}
-              variant="standard"
-            />
-            <TextField
-              id="standard-basic"
-              label="Description"
-              multiline
-              maxRows={10}
-              variant="standard"
-            />
-            <TextField
-              id="standard-basic"
-              label="Price"
-              variant="standard"
-              type="Number"
-            />
-            <TextField
-              id="standard-select-currency-native"
-              select
-              label="Please Select your Record Format"
-              value={format}
-              onChange={handleChangeFormat}
-              SelectProps={{
-                native: true
-              }}
-              // helperText="Please select your Format"
-              variant="standard"
-            >
-              {formats.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </TextField>
-            <TextField
-              id="standard-select-currency-native"
-              select
-              label="Please Select your Record Style"
-              value={style}
-              onChange={handleChangeStyle}
-              SelectProps={{
-                native: true
-              }}
-              // helperText="Please select your Format"
-              variant="standard"
-            >
-              {styles.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </TextField>
-            <TextField id="standard-basic" label="Country" variant="standard" />
-            <Button variant="outlined" component="label">
-              Upload Images
-              <input type="file" accept="image/*" hidden />
-            </Button>
-            {/* <input type="file"> */}
-            <Button color="primary" variant="contained">
-              Insert Record
-            </Button>
-          </Paper>
-        </Box>
-      </Modal>
-    </div>
+    <>
+      <Box component="form">
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="form-dialog-title"
+        >
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <DialogTitle id="form-dialog-title">
+              Add New Record Item
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText
+                style={{
+                  margin: '1rem'
+                }}
+              >
+                Fill the fields below to add a new record:
+              </DialogContentText>
+              <div className={classes.frm}>
+                <Controller
+                  name="name"
+                  control={control}
+                  defaultValue=""
+                  rules={{ required: 'Name is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="name"
+                      label="Name"
+                      variant="standard"
+                      margin="normal"
+                      fullWidth
+                      required
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="artist"
+                  control={control}
+                  defaultValue=""
+                  rules={{ required: 'Artist is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="artist"
+                      label="Artist"
+                      variant="standard"
+                      margin="normal"
+                      fullWidth
+                      required
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="summary"
+                  control={control}
+                  defaultValue=""
+                  rules={{ required: 'Summary is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="summary"
+                      label="Summary"
+                      multiline
+                      minRows={3}
+                      fullWidth
+                      variant="outlined"
+                      required
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="description"
+                  control={control}
+                  defaultValue=""
+                  rules={{ required: 'Description is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="description"
+                      label="Description"
+                      multiline
+                      fullWidth
+                      minRows={10}
+                      variant="outlined"
+                      required
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="format"
+                  control={control}
+                  defaultValue=""
+                  rules={{ required: 'Format is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="format"
+                      select
+                      label="Format"
+                      variant="standard"
+                      required
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={
+                        error ? error.message : "Select the record's format"
+                      }
+                    >
+                      {formats.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  )}
+                />
+
+                <Controller
+                  name="style"
+                  control={control}
+                  defaultValue=""
+                  rules={{ required: 'Style is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="style"
+                      select
+                      label="Style"
+                      variant="standard"
+                      required
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={
+                        error ? error.message : "Select the record's style"
+                      }
+                    >
+                      {recordStyles.map((option) => (
+                        <MenuItem key={option.value} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
+                    </TextField>
+                  )}
+                />
+
+                <Controller
+                  name="country"
+                  control={control}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="country"
+                      label="Country"
+                      variant="standard"
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="label"
+                  control={control}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="label"
+                      label="Label"
+                      variant="standard"
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="price"
+                  control={control}
+                  rules={{ required: 'Price is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="price"
+                      label="Price"
+                      variant="standard"
+                      type="Number"
+                      required
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end">€</InputAdornment>
+                        )
+                      }}
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="quantity"
+                  control={control}
+                  rules={{ required: 'Quantity is required' }}
+                  render={({
+                    field: { onChange, value },
+                    fieldState: { error }
+                  }) => (
+                    <TextField
+                      id="quantity"
+                      label="Quantity"
+                      variant="standard"
+                      type="Number"
+                      required
+                      value={value}
+                      onChange={onChange}
+                      error={!!error}
+                      helperText={error ? error.message : null}
+                    />
+                  )}
+                />
+
+                <Controller
+                  name="imageUrl"
+                  control={control}
+                  rules={{ required: 'Image image is required' }}
+                  render={({ field: { onChange } }) => (
+                    <DropzoneArea
+                      acceptedFiles={['image/*']}
+                      onChange={onChange}
+                      showFileNames
+                      dropzoneText="Drop the image here"
+                      showAlerts={false}
+                      filesLimit={1}
+                    />
+                  )}
+                />
+
+                <FormControlLabel
+                  control={
+                    // eslint-disable-next-line react/jsx-wrap-multilines
+                    <Controller
+                      name="hot"
+                      control={control}
+                      render={({ field: { onChange, value } }) => (
+                        <Checkbox
+                          id="hot"
+                          name="hot"
+                          color="primary"
+                          value={value}
+                          onChange={onChange}
+                        />
+                      )}
+                    />
+                  }
+                  label="Hot Product"
+                />
+              </div>
+            </DialogContent>
+
+            <DialogActions className={classes.btnContainer}>
+              <Button type="submit" color="primary" variant="contained">
+                Insert Record
+              </Button>
+            </DialogActions>
+          </form>
+        </Dialog>
+      </Box>
+    </>
   );
+};
+
+AddRecordForm.propTypes = {
+  handleClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired
 };
 export default AddRecordForm;

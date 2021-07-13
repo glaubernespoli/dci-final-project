@@ -33,7 +33,7 @@ const LatestRecords = (props) => {
 
       <List>
         {records.map((record, i) => (
-          <ListItem divider={i < records.length - 1} key={record.id}>
+          <ListItem divider={i < records.length - 1} key={record._id}>
             <ListItemAvatar>
               <img
                 alt={record.name}
