@@ -5,25 +5,13 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import NoContent from './NoContent';
 import SearchItem from './SearchItem';
 import useStyles from './SearchList.style';
 
-const useNavigateParams = () => {
-  const navigate = useNavigate();
-
-  return (url, params, page) => {
-    navigate({
-      pathname: url,
-      search: `?q=${params}&page=${page}`
-    });
-  };
-};
-
 const SearchContainer = () => {
   const classes = useStyles();
-  const navigate = useNavigateParams();
 
   const [searchParams, setSearchParams] = useSearchParams({});
   const q = searchParams.get('q');
