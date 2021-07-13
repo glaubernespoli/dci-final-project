@@ -9,14 +9,14 @@ const Profile = () => {
   return (
     <Card
       sx={{
-        width: '25vw',
+        width: '20vw',
         margin: '0 auto'
       }}
     >
       <CardMedia
         component="img"
         alt="profile picture"
-        // height="30vw"
+        // height="45vw"
         image={picture}
         title={`${name} picture`}
       />
