@@ -17,8 +17,8 @@ const searchStyle = makeStyles((theme) => ({
     },
     '@media(max-Width : 600px)': {
       position: 'absolute',
-      top: '.5rem',
-      right: '3.5rem',
+      top: '1rem',
+      right: '1.5rem',
       width: '60%'
     }
   },

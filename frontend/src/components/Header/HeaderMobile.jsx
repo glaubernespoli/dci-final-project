@@ -62,10 +62,10 @@ const HeaderMobile = () => {
       onClose={handleMobileMenuClose}
     >
       <MenuItem>
-        <LoginButton />
+        <SignUpButton />
       </MenuItem>
       <MenuItem>
-        <SignUpButton />
+        <LoginButton />
       </MenuItem>
       <MenuItem>
         <Cart />
@@ -75,40 +75,43 @@ const HeaderMobile = () => {
 
   return (
     <>
-      <AppBar position="sticky" color="inherit" classes={classes.mobileApp}>
-        <Toolbar>
-          <IconButton onClick={handleDrawerOpen} className={classes.menuButton} color="inherit">
-            <MenuIcon />
-          </IconButton>
-          <div className={classes.grow}>
-            <Logo />
-          </div>
-          <div className={classes.grow}>
-            <MenuBar />
-          </div>
-          <Search />
-
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-            <div>
-              <UserControl />
-            </div>
-            <div>
-              <Cart />
-            </div>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
+      <div>
+        <AppBar position="sticky" color="inherit">
+          <Toolbar className={classes.mobileAppBar}>
+            <IconButton onClick={handleDrawerOpen} className={classes.menuButton} color="inherit">
+              <MenuIcon />
             </IconButton>
-          </div>
-        </Toolbar>
-      </AppBar>
+            <div className={classes.grow}>
+              <Logo />
+            </div>
+            <div className={classes.grow}>
+              <MenuBar />
+            </div>
+            <Search />
+
+            <div className={classes.grow} />
+            <div className={classes.sectionDesktop}>
+              <div>
+                <UserControl />
+              </div>
+              <div>
+                <Cart />
+              </div>
+            </div>
+            <div className={classes.sectionMobile}>
+              <IconButton
+                aria-label="show more"
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </div>
+
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -134,7 +137,6 @@ const HeaderMobile = () => {
             </ListItem>
           ))}
         </List>
-        <Divider />
       </Drawer>
       {renderMobileMenu}
     </>
